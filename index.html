@@ -101,6 +101,16 @@
 
     .hero-right { padding-bottom: 8px; }
 
+    .hero-photo {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      filter: grayscale(20%) brightness(0.9);
+      margin-bottom: 20px;
+      display: block;
+    }
+    
     .hero-role {
       font-family: var(--serif);
       font-style: italic;
@@ -418,12 +428,8 @@
       <h1 class="hero-name">Santiago<br><em>Rodríguez</em><br>Vázquez</h1>
     </div>
     <div class="hero-right">
-      <p class="hero-role">econ guy</p>
-      <div class="hero-links">
-        <a href="https://www.linkedin.com/in/sanarovaz/" class="hero-link">LinkedIn</a>
-        <a href="https://x.com/sanarovaz" class="hero-link">Twitter&thinsp;/&thinsp;X</a>
-        <a href="https://scholar.google.com/citations?user=ycuWZk4AAAAJ&hl=en" class="hero-link">Scholar</a>
-      </div>
+        <img src="resources/pic.jpeg" alt="Yo" class="hero-photo">
+      <p class="hero-role">econ</p>
     </div>
   </div>
 
@@ -612,17 +618,17 @@
         <div class="course-block">
           <div class="course-title">Desarrollo Económico</div>
           <div class="slides-list">
-            <a href="slides/desarrollo-01.pdf" class="slide-item" target="_blank" rel="noopener">
+            <a href="slides/de-desigualdad.pdf" class="slide-item" target="_blank" rel="noopener">
               <span class="slide-num">01</span>
-              <span class="slide-name">Título de la clase 1</span>
+              <span class="slide-name">Crecimiento y desigualdad</span>
               <span class="slide-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
                 PDF
               </span>
             </a>
-            <a href="slides/desarrollo-02.pdf" class="slide-item" target="_blank" rel="noopener">
+            <a href="slides/de-redistribucion.pdf" class="slide-item" target="_blank" rel="noopener">
               <span class="slide-num">02</span>
-              <span class="slide-name">Título de la clase 2</span>
+              <span class="slide-name">Preferencias por redistribución</span>
               <span class="slide-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
                 PDF
