@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Santiago Rodríguez Vázquez</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Outfit:wght@200;300;400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:        #f9f8f5;
+      --ink:       #141414;
+      --ink-mid:   #5a5a5a;
+      --ink-light: #a0a0a0;
+      --rule:      #e0ddd8;
+      --serif:     'Cormorant Garamond', Georgia, serif;
+      --sans:      'Outfit', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 64px;
+      background: rgba(249,248,245,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+    header.scrolled { border-bottom-color: var(--rule); }
+
+    .header-name {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    nav { display: flex; align-items: center; gap: 40px; }
+    nav a {
+      font-size: 0.72rem;
+      font-weight: 300;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      text-decoration: none;
+      transition: color 0.2s;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0; right: 0;
+      height: 1px;
+      background: var(--ink);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s ease;
+    }
+    nav a:hover { color: var(--ink); }
+    nav a:hover::after, nav a.active::after { transform: scaleX(1); }
+    nav a.active { color: var(--ink); }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 200px 64px 120px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: end;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .hero-label {
+      font-size: 0.68rem;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-label::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 1px;
+      background: var(--ink-light);
+    }
+
+    .hero-name {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: clamp(3.2rem, 6vw, 5.5rem);
+      line-height: 1.0;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+    }
+    .hero-name em { font-style: italic; }
+
+    .hero-right { padding-bottom: 8px; }
+
+    .hero-role {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--ink-mid);
+      margin-bottom: 20px;
+    }
+
+    .hero-desc {
+      font-size: 0.88rem;
+      color: var(--ink-mid);
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+
+    .hero-links { display: flex; gap: 24px; }
+    .hero-link {
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 3px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .hero-link:hover { color: var(--ink); border-color: var(--ink); }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 100px 64px;
+      border-bottom: 1px solid var(--rule);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    section.visible { opacity: 1; transform: translateY(0); }
+
+    .sec-inner {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 80px;
+    }
+
+    .sec-index {
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 8px;
+    }
+
+    .sec-title {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 1.9rem;
+      line-height: 1.15;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+    .sec-title em { font-style: italic; }
+
+    /* Bio */
+    .bio-text {
+      font-size: 0.92rem;
+      color: var(--ink-mid);
+      margin-bottom: 18px;
+      line-height: 1.85;
+    }
+    .bio-text.lead {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-style: italic;
+      color: var(--ink);
+      line-height: 1.55;
+      margin-bottom: 28px;
+    }
+    .bio-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 32px;
+      padding-top: 32px;
+      border-top: 1px solid var(--rule);
+    }
+    .bio-tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      padding: 5px 14px;
+      border: 1px solid var(--rule);
+      border-radius: 40px;
+    }
+
+    /* Projects */
+    .projects-list { display: flex; flex-direction: column; }
+
+    .proj-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--rule);
+      align-items: start;
+    }
+    .proj-item:first-child { border-top: 1px solid var(--rule); }
+
+    .proj-tag {
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 6px;
+    }
+    .proj-title {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .proj-desc {
+      font-size: 0.82rem;
+      color: var(--ink-mid);
+      line-height: 1.7;
+    }
+    .proj-year {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--ink-light);
+      white-space: nowrap;
+      padding-top: 22px;
+    }
+
+    /* CV */
+    .cv-item {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 32px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .cv-item:first-child { border-top: 1px solid var(--rule); }
+
+    .cv-date {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--ink-light);
+      padding-top: 4px;
+      line-height: 1.4;
+    }
+    .cv-role {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 3px;
+    }
+    .cv-org {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 8px;
+    }
+    .cv-desc {
+      font-size: 0.82rem;
+      color: var(--ink-mid);
+      line-height: 1.7;
+    }
+
+    /* Contact */
+    .contact-intro {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--ink-mid);
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--rule);
+      text-decoration: none;
+      transition: opacity 0.2s;
+      gap: 16px;
+    }
+    .contact-item:first-child { border-top: 1px solid var(--rule); }
+    .contact-item:hover { opacity: 0.45; }
+
+    .ci-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      width: 90px;
+      flex-shrink: 0;
+    }
+    .ci-value {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      color: var(--ink);
+      flex: 1;
+    }
+    .ci-arrow { font-size: 0.9rem; color: var(--ink-light); }
+
+    /* Footer */
+    footer {
+      padding: 40px 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-name {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.9rem;
+      color: var(--ink-light);
+    }
+    .footer-copy {
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--ink-light);
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      header { padding: 22px 28px; }
+      nav { gap: 20px; }
+      .hero { padding: 140px 28px 80px; grid-template-columns: 1fr; gap: 40px; }
+      section { padding: 72px 28px; }
+      .sec-inner { grid-template-columns: 1fr; gap: 32px; }
+      .cv-item { grid-template-columns: 1fr; gap: 4px; }
+      footer { padding: 32px 28px; flex-direction: column; gap: 10px; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <header id="header">
+    <a href="#" class="header-name">S. Rodríguez Vázquez</a>
+    <nav>
+      <a href="#bio" class="active">Bio</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#cv">CV</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div>
+      <div class="hero-label">Economista · Finanzas</div>
+      <h1 class="hero-name">Santiago<br><em>Rodríguez</em><br>Vázquez</h1>
+    </div>
+    <div class="hero-right">
+      <p class="hero-role">Economista especializado en finanzas y análisis cuantitativo</p>
+      <p class="hero-desc">Reemplazá este texto con una frase breve que capture tu perfil y lo que te distingue.</p>
+      <div class="hero-links">
+        <a href="#" class="hero-link">LinkedIn</a>
+        <a href="#" class="hero-link">Twitter&thinsp;/&thinsp;X</a>
+        <a href="#" class="hero-link">Scholar</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="bio">
+    <div class="sec-inner">
+      <div>
+        <div class="sec-index">01</div>
+        <h2 class="sec-title">Sobre<br><em>mí</em></h2>
+      </div>
+      <div>
+        <p class="bio-text lead">Escribí acá tu presentación principal: quién sos, en qué te especializás y qué te hace diferente como profesional.</p>
+        <p class="bio-text">Contá tu recorrido académico y profesional: dónde estudiaste, dónde trabajaste, qué proyectos llevaste adelante o qué investigaciones publicaste.</p>
+        <p class="bio-text">Podés agregar una tercera parte con tus intereses actuales, en qué estás trabajando o qué tipo de colaboraciones buscás.</p>
+        <div class="bio-tags">
+          <span class="bio-tag">Macroeconomía</span>
+          <span class="bio-tag">Finanzas</span>
+          <span class="bio-tag">Política Económica</span>
+          <span class="bio-tag">Análisis Cuantitativo</span>
+          <span class="bio-tag">Argentina · Latam</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="proyectos">
+    <div class="sec-inner">
+      <div>
+        <div class="sec-index">02</div>
+        <h2 class="sec-title">Pro<em>yec</em>tos</h2>
+      </div>
+      <div class="projects-list">
+        <div class="proj-item">
+          <div>
+            <div class="proj-tag">Investigación</div>
+            <div class="proj-title">Título del proyecto uno</div>
+            <div class="proj-desc">Descripción breve: metodología, datos utilizados y principales hallazgos o contribución al campo.</div>
+          </div>
+          <div class="proj-year">2024</div>
+        </div>
+        <div class="proj-item">
+          <div>
+            <div class="proj-tag">Análisis Cuantitativo</div>
+            <div class="proj-title">Título del proyecto dos</div>
+            <div class="proj-desc">Descripción breve: metodología, datos utilizados y principales hallazgos o contribución al campo.</div>
+          </div>
+          <div class="proj-year">2023</div>
+        </div>
+        <div class="proj-item">
+          <div>
+            <div class="proj-tag">Política Económica</div>
+            <div class="proj-title">Título del proyecto tres</div>
+            <div class="proj-desc">Descripción breve: metodología, datos utilizados y principales hallazgos o contribución al campo.</div>
+          </div>
+          <div class="proj-year">2022</div>
+        </div>
+        <div class="proj-item">
+          <div>
+            <div class="proj-tag">Finanzas</div>
+            <div class="proj-title">Título del proyecto cuatro</div>
+            <div class="proj-desc">Descripción breve: metodología, datos utilizados y principales hallazgos o contribución al campo.</div>
+          </div>
+          <div class="proj-year">2021</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cv">
+    <div class="sec-inner">
+      <div>
+        <div class="sec-index">03</div>
+        <h2 class="sec-title"><em>Tra</em>yec<br>toria</h2>
+      </div>
+      <div>
+        <div class="cv-item">
+          <div class="cv-date">2024<br>Presente</div>
+          <div>
+            <div class="cv-role">Cargo o posición actual</div>
+            <div class="cv-org">Organización · Ciudad</div>
+            <div class="cv-desc">Descripción de responsabilidades, logros y tareas principales en este rol.</div>
+          </div>
+        </div>
+        <div class="cv-item">
+          <div class="cv-date">2022<br>2024</div>
+          <div>
+            <div class="cv-role">Cargo anterior</div>
+            <div class="cv-org">Organización · Ciudad</div>
+            <div class="cv-desc">Descripción de responsabilidades, logros y tareas principales en este rol.</div>
+          </div>
+        </div>
+        <div class="cv-item">
+          <div class="cv-date">2020<br>2022</div>
+          <div>
+            <div class="cv-role">Experiencia previa</div>
+            <div class="cv-org">Organización · Ciudad</div>
+            <div class="cv-desc">Descripción de responsabilidades, logros y tareas principales en este rol.</div>
+          </div>
+        </div>
+        <div class="cv-item">
+          <div class="cv-date">2015<br>2020</div>
+          <div>
+            <div class="cv-role">Licenciatura en Economía</div>
+            <div class="cv-org">Universidad · Ciudad</div>
+            <div class="cv-desc">Descripción de la carrera, orientación y tesis o proyecto final si aplica.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="sec-inner">
+      <div>
+        <div class="sec-index">04</div>
+        <h2 class="sec-title">Con<em>tac</em>to</h2>
+      </div>
+      <div>
+        <p class="contact-intro">Si tenés una propuesta, consulta o simplemente querés charlar sobre economía y finanzas, no dudes en escribirme.</p>
+        <a href="mailto:tu@email.com" class="contact-item">
+          <span class="ci-label">Email</span>
+          <span class="ci-value">tu@email.com</span>
+          <span class="ci-arrow">↗</span>
+        </a>
+        <a href="#" class="contact-item">
+          <span class="ci-label">LinkedIn</span>
+          <span class="ci-value">Santiago Rodríguez Vázquez</span>
+          <span class="ci-arrow">↗</span>
+        </a>
+        <a href="#" class="contact-item">
+          <span class="ci-label">Twitter&thinsp;/&thinsp;X</span>
+          <span class="ci-value">@tuusuario</span>
+          <span class="ci-arrow">↗</span>
+        </a>
+        <a href="#" class="contact-item">
+          <span class="ci-label">Scholar</span>
+          <span class="ci-value">Google Scholar</span>
+          <span class="ci-arrow">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-name">Santiago Rodríguez Vázquez</span>
+    <span class="footer-copy">© 2026</span>
+  </footer>
+
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
+
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+    sections.forEach(s => observer.observe(s));
+    sections[0].classList.add('visible');
+
+    const navLinks = document.querySelectorAll('nav a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 160) current = s.id;
+      });
+      navLinks.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+      });
+    }, { passive: true });
+  </script>
+</body>
+</html>
