@@ -89,6 +89,18 @@
       border-bottom: 1px solid var(--rule);
     }
 
+    .hero-left {}
+
+    .hero-photo {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      object-fit: cover;
+      filter: grayscale(20%) brightness(0.9);
+      margin-bottom: 28px;
+      display: block;
+    }
+
     .hero-name {
       font-family: var(--serif);
       font-weight: 400;
@@ -101,16 +113,6 @@
 
     .hero-right { padding-bottom: 8px; }
 
-    .hero-photo {
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      object-fit: cover;
-      filter: grayscale(20%) brightness(0.9);
-      margin-bottom: 20px;
-      display: block;
-    }
-    
     .hero-role {
       font-family: var(--serif);
       font-style: italic;
@@ -424,11 +426,11 @@
   </header>
 
   <div class="hero">
-    <div>
+    <div class="hero-left">
+      <img src="resources/pic.jpeg" alt="Santiago Rodríguez Vázquez" class="hero-photo">
       <h1 class="hero-name">Santiago<br><em>Rodríguez</em><br>Vázquez</h1>
     </div>
     <div class="hero-right">
-        <img src="resources/pic.jpeg" alt="Yo" class="hero-photo">
       <p class="hero-role">econ</p>
     </div>
   </div>
@@ -551,88 +553,61 @@
       </div>
       <div>
 
-        <!-- Microeconomía II -->
         <div class="course-block">
           <div class="course-title">Microeconomía II</div>
+          <div class="course-sub">UBA · 2022 – Presente</div>
           <div class="slides-list">
             <a href="slides/micro2-CTPI.pdf" class="slide-item" target="_blank" rel="noopener">
               <span class="slide-num">01</span>
               <span class="slide-name">Catch-up mate+micro</span>
-              <span class="slide-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                PDF
-              </span>
+              <span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span>
             </a>
             <a href="slides/micro2-GEPI.pdf" class="slide-item" target="_blank" rel="noopener">
               <span class="slide-num">02</span>
               <span class="slide-name">GE: Equilibrio</span>
-              <span class="slide-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                PDF
-              </span>
+              <span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span>
             </a>
             <a href="slides/micro2-GEPII.pdf" class="slide-item" target="_blank" rel="noopener">
               <span class="slide-num">03</span>
               <span class="slide-name">GE: Eficiencia</span>
-              <span class="slide-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                PDF
-              </span>
+              <span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span>
             </a>
             <a href="slides/micro2-GEPIII.pdf" class="slide-item" target="_blank" rel="noopener">
               <span class="slide-num">04</span>
               <span class="slide-name">GE: Réplica</span>
-              <span class="slide-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                PDF
-              </span>
+              <span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span>
             </a>
             <a href="slides/micro2-TPI.pdf" class="slide-item" target="_blank" rel="noopener">
               <span class="slide-num">05</span>
               <span class="slide-name">Incertidumbre</span>
-              <span class="slide-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                PDF
-              </span>
+              <span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span>
             </a>
             <a href="slides/micro2-TPII.pdf" class="slide-item" target="_blank" rel="noopener">
               <span class="slide-num">06</span>
               <span class="slide-name">Selección Adversa</span>
-              <span class="slide-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                PDF
-              </span>
+              <span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span>
             </a>
             <a href="slides/micro2-TPIII.pdf" class="slide-item" target="_blank" rel="noopener">
               <span class="slide-num">07</span>
               <span class="slide-name">Señalización y screening</span>
-              <span class="slide-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                PDF
-              </span>
+              <span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span>
             </a>
           </div>
         </div>
 
-        <!-- Desarrollo Económico -->
         <div class="course-block">
           <div class="course-title">Desarrollo Económico</div>
+          <div class="course-sub">UBA · 2025 – Presente</div>
           <div class="slides-list">
             <a href="slides/de-desigualdad.pdf" class="slide-item" target="_blank" rel="noopener">
               <span class="slide-num">01</span>
               <span class="slide-name">Crecimiento y desigualdad</span>
-              <span class="slide-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                PDF
-              </span>
+              <span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span>
             </a>
             <a href="slides/de-redistribucion.pdf" class="slide-item" target="_blank" rel="noopener">
               <span class="slide-num">02</span>
               <span class="slide-name">Preferencias por redistribución</span>
-              <span class="slide-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                PDF
-              </span>
+              <span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span>
             </a>
           </div>
         </div>
