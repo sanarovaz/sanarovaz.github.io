@@ -89,25 +89,6 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    .hero-label {
-      font-size: 0.68rem;
-      font-weight: 400;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--ink-light);
-      margin-bottom: 24px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .hero-label::before {
-      content: '';
-      display: block;
-      width: 28px;
-      height: 1px;
-      background: var(--ink-light);
-    }
-
     .hero-name {
       font-family: var(--serif);
       font-weight: 400;
@@ -127,13 +108,6 @@
       color: var(--ink-mid);
       margin-bottom: 16px;
       line-height: 1.5;
-    }
-
-    .hero-desc {
-      font-size: 0.88rem;
-      color: var(--ink-mid);
-      line-height: 1.8;
-      margin-bottom: 32px;
     }
 
     .hero-links { display: flex; gap: 24px; }
@@ -199,24 +173,6 @@
       line-height: 1.6;
       margin-bottom: 24px;
     }
-    .bio-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 28px;
-      padding-top: 28px;
-      border-top: 1px solid var(--rule);
-    }
-    .bio-tag {
-      font-size: 0.65rem;
-      font-weight: 400;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--ink-mid);
-      padding: 4px 12px;
-      border: 1px solid var(--rule);
-      border-radius: 40px;
-    }
 
     /* Projects */
     .projects-list { display: flex; flex-direction: column; }
@@ -246,6 +202,16 @@
       color: var(--ink);
       margin-bottom: 6px;
       line-height: 1.3;
+      text-decoration: none;
+    }
+    a.proj-title {
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 1px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    a.proj-title:hover {
+      color: var(--ink-mid);
+      border-color: var(--ink-mid);
     }
     .proj-desc {
       font-size: 0.83rem;
@@ -298,6 +264,69 @@
       font-size: 0.83rem;
       color: var(--ink-mid);
       line-height: 1.7;
+    }
+
+    /* ── TEACHINGS ── */
+    .course-block { margin-bottom: 48px; }
+    .course-block:last-child { margin-bottom: 0; }
+
+    .course-title {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .course-sub {
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 18px;
+    }
+
+    .slides-list { display: flex; flex-direction: column; }
+
+    .slide-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--rule);
+      text-decoration: none;
+      gap: 16px;
+      transition: opacity 0.2s;
+    }
+    .slide-item:first-child { border-top: 1px solid var(--rule); }
+    .slide-item:hover { opacity: 0.5; }
+
+    .slide-num {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.8rem;
+      color: var(--ink-light);
+      width: 28px;
+      flex-shrink: 0;
+    }
+    .slide-name {
+      font-size: 0.88rem;
+      color: var(--ink);
+      flex: 1;
+    }
+    .slide-icon {
+      font-size: 0.75rem;
+      color: var(--ink-light);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+    .slide-icon svg {
+      width: 12px; height: 12px;
+      opacity: 0.5;
     }
 
     /* Contact */
@@ -379,6 +408,7 @@
       <a href="#bio" class="active">Bio</a>
       <a href="#proyectos">Proyectos</a>
       <a href="#cv">CV</a>
+      <a href="#teachings">Teachings</a>
       <a href="#contacto">Contacto</a>
     </nav>
   </header>
@@ -397,6 +427,7 @@
     </div>
   </div>
 
+  <!-- BIO -->
   <section id="bio">
     <div class="sec-inner">
       <div>
@@ -411,6 +442,7 @@
     </div>
   </section>
 
+  <!-- PROYECTOS -->
   <section id="proyectos">
     <div class="sec-inner">
       <div>
@@ -418,6 +450,7 @@
         <h2 class="sec-title">Pro<em>yec</em>tos</h2>
       </div>
       <div class="projects-list">
+
         <div class="proj-item">
           <div>
             <div class="proj-tag">Investigación</div>
@@ -426,6 +459,7 @@
           </div>
           <div class="proj-year">WIP</div>
         </div>
+
         <div class="proj-item">
           <div>
             <div class="proj-tag">Docencia</div>
@@ -434,6 +468,7 @@
           </div>
           <div class="proj-year">2025 – Pres.</div>
         </div>
+
         <div class="proj-item">
           <div>
             <div class="proj-tag">Docencia</div>
@@ -442,14 +477,16 @@
           </div>
           <div class="proj-year">2025 – Pres.</div>
         </div>
+
         <div class="proj-item">
           <div>
             <div class="proj-tag">Docencia</div>
-            <div class="proj-title">TA — Microeconomía II (UBA)</div>
+            <a class="proj-title" href="https://sites.google.com/view/micro-ii-pascuini-286/micro286pascuini?authuser=0" target="_blank" rel="noopener">TA — Microeconomía II (UBA)</a>
             <div class="proj-desc">Clases prácticas de teoría del consumidor, equilibrio general, incertidumbre e información asimétrica.</div>
           </div>
           <div class="proj-year">2022 – Pres.</div>
         </div>
+
         <div class="proj-item">
           <div>
             <div class="proj-tag">Investigación</div>
@@ -458,10 +495,12 @@
           </div>
           <div class="proj-year">Varios</div>
         </div>
+
       </div>
     </div>
   </section>
 
+  <!-- CV -->
   <section id="cv">
     <div class="sec-inner">
       <div>
@@ -497,10 +536,110 @@
     </div>
   </section>
 
-  <section id="contacto">
+  <!-- TEACHINGS -->
+  <section id="teachings">
     <div class="sec-inner">
       <div>
         <div class="sec-index">04</div>
+        <h2 class="sec-title">Tea<em>chings</em></h2>
+      </div>
+      <div>
+
+        <!-- Microeconomía II -->
+        <div class="course-block">
+          <div class="course-title">Microeconomía II</div>
+          <div class="slides-list">
+            <a href="slides/micro2-CTPI.pdf" class="slide-item" target="_blank" rel="noopener">
+              <span class="slide-num">01</span>
+              <span class="slide-name">Catch-up mate+micro</span>
+              <span class="slide-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                PDF
+              </span>
+            </a>
+            <a href="slides/micro2-GEPI.pdf" class="slide-item" target="_blank" rel="noopener">
+              <span class="slide-num">02</span>
+              <span class="slide-name">GE: Equilibrio</span>
+              <span class="slide-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                PDF
+              </span>
+            </a>
+            <a href="slides/micro2-GEPII.pdf" class="slide-item" target="_blank" rel="noopener">
+              <span class="slide-num">03</span>
+              <span class="slide-name">GE: Eficiencia</span>
+              <span class="slide-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                PDF
+              </span>
+            </a>
+            <a href="slides/micro2-GEPIII.pdf" class="slide-item" target="_blank" rel="noopener">
+              <span class="slide-num">04</span>
+              <span class="slide-name">GE: Réplica</span>
+              <span class="slide-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                PDF
+              </span>
+            </a>
+            <a href="slides/micro2-TPI.pdf" class="slide-item" target="_blank" rel="noopener">
+              <span class="slide-num">05</span>
+              <span class="slide-name">Incertidumbre</span>
+              <span class="slide-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                PDF
+              </span>
+            </a>
+            <a href="slides/micro2-TPII.pdf" class="slide-item" target="_blank" rel="noopener">
+              <span class="slide-num">06</span>
+              <span class="slide-name">Selección Adversa</span>
+              <span class="slide-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                PDF
+              </span>
+            </a>
+            <a href="slides/micro2-TPIII.pdf" class="slide-item" target="_blank" rel="noopener">
+              <span class="slide-num">07</span>
+              <span class="slide-name">Señalización y screening</span>
+              <span class="slide-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                PDF
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Desarrollo Económico -->
+        <div class="course-block">
+          <div class="course-title">Desarrollo Económico</div>
+          <div class="slides-list">
+            <a href="slides/desarrollo-01.pdf" class="slide-item" target="_blank" rel="noopener">
+              <span class="slide-num">01</span>
+              <span class="slide-name">Título de la clase 1</span>
+              <span class="slide-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                PDF
+              </span>
+            </a>
+            <a href="slides/desarrollo-02.pdf" class="slide-item" target="_blank" rel="noopener">
+              <span class="slide-num">02</span>
+              <span class="slide-name">Título de la clase 2</span>
+              <span class="slide-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                PDF
+              </span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <div class="sec-inner">
+      <div>
+        <div class="sec-index">05</div>
         <h2 class="sec-title">Con<em>tac</em>to</h2>
       </div>
       <div>
