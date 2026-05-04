@@ -5,16 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Santiago Rodríguez Vázquez</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Outfit:wght@200;300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg:        #f9f8f5;
-      --ink:       #141414;
-      --ink-mid:   #5a5a5a;
-      --ink-light: #a0a0a0;
-      --rule:      #e0ddd8;
-      --serif:     'Cormorant Garamond', Georgia, serif;
-      --sans:      'Outfit', sans-serif;
+      --bg:        #141414;
+      --ink:       #f0ede8;
+      --ink-mid:   #a0a0a0;
+      --ink-light: #5a5a5a;
+      --rule:      #2a2a2a;
+      --serif:     'Lora', Georgia, serif;
+      --sans:      'DM Sans', sans-serif;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -38,7 +38,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 28px 64px;
-      background: rgba(249,248,245,0.88);
+      background: rgba(20,20,20,0.92);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid transparent;
       transition: border-color 0.3s;
@@ -48,8 +48,8 @@
     .header-name {
       font-family: var(--serif);
       font-weight: 400;
-      font-size: 1rem;
-      letter-spacing: 0.02em;
+      font-size: 0.95rem;
+      letter-spacing: 0.01em;
       color: var(--ink);
       text-decoration: none;
     }
@@ -57,8 +57,8 @@
     nav { display: flex; align-items: center; gap: 40px; }
     nav a {
       font-size: 0.72rem;
-      font-weight: 300;
-      letter-spacing: 0.14em;
+      font-weight: 400;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--ink-light);
       text-decoration: none;
@@ -91,11 +91,11 @@
 
     .hero-label {
       font-size: 0.68rem;
-      font-weight: 300;
+      font-weight: 400;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--ink-light);
-      margin-bottom: 28px;
+      margin-bottom: 24px;
       display: flex;
       align-items: center;
       gap: 12px;
@@ -110,22 +110,23 @@
 
     .hero-name {
       font-family: var(--serif);
-      font-weight: 300;
-      font-size: clamp(3.2rem, 6vw, 5.5rem);
-      line-height: 1.0;
+      font-weight: 400;
+      font-size: clamp(2.8rem, 5.5vw, 5rem);
+      line-height: 1.08;
       letter-spacing: -0.01em;
       color: var(--ink);
     }
-    .hero-name em { font-style: italic; }
+    .hero-name em { font-style: italic; font-weight: 400; }
 
     .hero-right { padding-bottom: 8px; }
 
     .hero-role {
       font-family: var(--serif);
       font-style: italic;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       color: var(--ink-mid);
-      margin-bottom: 20px;
+      margin-bottom: 16px;
+      line-height: 1.5;
     }
 
     .hero-desc {
@@ -138,7 +139,8 @@
     .hero-links { display: flex; gap: 24px; }
     .hero-link {
       font-size: 0.68rem;
-      letter-spacing: 0.14em;
+      font-weight: 400;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--ink-light);
       text-decoration: none;
@@ -166,6 +168,7 @@
 
     .sec-index {
       font-size: 0.62rem;
+      font-weight: 400;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--ink-light);
@@ -175,10 +178,9 @@
     .sec-title {
       font-family: var(--serif);
       font-weight: 400;
-      font-size: 1.9rem;
-      line-height: 1.15;
+      font-size: 1.8rem;
+      line-height: 1.2;
       color: var(--ink);
-      letter-spacing: -0.01em;
     }
     .sec-title em { font-style: italic; }
 
@@ -186,31 +188,32 @@
     .bio-text {
       font-size: 0.92rem;
       color: var(--ink-mid);
-      margin-bottom: 18px;
+      margin-bottom: 16px;
       line-height: 1.85;
     }
     .bio-text.lead {
       font-family: var(--serif);
-      font-size: 1.25rem;
+      font-size: 1.15rem;
       font-style: italic;
       color: var(--ink);
-      line-height: 1.55;
-      margin-bottom: 28px;
+      line-height: 1.6;
+      margin-bottom: 24px;
     }
     .bio-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 32px;
-      padding-top: 32px;
+      gap: 8px;
+      margin-top: 28px;
+      padding-top: 28px;
       border-top: 1px solid var(--rule);
     }
     .bio-tag {
       font-size: 0.65rem;
-      letter-spacing: 0.12em;
+      font-weight: 400;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--ink-mid);
-      padding: 5px 14px;
+      padding: 4px 12px;
       border: 1px solid var(--rule);
       border-radius: 40px;
     }
@@ -222,7 +225,7 @@
       display: grid;
       grid-template-columns: 1fr auto;
       gap: 24px;
-      padding: 28px 0;
+      padding: 26px 0;
       border-bottom: 1px solid var(--rule);
       align-items: start;
     }
@@ -230,30 +233,32 @@
 
     .proj-tag {
       font-size: 0.62rem;
-      letter-spacing: 0.14em;
+      font-weight: 400;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--ink-light);
-      margin-bottom: 6px;
+      margin-bottom: 5px;
     }
     .proj-title {
       font-family: var(--serif);
-      font-size: 1.2rem;
-      font-weight: 400;
+      font-size: 1.1rem;
+      font-weight: 500;
       color: var(--ink);
       margin-bottom: 6px;
+      line-height: 1.3;
     }
     .proj-desc {
-      font-size: 0.82rem;
+      font-size: 0.83rem;
       color: var(--ink-mid);
       line-height: 1.7;
     }
     .proj-year {
       font-family: var(--serif);
       font-style: italic;
-      font-size: 1rem;
+      font-size: 0.9rem;
       color: var(--ink-light);
       white-space: nowrap;
-      padding-top: 22px;
+      padding-top: 20px;
     }
 
     /* CV */
@@ -261,7 +266,7 @@
       display: grid;
       grid-template-columns: 110px 1fr;
       gap: 32px;
-      padding: 28px 0;
+      padding: 26px 0;
       border-bottom: 1px solid var(--rule);
     }
     .cv-item:first-child { border-top: 1px solid var(--rule); }
@@ -271,25 +276,26 @@
       font-style: italic;
       font-size: 0.85rem;
       color: var(--ink-light);
-      padding-top: 4px;
-      line-height: 1.4;
+      padding-top: 3px;
+      line-height: 1.5;
     }
     .cv-role {
       font-family: var(--serif);
-      font-size: 1.1rem;
-      font-weight: 400;
+      font-size: 1.05rem;
+      font-weight: 500;
       color: var(--ink);
       margin-bottom: 3px;
     }
     .cv-org {
       font-size: 0.72rem;
-      letter-spacing: 0.1em;
+      font-weight: 400;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--ink-light);
-      margin-bottom: 8px;
+      margin-bottom: 7px;
     }
     .cv-desc {
-      font-size: 0.82rem;
+      font-size: 0.83rem;
       color: var(--ink-mid);
       line-height: 1.7;
     }
@@ -298,9 +304,9 @@
     .contact-intro {
       font-family: var(--serif);
       font-style: italic;
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       color: var(--ink-mid);
-      margin-bottom: 40px;
+      margin-bottom: 36px;
       line-height: 1.6;
     }
 
@@ -319,7 +325,8 @@
 
     .ci-label {
       font-size: 0.65rem;
-      letter-spacing: 0.16em;
+      font-weight: 400;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--ink-light);
       width: 90px;
@@ -327,7 +334,7 @@
     }
     .ci-value {
       font-family: var(--serif);
-      font-size: 1.05rem;
+      font-size: 1rem;
       color: var(--ink);
       flex: 1;
     }
@@ -382,10 +389,10 @@
       <h1 class="hero-name">Santiago<br><em>Rodríguez</em><br>Vázquez</h1>
     </div>
     <div class="hero-right">
-      <p class="hero-role">Economista</p>
+      <p class="hero-role">Lic. en Economía (UBA) · Maestrando en Economía (UdeSA)</p>
       <div class="hero-links">
         <a href="https://www.linkedin.com/in/sanarovaz/" class="hero-link">LinkedIn</a>
-        <a href="x.com/sanarovaz" class="hero-link">Twitter&thinsp;/&thinsp;X</a>
+        <a href="https://x.com/sanarovaz" class="hero-link">Twitter&thinsp;/&thinsp;X</a>
         <a href="https://scholar.google.com/citations?user=ycuWZk4AAAAJ&hl=en" class="hero-link">Scholar</a>
       </div>
     </div>
@@ -398,16 +405,9 @@
         <h2 class="sec-title">Sobre<br><em>mí</em></h2>
       </div>
       <div>
-        <p class="bio-text lead">Lic. en Economía (UBA), maestrando en Economía (UdeSA)</p>
+        <p class="bio-text lead">Lic. en Economía (UBA), maestrando en Economía (UdeSA).</p>
         <p class="bio-text">Soy ayudante en UBA de cursos de Economía Financiera, Desarrollo Económico y Microeconomía II.</p>
         <p class="bio-text">Trabajé en varios proyectos de investigación, en particular relacionados al sector espacial y al venture capital.</p>
-        <div class="bio-tags">
-          <span class="bio-tag">Macroeconomía</span>
-          <span class="bio-tag">Finanzas</span>
-          <span class="bio-tag">Política Económica</span>
-          <span class="bio-tag">Análisis Cuantitativo</span>
-          <span class="bio-tag">Argentina · Latam</span>
-        </div>
       </div>
     </div>
   </section>
@@ -430,26 +430,26 @@
         <div class="proj-item">
           <div>
             <div class="proj-tag">Docencia</div>
-            <div class="proj-title">TA - Desarrollo Económico (UBA)</div>
+            <div class="proj-title">TA — Desarrollo Económico (UBA)</div>
             <div class="proj-desc">Clases teóricas de desigualdad y redistribución.</div>
           </div>
-          <div class="proj-year">2025 - Pres.</div>
+          <div class="proj-year">2025 – Pres.</div>
         </div>
         <div class="proj-item">
           <div>
             <div class="proj-tag">Docencia</div>
-            <div class="proj-title">TA - Economía Financiera (UBA)</div>
+            <div class="proj-title">TA — Economía Financiera (UBA)</div>
             <div class="proj-desc">Clases prácticas sobre pricing de bonos y modelos de riesgo de crédito.</div>
           </div>
-          <div class="proj-year">2025 - Pres.</div>
+          <div class="proj-year">2025 – Pres.</div>
         </div>
         <div class="proj-item">
           <div>
             <div class="proj-tag">Docencia</div>
-            <div class="proj-title">TA - Microeconomía II (UBA)</div>
+            <div class="proj-title">TA — Microeconomía II (UBA)</div>
             <div class="proj-desc">Clases prácticas de teoría del consumidor, equilibrio general, incertidumbre e información asimétrica.</div>
           </div>
-          <div class="proj-year">2022 - Pres.</div>
+          <div class="proj-year">2022 – Pres.</div>
         </div>
         <div class="proj-item">
           <div>
@@ -474,7 +474,7 @@
           <div class="cv-date">2026<br>Pres.</div>
           <div>
             <div class="cv-role">Maestría en Economía</div>
-            <div class="cv-org">Universidad de San Andrés · Buenos Aires, Argentina</div>
+            <div class="cv-org">Universidad de San Andrés · Buenos Aires</div>
             <div class="cv-desc">Actualmente cursando el core.</div>
           </div>
         </div>
@@ -482,7 +482,7 @@
           <div class="cv-date">2019<br>2025</div>
           <div>
             <div class="cv-role">Lic. en Economía</div>
-            <div class="cv-org">Universidad de Buenos Aires · CABA, Argentina</div>
+            <div class="cv-org">Universidad de Buenos Aires · CABA</div>
             <div class="cv-desc">Originalmente inscripto en la carrera de Actuario (cursé Estadística Actuarial, Análisis Numérico y Biometría). Promedio global: 8.1.</div>
           </div>
         </div>
@@ -490,7 +490,7 @@
           <div class="cv-date">2022<br>2023</div>
           <div>
             <div class="cv-role">Finance Analyst Jr.</div>
-            <div class="cv-org">Veritran · CABA, Argentina</div>
+            <div class="cv-org">Veritran · CABA</div>
             <div class="cv-desc">Puesto en AP. Gestión de base de datos de pagos y proveedores. Soporte en el armado de un sistema interno de órdenes de compra.</div>
           </div>
         </div>
@@ -511,12 +511,12 @@
           <span class="ci-value">santiago@rodriguez-vazquez.com.ar</span>
           <span class="ci-arrow">↗</span>
         </a>
-        <a href="linkedin.com/in/sanarovaz" class="contact-item">
+        <a href="https://www.linkedin.com/in/sanarovaz/" class="contact-item">
           <span class="ci-label">LinkedIn</span>
           <span class="ci-value">Santiago Rodríguez Vázquez</span>
           <span class="ci-arrow">↗</span>
         </a>
-        <a href="x.com/sanarovaz" class="contact-item">
+        <a href="https://x.com/sanarovaz" class="contact-item">
           <span class="ci-label">Twitter&thinsp;/&thinsp;X</span>
           <span class="ci-value">@sanarovaz</span>
           <span class="ci-arrow">↗</span>
