@@ -145,6 +145,31 @@
     .hero-link:hover { color: var(--ink); }
     .hero-link-arrow { font-size: 0.85rem; }
 
+    .hero-link-cv {
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--ink-light);
+    }
+    .hero-link-cv-label { text-transform: uppercase; }
+    .hero-link-cv-links { display: flex; gap: 12px; align-items: center; }
+    .hero-link-cv-links a {
+      color: var(--ink-light);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      transition: color 0.2s;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 1px;
+    }
+    .hero-link-cv-links a:hover { color: var(--ink); border-color: var(--ink); }
+    .hero-link-cv-sep { color: var(--rule); }
+
     /* SECTIONS */
     section {
       padding: 100px 64px;
@@ -423,7 +448,7 @@
     <nav>
       <a href="#bio" class="active">Bio</a>
       <a href="#actividad">Actividad</a>
-      <a href="#ed">Educación</a>
+      <a href="#cv">CV</a>
       <a href="#teaching">Teaching</a>
       <a href="#contacto">Contacto</a>
     </nav>
@@ -438,14 +463,22 @@
       <p class="hero-role">econ: micro; io; dev; fin</p>
       <div class="hero-links">
         <a href="https://www.linkedin.com/in/sanarovaz/" class="hero-link" target="_blank" rel="noopener">
-          LinkedIn<span class="hero-link-arrow">↗</span>
+          LinkedIn <span class="hero-link-arrow">↗</span>
         </a>
         <a href="https://x.com/sanarovaz" class="hero-link" target="_blank" rel="noopener">
-          Twitter<span class="hero-link-arrow">↗</span>
+          Twitter / X <span class="hero-link-arrow">↗</span>
         </a>
         <a href="https://scholar.google.com/citations?user=ycuWZk4AAAAJ&hl=en" class="hero-link" target="_blank" rel="noopener">
-          GScholar<span class="hero-link-arrow">↗</span>
+          Google Scholar <span class="hero-link-arrow">↗</span>
         </a>
+        <div class="hero-link-cv">
+          <span class="hero-link-cv-label">CV</span>
+          <span class="hero-link-cv-links">
+            <a href="https://drive.google.com/file/d/1IF_U6j5_YrvO0sUYaq0ErkJUro4AGVdN/view?usp=sharing" target="_blank" rel="noopener">es</a>
+            <span class="hero-link-cv-sep">·</span>
+            <a href="https://drive.google.com/file/d/1cyzeFYtTzjC9meIHeic92ko_LwRpbLkV/view?usp=sharing" target="_blank" rel="noopener">en</a>
+          </span>
+        </div>
       </div>
     </div>
   </div>
@@ -512,15 +545,6 @@
 
         <div class="proj-item">
           <div>
-            <div class="proj-tag">Corporate</div>
-            <a class="proj-title" href="https://veritran.com/en" target="_blank" rel="noopener">Finance Analyst Jr. (Veritran)</a>
-            <div class="proj-desc">Puesto en AP. Gestión de base de datos de pagos y proveedores. Soporte en el armado de un sistema interno de órdenes de compra.</div>
-          </div>
-          <div class="proj-year">2022 – 2023</div>
-        </div>
-
-        <div class="proj-item">
-          <div>
             <div class="proj-tag">Investigación</div>
             <div class="proj-title">Otros proyectos</div>
             <div class="proj-desc">Análisis de redes y calibración de modelos ERGM. Elaboración de bases de datos de multilatinas a partir de datos de la SEC. Confección de capítulos de libro de texto de Economía Financiera, y sobre la historia del sector espacial en Argentina.</div>
@@ -533,11 +557,11 @@
   </section>
 
   <!-- CV -->
-  <section id="ed">
+  <section id="cv">
     <div class="sec-inner">
       <div>
         <div class="sec-index">03</div>
-        <h2 class="sec-title"><em>Educación</em></h2>
+        <h2 class="sec-title"><em>Tra</em>yec<br>toria</h2>
       </div>
       <div>
         <div class="cv-item">
@@ -556,6 +580,14 @@
             <div class="cv-desc">Originalmente inscripto en la carrera de Actuario (cursé Estadística Actuarial, Análisis Numérico y Biometría). Promedio global: 8.1.</div>
           </div>
         </div>
+        <div class="cv-item">
+          <div class="cv-date">2022<br>2023</div>
+          <div>
+            <div class="cv-role">Finance Analyst Jr.</div>
+            <div class="cv-org">Veritran · CABA</div>
+            <div class="cv-desc">Puesto en AP. Gestión de base de datos de pagos y proveedores. Soporte en el armado de un sistema interno de órdenes de compra.</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -571,7 +603,6 @@
 
         <div class="course-block">
           <div class="course-title">Microeconomía II</div>
-          <div class="course-sub">UBA · 2022 – Presente</div>
           <div class="slides-list">
             <a href="slides/micro2-CTPI.pdf" class="slide-item" target="_blank" rel="noopener">
               <span class="slide-num">01</span>
@@ -613,7 +644,6 @@
 
         <div class="course-block">
           <div class="course-title">Desarrollo Económico</div>
-          <div class="course-sub">UBA · 2025 – Presente</div>
           <div class="slides-list">
             <a href="slides/de-desigualdad.pdf" class="slide-item" target="_blank" rel="noopener">
               <span class="slide-num">01</span>
