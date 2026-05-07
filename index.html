@@ -8,11 +8,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg:        #141414;
-      --ink:       #f0ede8;
-      --ink-mid:   #a0a0a0;
-      --ink-light: #5a5a5a;
-      --rule:      #2a2a2a;
+      --bg:        #f5f0e8;
+      --surface:   #ede7da;
+      --ink:       #2c1f14;
+      --ink-mid:   #7a6352;
+      --ink-light: #b0998a;
+      --rule:      #ddd4c4;
       --serif:     'Lora', Georgia, serif;
       --sans:      'DM Sans', sans-serif;
     }
@@ -29,7 +30,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ── HEADER ── */
+    /* HEADER */
     header {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -38,7 +39,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 28px 64px;
-      background: rgba(20,20,20,0.92);
+      background: rgba(245,240,232,0.92);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid transparent;
       transition: border-color 0.3s;
@@ -79,7 +80,7 @@
     nav a:hover::after, nav a.active::after { transform: scaleX(1); }
     nav a.active { color: var(--ink); }
 
-    /* ── HERO ── */
+    /* HERO */
     .hero {
       padding: 200px 64px 120px;
       display: grid;
@@ -89,14 +90,12 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    .hero-left {}
-
     .hero-photo {
       width: 96px;
       height: 96px;
       border-radius: 50%;
       object-fit: cover;
-      filter: grayscale(20%) brightness(0.9);
+      filter: grayscale(10%) brightness(0.95);
       margin-bottom: 28px;
       display: block;
     }
@@ -111,18 +110,23 @@
     }
     .hero-name em { font-style: italic; font-weight: 400; }
 
-    .hero-right { padding-bottom: 8px; }
+    .hero-right {
+      padding-bottom: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
 
     .hero-role {
       font-family: var(--serif);
       font-style: italic;
       font-size: 1.05rem;
       color: var(--ink-mid);
-      margin-bottom: 16px;
+      margin-bottom: 32px;
       line-height: 1.5;
     }
 
-    .hero-links { display: flex; gap: 24px; }
+    .hero-links { display: flex; flex-direction: column; gap: 0; }
     .hero-link {
       font-size: 0.68rem;
       font-weight: 400;
@@ -130,13 +134,18 @@
       text-transform: uppercase;
       color: var(--ink-light);
       text-decoration: none;
+      padding: 10px 0;
       border-bottom: 1px solid var(--rule);
-      padding-bottom: 3px;
-      transition: color 0.2s, border-color 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: color 0.2s;
     }
-    .hero-link:hover { color: var(--ink); border-color: var(--ink); }
+    .hero-link:first-child { border-top: 1px solid var(--rule); }
+    .hero-link:hover { color: var(--ink); }
+    .hero-link-arrow { font-size: 0.85rem; }
 
-    /* ── SECTIONS ── */
+    /* SECTIONS */
     section {
       padding: 100px 64px;
       border-bottom: 1px solid var(--rule);
@@ -186,7 +195,7 @@
       margin-bottom: 24px;
     }
 
-    /* Projects */
+    /* Actividad */
     .projects-list { display: flex; flex-direction: column; }
 
     .proj-item {
@@ -221,10 +230,8 @@
       padding-bottom: 1px;
       transition: border-color 0.2s, color 0.2s;
     }
-    a.proj-title:hover {
-      color: var(--ink-mid);
-      border-color: var(--ink-mid);
-    }
+    a.proj-title:hover { color: var(--ink-mid); border-color: var(--ink-mid); }
+
     .proj-desc {
       font-size: 0.83rem;
       color: var(--ink-mid);
@@ -278,7 +285,7 @@
       line-height: 1.7;
     }
 
-    /* ── TEACHINGS ── */
+    /* TEACHING */
     .course-block { margin-bottom: 48px; }
     .course-block:last-child { margin-bottom: 0; }
 
@@ -336,10 +343,7 @@
       gap: 6px;
       flex-shrink: 0;
     }
-    .slide-icon svg {
-      width: 12px; height: 12px;
-      opacity: 0.5;
-    }
+    .slide-icon svg { width: 12px; height: 12px; opacity: 0.5; }
 
     /* Contact */
     .contact-intro {
@@ -418,9 +422,9 @@
     <a href="#" class="header-name">snrv</a>
     <nav>
       <a href="#bio" class="active">Bio</a>
-      <a href="#proyectos">Proyectos</a>
+      <a href="#actividad">Actividad</a>
       <a href="#cv">CV</a>
-      <a href="#teachings">Teachings</a>
+      <a href="#teaching">Teaching</a>
       <a href="#contacto">Contacto</a>
     </nav>
   </header>
@@ -432,6 +436,17 @@
     </div>
     <div class="hero-right">
       <p class="hero-role">econ: micro; io; dev; fin</p>
+      <div class="hero-links">
+        <a href="https://www.linkedin.com/in/sanarovaz/" class="hero-link" target="_blank" rel="noopener">
+          LinkedIn<span class="hero-link-arrow">↗</span>
+        </a>
+        <a href="https://x.com/sanarovaz" class="hero-link" target="_blank" rel="noopener">
+          Twitter<span class="hero-link-arrow">↗</span>
+        </a>
+        <a href="https://scholar.google.com/citations?user=ycuWZk4AAAAJ&hl=en" class="hero-link" target="_blank" rel="noopener">
+          GScholar<span class="hero-link-arrow">↗</span>
+        </a>
+      </div>
     </div>
   </div>
 
@@ -450,12 +465,12 @@
     </div>
   </section>
 
-  <!-- PROYECTOS -->
-  <section id="proyectos">
+  <!-- ACTIVIDAD -->
+  <section id="actividad">
     <div class="sec-inner">
       <div>
         <div class="sec-index">02</div>
-        <h2 class="sec-title">Pro<em>yec</em>tos</h2>
+        <h2 class="sec-title">Acti<em>vi</em>dad</h2>
       </div>
       <div class="projects-list">
 
@@ -517,7 +532,7 @@
       </div>
       <div>
         <div class="cv-item">
-          <div class="cv-date">Pres.<br>2026</div>
+          <div class="cv-date">2026<br>Pres.</div>
           <div>
             <div class="cv-role">Maestría en Economía</div>
             <div class="cv-org">Universidad de San Andrés · Buenos Aires</div>
@@ -525,7 +540,7 @@
           </div>
         </div>
         <div class="cv-item">
-          <div class="cv-date">2025<br>2019</div>
+          <div class="cv-date">2019<br>2025</div>
           <div>
             <div class="cv-role">Lic. en Economía</div>
             <div class="cv-org">Universidad de Buenos Aires · CABA</div>
@@ -533,7 +548,7 @@
           </div>
         </div>
         <div class="cv-item">
-          <div class="cv-date">2023<br>2022</div>
+          <div class="cv-date">2022<br>2023</div>
           <div>
             <div class="cv-role">Finance Analyst Jr.</div>
             <div class="cv-org">Veritran · CABA</div>
@@ -544,12 +559,12 @@
     </div>
   </section>
 
-  <!-- TEACHINGS -->
-  <section id="teachings">
+  <!-- TEACHING -->
+  <section id="teaching">
     <div class="sec-inner">
       <div>
         <div class="sec-index">04</div>
-        <h2 class="sec-title">Tea<em>chings</em></h2>
+        <h2 class="sec-title">Tea<em>ching</em></h2>
       </div>
       <div>
 
@@ -628,21 +643,6 @@
         <a href="mailto:santiago@rodriguez-vazquez.com.ar" class="contact-item">
           <span class="ci-label">Email</span>
           <span class="ci-value">santiago@rodriguez-vazquez.com.ar</span>
-          <span class="ci-arrow">↗</span>
-        </a>
-        <a href="https://www.linkedin.com/in/sanarovaz/" class="contact-item">
-          <span class="ci-label">LinkedIn</span>
-          <span class="ci-value">Santiago Rodríguez Vázquez</span>
-          <span class="ci-arrow">↗</span>
-        </a>
-        <a href="https://x.com/sanarovaz" class="contact-item">
-          <span class="ci-label">Twitter&thinsp;/&thinsp;X</span>
-          <span class="ci-value">sanarovaz</span>
-          <span class="ci-arrow">↗</span>
-        </a>
-        <a href="https://scholar.google.com/citations?user=ycuWZk4AAAAJ&hl=en" class="contact-item">
-          <span class="ci-label">Scholar</span>
-          <span class="ci-value">Santiago Rodríguez Vázquez</span>
           <span class="ci-arrow">↗</span>
         </a>
       </div>
