@@ -57,6 +57,7 @@
 
     nav { display: flex; align-items: center; gap: 40px; }
     nav a {
+      font-family: var(--serif);
       font-size: 0.72rem;
       font-weight: 400;
       letter-spacing: 0.12em;
@@ -220,6 +221,52 @@
       margin-bottom: 24px;
     }
 
+    /* CV */
+    .cv-item {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 32px;
+      padding: 26px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .cv-item:first-child { border-top: 1px solid var(--rule); }
+
+    .cv-date {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--ink-light);
+      padding-top: 3px;
+      line-height: 1.5;
+    }
+    .cv-role {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 3px;
+    }
+    .cv-org {
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 7px;
+    }
+    .cv-org a {
+      color: var(--ink-light);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .cv-org a:hover { color: var(--ink-mid); border-color: var(--ink-mid); }
+    .cv-desc {
+      font-size: 0.83rem;
+      color: var(--ink-mid);
+      line-height: 1.7;
+    }
+
     /* Actividad */
     .projects-list { display: flex; flex-direction: column; }
 
@@ -271,45 +318,6 @@
       padding-top: 20px;
     }
 
-    /* CV */
-    .cv-item {
-      display: grid;
-      grid-template-columns: 110px 1fr;
-      gap: 32px;
-      padding: 26px 0;
-      border-bottom: 1px solid var(--rule);
-    }
-    .cv-item:first-child { border-top: 1px solid var(--rule); }
-
-    .cv-date {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 0.85rem;
-      color: var(--ink-light);
-      padding-top: 3px;
-      line-height: 1.5;
-    }
-    .cv-role {
-      font-family: var(--serif);
-      font-size: 1.05rem;
-      font-weight: 500;
-      color: var(--ink);
-      margin-bottom: 3px;
-    }
-    .cv-org {
-      font-size: 0.72rem;
-      font-weight: 400;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--ink-light);
-      margin-bottom: 7px;
-    }
-    .cv-desc {
-      font-size: 0.83rem;
-      color: var(--ink-mid);
-      line-height: 1.7;
-    }
-
     /* TEACHING */
     .course-block { margin-bottom: 48px; }
     .course-block:last-child { margin-bottom: 0; }
@@ -319,14 +327,6 @@
       font-size: 1.05rem;
       font-weight: 500;
       color: var(--ink);
-      margin-bottom: 4px;
-    }
-    .course-sub {
-      font-size: 0.72rem;
-      font-weight: 400;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--ink-light);
       margin-bottom: 18px;
     }
 
@@ -447,8 +447,8 @@
     <a href="#" class="header-name">snrv</a>
     <nav>
       <a href="#bio" class="active">about</a>
-      <a href="#actividad">act</a>
       <a href="#cv">ed</a>
+      <a href="#actividad">act</a>
       <a href="#teaching">teach</a>
       <a href="#contacto">cont</a>
     </nav>
@@ -466,7 +466,7 @@
           LinkedIn <span class="hero-link-arrow">↗</span>
         </a>
         <a href="https://x.com/sanarovaz" class="hero-link" target="_blank" rel="noopener">
-          Twitter<span class="hero-link-arrow">↗</span>
+          Twitter <span class="hero-link-arrow">↗</span>
         </a>
         <a href="https://scholar.google.com/citations?user=ycuWZk4AAAAJ&hl=en" class="hero-link" target="_blank" rel="noopener">
           Google Scholar <span class="hero-link-arrow">↗</span>
@@ -483,7 +483,7 @@
     </div>
   </div>
 
-  <!-- BIO -->
+  <!-- 01 ABOUT -->
   <section id="bio">
     <div class="sec-inner">
       <div>
@@ -498,11 +498,39 @@
     </div>
   </section>
 
-  <!-- ACTIVIDAD -->
-  <section id="actividad">
+  <!-- 02 EDUCACIÓN -->
+  <section id="cv">
     <div class="sec-inner">
       <div>
         <div class="sec-index">02</div>
+        <h2 class="sec-title"><em>Edu</em>ca<br>ción</h2>
+      </div>
+      <div>
+        <div class="cv-item">
+          <div class="cv-date">2026<br>Pres.</div>
+          <div>
+            <div class="cv-role">Maestría en Economía</div>
+            <div class="cv-org"><a href="https://www.udesa.edu.ar/" target="_blank" rel="noopener">Universidad de San Andrés</a> · Victoria, AR</div>
+            <div class="cv-desc">Cursando el core.</div>
+          </div>
+        </div>
+        <div class="cv-item">
+          <div class="cv-date">2019<br>2025</div>
+          <div>
+            <div class="cv-role">Lic. en Economía</div>
+            <div class="cv-org"><a href="https://economicas.uba.ar/" target="_blank" rel="noopener">Universidad de Buenos Aires</a> · Buenos Aires, AR</div>
+            <div class="cv-desc">Promedio global: 8.1. Originalmente inscripto en la carrera de Actuario (cursé Estadística Actuarial, Análisis Numérico y Biometría).</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 ACTIVIDAD -->
+  <section id="actividad">
+    <div class="sec-inner">
+      <div>
+        <div class="sec-index">03</div>
         <h2 class="sec-title">Acti<em>vi</em>dad</h2>
       </div>
       <div class="projects-list">
@@ -565,35 +593,7 @@
     </div>
   </section>
 
-  <!-- CV -->
-  <section id="cv">
-    <div class="sec-inner">
-      <div>
-        <div class="sec-index">03</div>
-        <h2 class="sec-title"><em>Edu</em>ca<br>ción</h2>
-      </div>
-      <div>
-        <div class="cv-item">
-          <div class="cv-date">2026<br>Pres.</div>
-          <div>
-            <div class="cv-role">Maestría en Economía</div>
-            <div class="cv-org"><a href="https://www.udesa.edu.ar/" target="_blank" rel="noopener">Universidad de San Andrés</a> · Victoria, AR</div>
-            <div class="cv-desc">Cursando el core.</div>
-          </div>
-        </div>
-        <div class="cv-item">
-          <div class="cv-date">2019<br>2025</div>
-          <div>
-            <div class="cv-role">Lic. en Economía</div>
-            <div class="cv-org"><a href="https://economicas.uba.ar/" target="_blank" rel="noopener">Universidad de Buenos Aires</a> · Buenos Aires, AR</div>
-            <div class="cv-desc">Promedio global: 8.1. Originalmente inscripto en la carrera de Actuario (cursé Estadística Actuarial, Análisis Numérico y Biometría).</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TEACHING -->
+  <!-- 04 TEACHING -->
   <section id="teaching">
     <div class="sec-inner">
       <div>
@@ -663,7 +663,7 @@
     </div>
   </section>
 
-  <!-- CONTACTO -->
+  <!-- 05 CONTACTO -->
   <section id="contacto">
     <div class="sec-inner">
       <div>
