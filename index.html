@@ -279,6 +279,18 @@
     }
     .proj-item:first-child { border-top: 1px solid var(--rule); }
 
+    .proj-desc a {
+      color: var(--ink-mid);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: color 0.2s, border-color 0.2s;
+    }
+    
+  .proj-desc a:hover {
+      color: var(--ink);
+      border-color: var(--ink-mid);
+    }
+
     .proj-tag {
       font-size: 0.62rem;
       font-weight: 400;
