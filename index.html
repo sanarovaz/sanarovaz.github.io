@@ -3,17 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- ===== METADATA / SEO =====
-       Si tu sitio NO vive en https://sanarovaz.github.io/, cambiá la URL en
-       SITE_URL (abajo, en estas tres líneas: canonical, og:url) y en og:image /
-       twitter:image por la URL real (p.ej. https://tuusuario.github.io/). -->
   <title>Santiago Rodríguez Vázquez — Economics</title>
   <meta name="description" content="Santiago Rodríguez Vázquez — MA candidate in Economics at Universidad de San Andrés (UdeSA). Research in industrial organization and international trade.">
   <meta name="author" content="Santiago Rodríguez Vázquez">
   <link rel="canonical" href="https://sanarovaz.github.io/">
-
-  <!-- Open Graph (LinkedIn, WhatsApp, Slack, etc.) -->
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Santiago Rodríguez Vázquez — Economics">
   <meta property="og:description" content="MA candidate in Economics at Universidad de San Andrés. Research in industrial organization and international trade.">
@@ -23,18 +16,12 @@
   <meta property="og:locale:alternate" content="en_US">
   <meta property="profile:first_name" content="Santiago">
   <meta property="profile:last_name" content="Rodríguez Vázquez">
-
-  <!-- Twitter / X -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@sanarovaz">
   <meta name="twitter:title" content="Santiago Rodríguez Vázquez — Economics">
   <meta name="twitter:description" content="MA candidate in Economics at UdeSA. Research in industrial organization and international trade.">
   <meta name="twitter:image" content="https://sanarovaz.github.io/resources/pic.jpeg">
-
-  <!-- Favicon (monograma 'srv'; podés reemplazarlo por un favicon.svg/.png propio) -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%232c1f14'/><text x='32' y='34' text-anchor='middle' dominant-baseline='central' font-family='Georgia,serif' font-size='27' fill='%23f5f0e8'>srv</text></svg>">
-
-  <!-- Datos estructurados para Google (panel de conocimiento) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -43,7 +30,7 @@
     "url": "https://sanarovaz.github.io/",
     "jobTitle": "MA candidate in Economics",
     "image": "https://sanarovaz.github.io/resources/pic.jpeg",
-    "email": "santiago@sanarovaz.github.io",
+    "email": "santiago@rodriguez-vazquez.com.ar",
     "affiliation": [
       { "@type": "CollegeOrUniversity", "name": "Universidad de San Andrés" },
       { "@type": "CollegeOrUniversity", "name": "Universidad de Buenos Aires" }
@@ -56,7 +43,6 @@
     ]
   }
   </script>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
   <style>
@@ -72,7 +58,6 @@
       --serif:     'Lora', Georgia, serif;
       --sans:      'DM Sans', sans-serif;
     }
-
     [data-theme="dark"] {
       --bg:        #1a1511;
       --surface:   #221c16;
@@ -83,10 +68,8 @@
       --header-bg: rgba(26,21,17,0.92);
       --photo-filter: grayscale(10%) brightness(0.9);
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-
     body {
       background: var(--bg);
       color: var(--ink);
@@ -118,7 +101,6 @@
       align-items: center;
       gap: 14px;
     }
-
     .header-name {
       font-family: var(--serif);
       font-weight: 400;
@@ -128,7 +110,7 @@
       text-decoration: none;
     }
 
-    /* Toggle de tema (sol / luna) */
+    /* CAMBIO 2: toggles usan DM Sans, igual que los links del hero */
     .theme-toggle {
       background: none;
       border: none;
@@ -155,14 +137,13 @@
     [data-theme="dark"] .theme-toggle .icon-moon { display: block; }
     [data-theme="dark"] .theme-toggle:hover svg { transform: rotate(-12deg); }
 
-    /* Toggle de idioma (es / en) */
     .lang-toggle {
       background: none;
       border: none;
       padding: 4px 2px;
       margin: 0;
       cursor: pointer;
-      font-family: var(--serif);
+      font-family: var(--sans); /* CAMBIO 2: DM Sans */
       font-size: 0.72rem;
       font-weight: 400;
       letter-spacing: 0.12em;
@@ -172,9 +153,10 @@
     }
     .lang-toggle:hover { color: var(--ink); }
 
+    /* CAMBIO 2: nav usa DM Sans */
     nav { display: flex; align-items: center; gap: 40px; }
     nav a {
-      font-family: var(--serif);
+      font-family: var(--sans); /* CAMBIO 2: DM Sans */
       font-size: 0.72rem;
       font-weight: 400;
       letter-spacing: 0.12em;
@@ -203,10 +185,9 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 80px;
-      align-items: end;
+      align-items: stretch;
       border-bottom: 1px solid var(--rule);
     }
-
     .hero-photo {
       width: 96px;
       height: 96px;
@@ -216,7 +197,6 @@
       margin-bottom: 28px;
       display: block;
     }
-
     .hero-name {
       font-family: var(--serif);
       font-weight: 400;
@@ -224,26 +204,46 @@
       line-height: 1.08;
       letter-spacing: -0.01em;
       color: var(--ink);
+      /* CAMBIO 1: reducimos margin-bottom para que el role quede pegado */
+      margin-bottom: 12px;
     }
     .hero-name em { font-style: italic; font-weight: 400; }
 
-    .hero-right {
-      padding-bottom: 8px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-    }
-
+    /* CAMBIO 1: el role va debajo del nombre, antes de los links */
     .hero-role {
       font-family: var(--serif);
       font-style: italic;
       font-size: 1.05rem;
       color: var(--ink-mid);
-      margin-bottom: 32px;
       line-height: 1.5;
     }
 
-    .hero-links { display: flex; flex-direction: column; gap: 0; }
+    .hero-right {
+      padding-bottom: 8px;
+      padding-top: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-start;
+    }
+
+    /* Grupo 1: links sociales */
+    .hero-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      align-items: flex-start;
+    }
+    .hero-links-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0;
+      width: auto;
+      padding: 11px 0;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
     .hero-link {
       font-size: 0.68rem;
       font-weight: 400;
@@ -251,41 +251,42 @@
       text-transform: uppercase;
       color: var(--ink-light);
       text-decoration: none;
-      padding: 10px 0;
-      border-bottom: 1px solid var(--rule);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
       transition: color 0.2s;
     }
-    .hero-link:first-child { border-top: 1px solid var(--rule); }
     .hero-link:hover { color: var(--ink); }
-    .hero-link-arrow { font-size: 0.85rem; }
-
-    .hero-link-cv {
+    .hero-link-sep {
       font-size: 0.68rem;
-      font-weight: 400;
-      letter-spacing: 0.12em;
-      padding: 10px 0;
-      border-bottom: 1px solid var(--rule);
+      color: var(--rule);
+      margin: 0 10px;
+      user-select: none;
+    }
+
+    /* Grupo 2: CV — separado con aire, tratamiento distinto (serif itálica) */
+    .hero-cv-block {
+      margin-top: 22px;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .hero-cv-label {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.92rem;
+      color: var(--ink-mid);
+    }
+    .hero-cv-langs {
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
       color: var(--ink-light);
     }
-    .hero-link-cv-label { text-transform: uppercase; }
-    .hero-link-cv-links { display: flex; gap: 12px; align-items: center; }
-    .hero-link-cv-links a {
+    .hero-cv-langs a {
       color: var(--ink-light);
       text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
       transition: color 0.2s;
-      border-bottom: 1px solid transparent;
-      padding-bottom: 1px;
     }
-    .hero-link-cv-links a:hover { color: var(--ink); border-color: var(--ink); }
-    .hero-link-cv-sep { color: var(--rule); }
+    .hero-cv-langs a:hover { color: var(--ink); }
+    .hero-cv-langs .hero-cv-sep { color: var(--ink-light); }
 
     /* SECTIONS */
     section {
@@ -296,13 +297,11 @@
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
     section.visible { opacity: 1; transform: translateY(0); }
-
     .sec-inner {
       display: grid;
       grid-template-columns: 220px 1fr;
       gap: 80px;
     }
-
     .sec-index {
       font-size: 0.62rem;
       font-weight: 400;
@@ -311,7 +310,6 @@
       color: var(--ink-light);
       margin-bottom: 8px;
     }
-
     .sec-title {
       font-family: var(--serif);
       font-weight: 400;
@@ -346,7 +344,6 @@
       border-bottom: 1px solid var(--rule);
     }
     .cv-item:first-child { border-top: 1px solid var(--rule); }
-
     .cv-date {
       font-family: var(--serif);
       font-style: italic;
@@ -385,7 +382,6 @@
 
     /* Actividad */
     .projects-list { display: flex; flex-direction: column; }
-
     .proj-item {
       display: grid;
       grid-template-columns: 1fr auto;
@@ -395,19 +391,13 @@
       align-items: start;
     }
     .proj-item:first-child { border-top: 1px solid var(--rule); }
-
     .proj-desc a {
       color: var(--ink-mid);
       text-decoration: none;
       border-bottom: 1px solid var(--rule);
       transition: color 0.2s, border-color 0.2s;
     }
-    
-  .proj-desc a:hover {
-      color: var(--ink);
-      border-color: var(--ink-mid);
-    }
-
+    .proj-desc a:hover { color: var(--ink); border-color: var(--ink-mid); }
     .proj-tag {
       font-size: 0.62rem;
       font-weight: 400;
@@ -431,7 +421,6 @@
       transition: border-color 0.2s, color 0.2s;
     }
     a.proj-title:hover { color: var(--ink-mid); border-color: var(--ink-mid); }
-
     .proj-desc {
       font-size: 0.83rem;
       color: var(--ink-mid);
@@ -446,10 +435,9 @@
       padding-top: 20px;
     }
 
-    /* TEACHING */
+    /* Teaching */
     .course-block { margin-bottom: 48px; }
     .course-block:last-child { margin-bottom: 0; }
-
     .course-title {
       font-family: var(--serif);
       font-size: 1.05rem;
@@ -457,9 +445,7 @@
       color: var(--ink);
       margin-bottom: 18px;
     }
-
     .slides-list { display: flex; flex-direction: column; }
-
     .slide-item {
       display: flex;
       align-items: center;
@@ -472,7 +458,6 @@
     }
     .slide-item:first-child { border-top: 1px solid var(--rule); }
     .slide-item:hover { opacity: 0.5; }
-
     .slide-num {
       font-family: var(--serif);
       font-style: italic;
@@ -507,7 +492,6 @@
       margin-bottom: 36px;
       line-height: 1.6;
     }
-
     .contact-item {
       display: flex;
       align-items: center;
@@ -520,7 +504,6 @@
     }
     .contact-item:first-child { border-top: 1px solid var(--rule); }
     .contact-item:hover { opacity: 0.45; }
-
     .ci-label {
       font-size: 0.65rem;
       font-weight: 400;
@@ -593,26 +576,23 @@
   <div class="hero">
     <div class="hero-left">
       <img src="resources/pic.jpeg" alt="Santiago Rodríguez Vázquez" class="hero-photo">
+      <!-- CAMBIO 1: role movido a debajo del nombre, dentro de hero-left -->
       <h1 class="hero-name">Santiago<br><em>Rodríguez</em><br>Vázquez</h1>
+      <p class="hero-role">econ: micro; io; dev; fin</p>
     </div>
     <div class="hero-right">
-      <p class="hero-role">econ: micro; io; dev; fin</p>
       <div class="hero-links">
-        <a href="https://www.linkedin.com/in/sanarovaz/" class="hero-link" target="_blank" rel="noopener">
-          LinkedIn <span class="hero-link-arrow">↗</span>
-        </a>
-        <a href="https://x.com/sanarovaz" class="hero-link" target="_blank" rel="noopener">
-          Twitter <span class="hero-link-arrow">↗</span>
-        </a>
-        <a href="https://scholar.google.com/citations?user=ycuWZk4AAAAJ&hl=en" class="hero-link" target="_blank" rel="noopener">
-          Google Scholar <span class="hero-link-arrow">↗</span>
-        </a>
-        <div class="hero-link-cv">
-          <span class="hero-link-cv-label">CV</span>
-          <span class="hero-link-cv-links">
-            <a href="https://drive.google.com/file/d/1IF_U6j5_YrvO0sUYaq0ErkJUro4AGVdN/view?usp=sharing" target="_blank" rel="noopener">es</a>
-            <span class="hero-link-cv-sep">·</span>
-            <a href="https://drive.google.com/file/d/1cyzeFYtTzjC9meIHeic92ko_LwRpbLkV/view?usp=sharing" target="_blank" rel="noopener">en</a>
+        <div class="hero-links-row">
+          <a href="https://www.linkedin.com/in/sanarovaz/" class="hero-link" target="_blank" rel="noopener">LinkedIn</a>
+          <span class="hero-link-sep">·</span>
+          <a href="https://x.com/sanarovaz" class="hero-link" target="_blank" rel="noopener">Twitter</a>
+          <span class="hero-link-sep">·</span>
+          <a href="https://scholar.google.com/citations?user=ycuWZk4AAAAJ&hl=en" class="hero-link" target="_blank" rel="noopener">Google Scholar</a>
+        </div>
+        <div class="hero-cv-block">
+          <span class="hero-cv-label">Curriculum Vitae</span>
+          <span class="hero-cv-langs">
+            (<a href="https://drive.google.com/file/d/1IF_U6j5_YrvO0sUYaq0ErkJUro4AGVdN/view?usp=sharing" target="_blank" rel="noopener">es</a><span class="hero-cv-sep"> · </span><a href="https://drive.google.com/file/d/1cyzeFYtTzjC9meIHeic92ko_LwRpbLkV/view?usp=sharing" target="_blank" rel="noopener">en</a>)
           </span>
         </div>
       </div>
@@ -628,8 +608,8 @@
       </div>
       <div>
         <p class="bio-text lead" data-i18n="bio_lead">Lic. en Economía (UBA), maestrando en Economía (UdeSA).</p>
-        <p class="bio-text" data-i18n="bio_p2">Soy ayudante en UBA de cursos de Economía Financiera, Desarrollo Económico y Microeconomía II.</p>
-        <p class="bio-text" data-i18n="bio_p3">Trabajé en varios proyectos de investigación, en particular relacionados al sector espacial y al venture capital.</p>
+        <p class="bio-text" data-i18n="bio_p2">Soy ayudante en UBA de cursos de Economía Financiera, Desarrollo Económico y Microeconomía II. Trabajé en varios proyectos de investigación, en particular relacionados al sector espacial y al venture capital.</p>
+        <p class="bio-text" data-i18n="bio_p3">Mis intereses incluyen Microeconomía, Teoría de Equilibrio General, Organización Industrial, Finanzas y tópicos de Desarrollo Económico.</p>
       </div>
     </div>
   </section>
@@ -670,7 +650,6 @@
         <h2 class="sec-title" data-i18n="t_act">Acti<em>vi</em>dad</h2>
       </div>
       <div class="projects-list">
-
         <div class="proj-item">
           <div>
             <div class="proj-tag" data-i18n="tag_research">Investigación</div>
@@ -679,7 +658,6 @@
           </div>
           <div class="proj-year">WIP</div>
         </div>
-
         <div class="proj-item">
           <div>
             <div class="proj-tag" data-i18n="tag_teaching">Docencia</div>
@@ -688,7 +666,6 @@
           </div>
           <div class="proj-year" data-i18n="y_2025_pres">2025 – Pres.</div>
         </div>
-
         <div class="proj-item">
           <div>
             <div class="proj-tag" data-i18n="tag_teaching">Docencia</div>
@@ -697,7 +674,6 @@
           </div>
           <div class="proj-year" data-i18n="y_2025_pres">2025 – Pres.</div>
         </div>
-
         <div class="proj-item">
           <div>
             <div class="proj-tag" data-i18n="tag_teaching">Docencia</div>
@@ -706,7 +682,6 @@
           </div>
           <div class="proj-year" data-i18n="y_2022_pres">2022 – Pres.</div>
         </div>
-
         <div class="proj-item">
           <div>
             <div class="proj-tag">Corporate</div>
@@ -715,7 +690,6 @@
           </div>
           <div class="proj-year">2022 – 2023</div>
         </div>
-
         <div class="proj-item">
           <div>
             <div class="proj-tag" data-i18n="tag_research">Investigación</div>
@@ -724,7 +698,6 @@
           </div>
           <div class="proj-year" data-i18n="y_varios">Varios</div>
         </div>
-
       </div>
     </div>
   </section>
@@ -737,77 +710,32 @@
         <h2 class="sec-title" data-i18n="t_teach">Tea<em>ching</em></h2>
       </div>
       <div>
-
         <div class="course-block">
           <div class="course-title" data-i18n="ct_micro2">Microeconomía II (UBA)</div>
           <div class="slides-list">
-            <a href="slides/micro2-CTPI.pdf" class="slide-item" target="_blank" rel="noopener">
-              <span class="slide-num">01</span>
-              <span class="slide-name" data-i18n="s_m_01">Catch-up mate+micro</span>
-              <span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span>
-            </a>
-            <a href="slides/micro2-GEPI.pdf" class="slide-item" target="_blank" rel="noopener">
-              <span class="slide-num">02</span>
-              <span class="slide-name" data-i18n="s_m_02">GE: Equilibrio</span>
-              <span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span>
-            </a>
-            <a href="slides/micro2-GEPII.pdf" class="slide-item" target="_blank" rel="noopener">
-              <span class="slide-num">03</span>
-              <span class="slide-name" data-i18n="s_m_03">GE: Eficiencia</span>
-              <span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span>
-            </a>
-            <a href="slides/micro2-GEPIII.pdf" class="slide-item" target="_blank" rel="noopener">
-              <span class="slide-num">04</span>
-              <span class="slide-name" data-i18n="s_m_04">GE: Réplica</span>
-              <span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span>
-            </a>
-            <a href="slides/micro2-TPI.pdf" class="slide-item" target="_blank" rel="noopener">
-              <span class="slide-num">05</span>
-              <span class="slide-name" data-i18n="s_m_05">Incertidumbre</span>
-              <span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span>
-            </a>
-            <a href="slides/micro2-TPII.pdf" class="slide-item" target="_blank" rel="noopener">
-              <span class="slide-num">06</span>
-              <span class="slide-name" data-i18n="s_m_06">Selección Adversa</span>
-              <span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span>
-            </a>
-            <a href="slides/micro2-TPIII.pdf" class="slide-item" target="_blank" rel="noopener">
-              <span class="slide-num">07</span>
-              <span class="slide-name" data-i18n="s_m_07">Señalización y screening</span>
-              <span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span>
-            </a>
+            <a href="slides/micro2-CTPI.pdf" class="slide-item" target="_blank" rel="noopener"><span class="slide-num">01</span><span class="slide-name" data-i18n="s_m_01">Catch-up mate+micro</span><span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span></a>
+            <a href="slides/micro2-GEPI.pdf" class="slide-item" target="_blank" rel="noopener"><span class="slide-num">02</span><span class="slide-name" data-i18n="s_m_02">GE: Equilibrio</span><span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span></a>
+            <a href="slides/micro2-GEPII.pdf" class="slide-item" target="_blank" rel="noopener"><span class="slide-num">03</span><span class="slide-name" data-i18n="s_m_03">GE: Eficiencia</span><span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span></a>
+            <a href="slides/micro2-GEPIII.pdf" class="slide-item" target="_blank" rel="noopener"><span class="slide-num">04</span><span class="slide-name" data-i18n="s_m_04">GE: Réplica</span><span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span></a>
+            <a href="slides/micro2-TPI.pdf" class="slide-item" target="_blank" rel="noopener"><span class="slide-num">05</span><span class="slide-name" data-i18n="s_m_05">Incertidumbre</span><span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span></a>
+            <a href="slides/micro2-TPII.pdf" class="slide-item" target="_blank" rel="noopener"><span class="slide-num">06</span><span class="slide-name" data-i18n="s_m_06">Selección Adversa</span><span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span></a>
+            <a href="slides/micro2-TPIII.pdf" class="slide-item" target="_blank" rel="noopener"><span class="slide-num">07</span><span class="slide-name" data-i18n="s_m_07">Señalización y screening</span><span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span></a>
           </div>
         </div>
-
         <div class="course-block">
           <div class="course-title" data-i18n="ct_devel">Desarrollo Económico (UBA)</div>
           <div class="slides-list">
-            <a href="slides/de-redistribucion.pdf" class="slide-item" target="_blank" rel="noopener">
-              <span class="slide-num">01</span>
-              <span class="slide-name" data-i18n="s_d_01">Preferencias por redistribución</span>
-              <span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span>
-            </a>
-            <a href="slides/de-desigualdad.pdf" class="slide-item" target="_blank" rel="noopener">
-              <span class="slide-num">02</span>
-              <span class="slide-name" data-i18n="s_d_02">Crecimiento y desigualdad</span>
-              <span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span>
-            </a>
+            <a href="slides/de-redistribucion.pdf" class="slide-item" target="_blank" rel="noopener"><span class="slide-num">01</span><span class="slide-name" data-i18n="s_d_01">Preferencias por redistribución</span><span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span></a>
+            <a href="slides/de-desigualdad.pdf" class="slide-item" target="_blank" rel="noopener"><span class="slide-num">02</span><span class="slide-name" data-i18n="s_d_02">Crecimiento y desigualdad</span><span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span></a>
           </div>
         </div>
-
-      <div class="course-block">
+        <div class="course-block">
           <div class="course-title" data-i18n="ct_finecon">Economía Financiera (UBA)</div>
           <div class="slides-list">
-            <a href="slides/ecofin-mrc_slides.pdf" class="slide-item" target="_blank" rel="noopener">
-              <span class="slide-num">01</span>
-              <span class="slide-name" data-i18n="s_f_01">Modelos de riesgo de crédito</span>
-              <span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span>
-            </a>
+            <a href="slides/ecofin-mrc_slides.pdf" class="slide-item" target="_blank" rel="noopener"><span class="slide-num">01</span><span class="slide-name" data-i18n="s_f_01">Modelos de riesgo de crédito</span><span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span></a>
           </div>
         </div>
-
       </div>
-      
     </div>
   </section>
 
@@ -820,9 +748,9 @@
       </div>
       <div>
         <p class="contact-intro">Hit me up.</p>
-        <a href="mailto:santiago@sanarovaz.github.io" class="contact-item">
+        <a href="mailto:santiago@rodriguez-vazquez.com.ar" class="contact-item">
           <span class="ci-label">Email</span>
-          <span class="ci-value">santiago@sanarovaz.github.io</span>
+          <span class="ci-value">santiago@rodriguez-vazquez.com.ar</span>
           <span class="ci-arrow">↗</span>
         </a>
       </div>
@@ -862,50 +790,29 @@
           t_act: "Acti<em>vi</em>ty",
           t_teach: "Tea<em>ching</em>",
           t_contact: "Con<em>tac</em>t",
-
           bio_lead: "BA in Economics (UBA), MA candidate in Economics (UdeSA).",
           bio_p2: "I am a teaching assistant at UBA for Financial Economics, Economic Development, and Microeconomics II. I have worked on several research projects, particularly related to the space sector and venture capital.",
-          bio_p3: "My interests include Microeconomics, General Equilibrium Theory, Industrial Organization, Finance and topics in Economic Development.",
-
+          bio_p3: "My interests include Microeconomics, General Equilibrium Theory, Industrial Organization, Finance, and topics in Economic Development.",
           edu_date1: "2026<br>Present",
           edu_role1: "MA in Economics",
           edu_desc1: "Core completed. Currently in the second term: Dynamic Macroeconomics, Econometric Methods for Applied IO, and Topics in International Trade.",
           edu_role2: "BA in Economics",
           edu_desc2: "Overall GPA: 8.1/10. Originally enrolled in the Actuarial Science program (completed Actuarial Statistics, Numerical Analysis, and Biometrics).",
-
-          tag_research: "Research",
-          tag_teaching: "Teaching",
-
+          tag_research: "Research", tag_teaching: "Teaching",
           p1_title: "Determinants of space startup financing",
           p1_desc: "Spinoff of <a href=\"https://drive.google.com/file/d/1sHec82BlxsmS3DEngyAdGYnSz3JWn067/view?usp=sharing\" target=\"_blank\" rel=\"noopener\">my undergraduate thesis</a>, using data from over 400 funding rounds of space startups to identify the impact of certain firm and investor attributes on the amounts raised.",
-          p2_title: "TA — Economic Development (UBA)",
-          p2_desc: "Lectures on inequality and redistribution.",
-          p3_title: "TA — Financial Economics (UBA)",
-          p3_desc: "Tutorials on bond pricing and credit risk models.",
-          p4_title: "TA — Microeconomics II (UBA)",
-          p4_desc: "Tutorials on consumer theory, general equilibrium, uncertainty, and asymmetric information.",
+          p2_title: "TA — Economic Development (UBA)", p2_desc: "Lectures on inequality and redistribution.",
+          p3_title: "TA — Financial Economics (UBA)", p3_desc: "Tutorials on bond pricing and credit risk models.",
+          p4_title: "TA — Microeconomics II (UBA)", p4_desc: "Tutorials on consumer theory, general equilibrium, uncertainty, and asymmetric information.",
           p5_desc: "Accounts Payable role. Managed the payments and vendor database. Supported the build-out of an internal purchase-order system.",
           p6_title: "Other projects",
           p6_desc: "Network analysis and calibration of ERGM models. Construction of multilatina databases from SEC data. Authoring of textbook chapters on Financial Economics and on the history of Argentina's space sector.",
-
-          y_2025_pres: "2025 – Present",
-          y_2022_pres: "2022 – Present",
-          y_varios: "Various",
-
-          ct_micro2: "Microeconomics II (UBA)",
-          ct_devel: "Economic Development (UBA)",
-          ct_finecon: "Financial Economics (UBA)",
-
-          s_m_01: "Math & micro catch-up",
-          s_m_02: "GE: Equilibrium",
-          s_m_03: "GE: Efficiency",
-          s_m_04: "GE: Replica economy",
-          s_m_05: "Uncertainty",
-          s_m_06: "Adverse selection",
-          s_m_07: "Signaling and screening",
-          s_d_01: "Preferences for redistribution",
-          s_d_02: "Growth and inequality",
-          s_f_01: "Credit risk models"
+          y_2025_pres: "2025 – Present", y_2022_pres: "2022 – Present", y_varios: "Various",
+          ct_micro2: "Microeconomics II (UBA)", ct_devel: "Economic Development (UBA)", ct_finecon: "Financial Economics (UBA)",
+          s_m_01: "Math & micro catch-up", s_m_02: "GE: Equilibrium", s_m_03: "GE: Efficiency",
+          s_m_04: "GE: Replica economy", s_m_05: "Uncertainty", s_m_06: "Adverse selection",
+          s_m_07: "Signaling and screening", s_d_01: "Preferences for redistribution",
+          s_d_02: "Growth and inequality", s_f_01: "Credit risk models"
         },
         es: {
           t_about: "<em>Ab</em>out",
@@ -913,56 +820,33 @@
           t_act: "Acti<em>vi</em>dad",
           t_teach: "Tea<em>ching</em>",
           t_contact: "Con<em>tac</em>to",
-
           bio_lead: "Lic. en Economía (UBA), maestrando en Economía (UdeSA).",
           bio_p2: "Soy ayudante en UBA de cursos de Economía Financiera, Desarrollo Económico y Microeconomía II. Trabajé en varios proyectos de investigación, en particular relacionados al sector espacial y al venture capital.",
-          bio_p3: "Mis instereses incluyen Microeconomía, Teoría de Equilibrio General, Organización Industrial, Finanzas y tópicos de Desarrollo Económico.",
-
+          bio_p3: "Mis intereses incluyen Microeconomía, Teoría de Equilibrio General, Organización Industrial, Finanzas y tópicos de Desarrollo Económico.",
           edu_date1: "2026<br>Pres.",
           edu_role1: "Maestría en Economía",
           edu_desc1: "Core aprobado. Cursando el segundo trimestre: Macroeconomía Dinámica, Métodos Econométricos para IO Aplicada, y Tópicos de Comercio Internacional.",
           edu_role2: "Lic. en Economía",
           edu_desc2: "Promedio global: 8.1. Originalmente inscripto en la carrera de Actuario (cursé Estadística Actuarial, Análisis Numérico y Biometría).",
-
-          tag_research: "Investigación",
-          tag_teaching: "Docencia",
-
+          tag_research: "Investigación", tag_teaching: "Docencia",
           p1_title: "Determinantes del financiamiento de startups espaciales",
           p1_desc: "Spinoff de <a href=\"https://drive.google.com/file/d/1sHec82BlxsmS3DEngyAdGYnSz3JWn067/view?usp=sharing\" target=\"_blank\" rel=\"noopener\">mi tesis de grado</a>, que utiliza datos de más de 400 rondas de financiamiento de startups espaciales para identificar el impacto de ciertos atributos de las empresas y de sus inversores sobre los montos levantados.",
-          p2_title: "TA — Desarrollo Económico (UBA)",
-          p2_desc: "Clases teóricas de desigualdad y redistribución.",
-          p3_title: "TA — Economía Financiera (UBA)",
-          p3_desc: "Clases prácticas sobre pricing de bonos y modelos de riesgo de crédito.",
-          p4_title: "TA — Microeconomía II (UBA)",
-          p4_desc: "Clases prácticas de teoría del consumidor, equilibrio general, incertidumbre e información asimétrica.",
+          p2_title: "TA — Desarrollo Económico (UBA)", p2_desc: "Clases teóricas de desigualdad y redistribución.",
+          p3_title: "TA — Economía Financiera (UBA)", p3_desc: "Clases prácticas sobre pricing de bonos y modelos de riesgo de crédito.",
+          p4_title: "TA — Microeconomía II (UBA)", p4_desc: "Clases prácticas de teoría del consumidor, equilibrio general, incertidumbre e información asimétrica.",
           p5_desc: "Puesto en AP. Gestión de base de datos de pagos y proveedores. Soporte en el armado de un sistema interno de órdenes de compra.",
           p6_title: "Otros proyectos",
           p6_desc: "Análisis de redes y calibración de modelos ERGM. Elaboración de bases de datos de multilatinas a partir de datos de la SEC. Confección de capítulos de libro de texto de Economía Financiera, y sobre la historia del sector espacial en Argentina.",
-
-          y_2025_pres: "2025 – Pres.",
-          y_2022_pres: "2022 – Pres.",
-          y_varios: "Varios",
-
-          ct_micro2: "Microeconomía II (UBA)",
-          ct_devel: "Desarrollo Económico (UBA)",
-          ct_finecon: "Economía Financiera (UBA)",
-
-          s_m_01: "Catch-up mate+micro",
-          s_m_02: "GE: Equilibrio",
-          s_m_03: "GE: Eficiencia",
-          s_m_04: "GE: Réplica",
-          s_m_05: "Incertidumbre",
-          s_m_06: "Selección Adversa",
-          s_m_07: "Señalización y screening",
-          s_d_01: "Preferencias por redistribución",
-          s_d_02: "Crecimiento y desigualdad",
-          s_f_01: "Modelos de riesgo de crédito"
+          y_2025_pres: "2025 – Pres.", y_2022_pres: "2022 – Pres.", y_varios: "Varios",
+          ct_micro2: "Microeconomía II (UBA)", ct_devel: "Desarrollo Económico (UBA)", ct_finecon: "Economía Financiera (UBA)",
+          s_m_01: "Catch-up mate+micro", s_m_02: "GE: Equilibrio", s_m_03: "GE: Eficiencia",
+          s_m_04: "GE: Réplica", s_m_05: "Incertidumbre", s_m_06: "Selección Adversa",
+          s_m_07: "Señalización y screening", s_d_01: "Preferencias por redistribución",
+          s_d_02: "Crecimiento y desigualdad", s_f_01: "Modelos de riesgo de crédito"
         }
       };
-
       function getStoredLang() { try { return localStorage.getItem('lang'); } catch (e) { return null; } }
       function setStoredLang(v) { try { localStorage.setItem('lang', v); } catch (e) {} }
-
       function applyLang(lang) {
         const dict = I18N[lang];
         if (!dict) return;
@@ -972,12 +856,10 @@
           if (dict[k] !== undefined) el.innerHTML = dict[k];
         });
         const btn = document.getElementById('lang-toggle');
-        if (btn) btn.textContent = (lang === 'es') ? 'ES' : 'EN';
+        if (btn) btn.textContent = (lang === 'es') ? 'EN' : 'ES';
       }
-
       const browserEs = (navigator.language || '').toLowerCase().indexOf('es') === 0;
       let lang = getStoredLang() || (browserEs ? 'es' : 'en');
-
       window.addEventListener('DOMContentLoaded', function () {
         applyLang(lang);
         const btn = document.getElementById('lang-toggle');
@@ -996,23 +878,17 @@
     window.addEventListener('scroll', () => {
       header.classList.toggle('scrolled', window.scrollY > 10);
     }, { passive: true });
-
     const sections = document.querySelectorAll('section');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.08 });
     sections.forEach(s => observer.observe(s));
     sections[0].classList.add('visible');
-
     const navLinks = document.querySelectorAll('nav a');
     window.addEventListener('scroll', () => {
       let current = '';
-      sections.forEach(s => {
-        if (window.scrollY >= s.offsetTop - 160) current = s.id;
-      });
-      navLinks.forEach(a => {
-        a.classList.toggle('active', a.getAttribute('href') === '#' + current);
-      });
+      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 160) current = s.id; });
+      navLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
     }, { passive: true });
   </script>
 </body>
