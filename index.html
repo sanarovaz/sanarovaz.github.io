@@ -14,8 +14,21 @@
       --ink-mid:   #7a6352;
       --ink-light: #b0998a;
       --rule:      #ddd4c4;
+      --header-bg: rgba(245,240,232,0.92);
+      --photo-filter: grayscale(10%) brightness(0.95);
       --serif:     'Lora', Georgia, serif;
       --sans:      'DM Sans', sans-serif;
+    }
+
+    [data-theme="dark"] {
+      --bg:        #1a1511;
+      --surface:   #221c16;
+      --ink:       #f1e9dc;
+      --ink-mid:   #c2b1a0;
+      --ink-light: #8a7868;
+      --rule:      #392f27;
+      --header-bg: rgba(26,21,17,0.92);
+      --photo-filter: grayscale(10%) brightness(0.9);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -28,6 +41,7 @@
       font-weight: 300;
       line-height: 1.75;
       -webkit-font-smoothing: antialiased;
+      transition: background-color 0.4s ease, color 0.4s ease;
     }
 
     /* HEADER */
@@ -39,12 +53,18 @@
       align-items: center;
       justify-content: space-between;
       padding: 28px 64px;
-      background: rgba(245,240,232,0.92);
+      background: var(--header-bg);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid transparent;
-      transition: border-color 0.3s;
+      transition: border-color 0.3s, background-color 0.4s ease;
     }
     header.scrolled { border-bottom-color: var(--rule); }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
 
     .header-name {
       font-family: var(--serif);
@@ -54,6 +74,33 @@
       color: var(--ink);
       text-decoration: none;
     }
+
+    /* Toggle de tema (sol / luna) */
+    .theme-toggle {
+      background: none;
+      border: none;
+      padding: 4px;
+      margin: 0;
+      cursor: pointer;
+      color: var(--ink-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 0;
+      transition: color 0.2s ease;
+    }
+    .theme-toggle:hover { color: var(--ink); }
+    .theme-toggle svg {
+      width: 16px;
+      height: 16px;
+      display: block;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .theme-toggle:hover svg { transform: rotate(25deg); }
+    .theme-toggle .icon-moon { display: none; }
+    [data-theme="dark"] .theme-toggle .icon-sun { display: none; }
+    [data-theme="dark"] .theme-toggle .icon-moon { display: block; }
+    [data-theme="dark"] .theme-toggle:hover svg { transform: rotate(-12deg); }
 
     nav { display: flex; align-items: center; gap: 40px; }
     nav a {
@@ -95,7 +142,7 @@
       height: 96px;
       border-radius: 50%;
       object-fit: cover;
-      filter: grayscale(10%) brightness(0.95);
+      filter: var(--photo-filter);
       margin-bottom: 28px;
       display: block;
     }
@@ -455,7 +502,13 @@
 <body>
 
   <header id="header">
-    <a href="#" class="header-name">snrv</a>
+    <div class="header-left">
+      <a href="#" class="header-name">snrv</a>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Cambiar tema claro/oscuro">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
     <nav>
       <a href="#bio" class="active">about</a>
       <a href="#cv">ed</a>
@@ -522,7 +575,7 @@
           <div>
             <div class="cv-role">Maestría en Economía</div>
             <div class="cv-org"><a href="https://www.udesa.edu.ar/" target="_blank" rel="noopener">Universidad de San Andrés</a> · Victoria, AR</div>
-            <div class="cv-desc">Cursando el core.</div>
+            <div class="cv-desc">Core aprobado. Cursando el segundo trimestre: Macroeconomía Dinámica, Métodos Econométricos para IO Aplicada, y Tópicos de Comercio Internacional.</div>
           </div>
         </div>
         <div class="cv-item">
@@ -710,6 +763,34 @@
   </footer>
 
   <script>
+    /* ---- Tema claro / oscuro ---- */
+    (function () {
+      const root = document.documentElement;
+
+      function getStored() {
+        try { return localStorage.getItem('theme'); } catch (e) { return null; }
+      }
+      function setStored(v) {
+        try { localStorage.setItem('theme', v); } catch (e) {}
+      }
+
+      const prefersDark = window.matchMedia &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const initial = getStored() || (prefersDark ? 'dark' : 'light');
+      root.setAttribute('data-theme', initial);
+
+      window.addEventListener('DOMContentLoaded', function () {
+        const toggle = document.getElementById('theme-toggle');
+        if (!toggle) return;
+        toggle.addEventListener('click', function () {
+          const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+          root.setAttribute('data-theme', next);
+          setStored(next);
+        });
+      });
+    })();
+
+    /* ---- Header / scroll spy ---- */
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
       header.classList.toggle('scrolled', window.scrollY > 10);
