@@ -3,7 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>sanarovaz - page</title>
+
+  <!-- ===== METADATA / SEO =====
+       Si tu sitio NO vive en https://rodriguez-vazquez.com.ar/, cambiá la URL en
+       SITE_URL (abajo, en estas tres líneas: canonical, og:url) y en og:image /
+       twitter:image por la URL real (p.ej. https://tuusuario.github.io/). -->
+  <title>Santiago Rodríguez Vázquez — Economics</title>
+  <meta name="description" content="Santiago Rodríguez Vázquez — MA candidate in Economics at Universidad de San Andrés (UdeSA). Research in industrial organization and international trade.">
+  <meta name="author" content="Santiago Rodríguez Vázquez">
+  <link rel="canonical" href="https://rodriguez-vazquez.com.ar/">
+
+  <!-- Open Graph (LinkedIn, WhatsApp, Slack, etc.) -->
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Santiago Rodríguez Vázquez — Economics">
+  <meta property="og:description" content="MA candidate in Economics at Universidad de San Andrés. Research in industrial organization and international trade.">
+  <meta property="og:url" content="https://rodriguez-vazquez.com.ar/">
+  <meta property="og:image" content="https://rodriguez-vazquez.com.ar/resources/pic.jpeg">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="profile:first_name" content="Santiago">
+  <meta property="profile:last_name" content="Rodríguez Vázquez">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@sanarovaz">
+  <meta name="twitter:title" content="Santiago Rodríguez Vázquez — Economics">
+  <meta name="twitter:description" content="MA candidate in Economics at UdeSA. Research in industrial organization and international trade.">
+  <meta name="twitter:image" content="https://rodriguez-vazquez.com.ar/resources/pic.jpeg">
+
+  <!-- Favicon (monograma 'srv'; podés reemplazarlo por un favicon.svg/.png propio) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%232c1f14'/><text x='32' y='34' text-anchor='middle' dominant-baseline='central' font-family='Georgia,serif' font-size='27' fill='%23f5f0e8'>srv</text></svg>">
+
+  <!-- Datos estructurados para Google (panel de conocimiento) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Santiago Rodríguez Vázquez",
+    "url": "https://rodriguez-vazquez.com.ar/",
+    "jobTitle": "MA candidate in Economics",
+    "image": "https://rodriguez-vazquez.com.ar/resources/pic.jpeg",
+    "email": "santiago@rodriguez-vazquez.com.ar",
+    "affiliation": [
+      { "@type": "CollegeOrUniversity", "name": "Universidad de San Andrés" },
+      { "@type": "CollegeOrUniversity", "name": "Universidad de Buenos Aires" }
+    ],
+    "knowsAbout": ["Industrial Organization", "International Trade", "Microeconomics", "Financial Economics"],
+    "sameAs": [
+      "https://www.linkedin.com/in/sanarovaz/",
+      "https://x.com/sanarovaz",
+      "https://scholar.google.com/citations?user=ycuWZk4AAAAJ&hl=en"
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
   <style>
@@ -63,7 +116,7 @@
     .header-left {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 14px;
     }
 
     .header-name {
@@ -101,6 +154,23 @@
     [data-theme="dark"] .theme-toggle .icon-sun { display: none; }
     [data-theme="dark"] .theme-toggle .icon-moon { display: block; }
     [data-theme="dark"] .theme-toggle:hover svg { transform: rotate(-12deg); }
+
+    /* Toggle de idioma (es / en) */
+    .lang-toggle {
+      background: none;
+      border: none;
+      padding: 4px 2px;
+      margin: 0;
+      cursor: pointer;
+      font-family: var(--serif);
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: var(--ink-light);
+      line-height: 1;
+      transition: color 0.2s ease;
+    }
+    .lang-toggle:hover { color: var(--ink); }
 
     nav { display: flex; align-items: center; gap: 40px; }
     nav a {
@@ -490,7 +560,8 @@
     /* Mobile */
     @media (max-width: 768px) {
       header { padding: 22px 28px; }
-      nav { gap: 20px; }
+      nav { gap: 18px; }
+      .header-left { gap: 12px; }
       .hero { padding: 140px 28px 80px; grid-template-columns: 1fr; gap: 40px; }
       section { padding: 72px 28px; }
       .sec-inner { grid-template-columns: 1fr; gap: 32px; }
@@ -508,6 +579,7 @@
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
+      <button id="lang-toggle" class="lang-toggle" type="button" aria-label="Switch language / Cambiar idioma">EN</button>
     </div>
     <nav>
       <a href="#bio" class="active">about</a>
@@ -552,12 +624,12 @@
     <div class="sec-inner">
       <div>
         <div class="sec-index">01</div>
-        <h2 class="sec-title"><em>Ab</em>out</h2>
+        <h2 class="sec-title" data-i18n="t_about"><em>Ab</em>out</h2>
       </div>
       <div>
-        <p class="bio-text lead">Lic. en Economía (UBA), maestrando en Economía (UdeSA).</p>
-        <p class="bio-text">Soy ayudante en UBA de cursos de Economía Financiera, Desarrollo Económico y Microeconomía II.</p>
-        <p class="bio-text">Trabajé en varios proyectos de investigación, en particular relacionados al sector espacial y al venture capital.</p>
+        <p class="bio-text lead" data-i18n="bio_lead">Lic. en Economía (UBA), maestrando en Economía (UdeSA).</p>
+        <p class="bio-text" data-i18n="bio_p2">Soy ayudante en UBA de cursos de Economía Financiera, Desarrollo Económico y Microeconomía II.</p>
+        <p class="bio-text" data-i18n="bio_p3">Trabajé en varios proyectos de investigación, en particular relacionados al sector espacial y al venture capital.</p>
       </div>
     </div>
   </section>
@@ -567,23 +639,23 @@
     <div class="sec-inner">
       <div>
         <div class="sec-index">02</div>
-        <h2 class="sec-title"><em>Edu</em>cación</h2>
+        <h2 class="sec-title" data-i18n="t_edu"><em>Edu</em>cación</h2>
       </div>
       <div>
         <div class="cv-item">
-          <div class="cv-date">2026<br>Pres.</div>
+          <div class="cv-date" data-i18n="edu_date1">2026<br>Pres.</div>
           <div>
-            <div class="cv-role">Maestría en Economía</div>
+            <div class="cv-role" data-i18n="edu_role1">Maestría en Economía</div>
             <div class="cv-org"><a href="https://www.udesa.edu.ar/" target="_blank" rel="noopener">Universidad de San Andrés</a> · Victoria, AR</div>
-            <div class="cv-desc">Core aprobado. Cursando el segundo trimestre: Macroeconomía Dinámica, Métodos Econométricos para IO Aplicada, y Tópicos de Comercio Internacional.</div>
+            <div class="cv-desc" data-i18n="edu_desc1">Core aprobado. Cursando el segundo trimestre: Macroeconomía Dinámica, Métodos Econométricos para IO Aplicada, y Tópicos de Comercio Internacional.</div>
           </div>
         </div>
         <div class="cv-item">
           <div class="cv-date">2019<br>2025</div>
           <div>
-            <div class="cv-role">Lic. en Economía</div>
+            <div class="cv-role" data-i18n="edu_role2">Lic. en Economía</div>
             <div class="cv-org"><a href="https://economicas.uba.ar/" target="_blank" rel="noopener">Universidad de Buenos Aires</a> · Buenos Aires, AR</div>
-            <div class="cv-desc">Promedio global: 8.1. Originalmente inscripto en la carrera de Actuario (cursé Estadística Actuarial, Análisis Numérico y Biometría).</div>
+            <div class="cv-desc" data-i18n="edu_desc2">Promedio global: 8.1. Originalmente inscripto en la carrera de Actuario (cursé Estadística Actuarial, Análisis Numérico y Biometría).</div>
           </div>
         </div>
       </div>
@@ -595,62 +667,62 @@
     <div class="sec-inner">
       <div>
         <div class="sec-index">03</div>
-        <h2 class="sec-title">Acti<em>vi</em>dad</h2>
+        <h2 class="sec-title" data-i18n="t_act">Acti<em>vi</em>dad</h2>
       </div>
       <div class="projects-list">
 
         <div class="proj-item">
           <div>
-            <div class="proj-tag">Investigación</div>
-            <div class="proj-title">Determinantes del financiamiento de startups espaciales</div>
-            <div class="proj-desc">Spinoff de <a href="https://drive.google.com/file/d/1sHec82BlxsmS3DEngyAdGYnSz3JWn067/view?usp=sharing" target="_blank" rel="noopener">mi tesis de grado</a>, que utiliza datos de más de 400 rondas de financiamiento de startups espaciales para identificar el impacto de ciertos atributos de las empresas y de sus inversores sobre los montos levantados.</div>
+            <div class="proj-tag" data-i18n="tag_research">Investigación</div>
+            <div class="proj-title" data-i18n="p1_title">Determinantes del financiamiento de startups espaciales</div>
+            <div class="proj-desc" data-i18n="p1_desc">Spinoff de <a href="https://drive.google.com/file/d/1sHec82BlxsmS3DEngyAdGYnSz3JWn067/view?usp=sharing" target="_blank" rel="noopener">mi tesis de grado</a>, que utiliza datos de más de 400 rondas de financiamiento de startups espaciales para identificar el impacto de ciertos atributos de las empresas y de sus inversores sobre los montos levantados.</div>
           </div>
           <div class="proj-year">WIP</div>
         </div>
 
         <div class="proj-item">
           <div>
-            <div class="proj-tag">Docencia</div>
-            <div class="proj-title">TA — Desarrollo Económico (UBA)</div>
-            <div class="proj-desc">Clases teóricas de desigualdad y redistribución.</div>
+            <div class="proj-tag" data-i18n="tag_teaching">Docencia</div>
+            <div class="proj-title" data-i18n="p2_title">TA — Desarrollo Económico (UBA)</div>
+            <div class="proj-desc" data-i18n="p2_desc">Clases teóricas de desigualdad y redistribución.</div>
           </div>
-          <div class="proj-year">2025 – Pres.</div>
+          <div class="proj-year" data-i18n="y_2025_pres">2025 – Pres.</div>
         </div>
 
         <div class="proj-item">
           <div>
-            <div class="proj-tag">Docencia</div>
-            <div class="proj-title">TA — Economía Financiera (UBA)</div>
-            <div class="proj-desc">Clases prácticas sobre pricing de bonos y modelos de riesgo de crédito.</div>
+            <div class="proj-tag" data-i18n="tag_teaching">Docencia</div>
+            <div class="proj-title" data-i18n="p3_title">TA — Economía Financiera (UBA)</div>
+            <div class="proj-desc" data-i18n="p3_desc">Clases prácticas sobre pricing de bonos y modelos de riesgo de crédito.</div>
           </div>
-          <div class="proj-year">2025 – Pres.</div>
+          <div class="proj-year" data-i18n="y_2025_pres">2025 – Pres.</div>
         </div>
 
         <div class="proj-item">
           <div>
-            <div class="proj-tag">Docencia</div>
-            <a class="proj-title" href="https://sites.google.com/view/micro-ii-pascuini-286/micro286pascuini?authuser=0" target="_blank" rel="noopener">TA — Microeconomía II (UBA)</a>
-            <div class="proj-desc">Clases prácticas de teoría del consumidor, equilibrio general, incertidumbre e información asimétrica.</div>
+            <div class="proj-tag" data-i18n="tag_teaching">Docencia</div>
+            <a class="proj-title" data-i18n="p4_title" href="https://sites.google.com/view/micro-ii-pascuini-286/micro286pascuini?authuser=0" target="_blank" rel="noopener">TA — Microeconomía II (UBA)</a>
+            <div class="proj-desc" data-i18n="p4_desc">Clases prácticas de teoría del consumidor, equilibrio general, incertidumbre e información asimétrica.</div>
           </div>
-          <div class="proj-year">2022 – Pres.</div>
+          <div class="proj-year" data-i18n="y_2022_pres">2022 – Pres.</div>
         </div>
 
         <div class="proj-item">
           <div>
             <div class="proj-tag">Corporate</div>
             <div class="proj-title">Financial Analyst (Veritran)</div>
-            <div class="proj-desc">Puesto en AP. Gestión de base de datos de pagos y proveedores. Soporte en el armado de un sistema interno de órdenes de compra.</div>
+            <div class="proj-desc" data-i18n="p5_desc">Puesto en AP. Gestión de base de datos de pagos y proveedores. Soporte en el armado de un sistema interno de órdenes de compra.</div>
           </div>
           <div class="proj-year">2022 – 2023</div>
         </div>
 
         <div class="proj-item">
           <div>
-            <div class="proj-tag">Investigación</div>
-            <div class="proj-title">Otros proyectos</div>
-            <div class="proj-desc">Análisis de redes y calibración de modelos ERGM. Elaboración de bases de datos de multilatinas a partir de datos de la SEC. Confección de capítulos de libro de texto de Economía Financiera, y sobre la historia del sector espacial en Argentina.</div>
+            <div class="proj-tag" data-i18n="tag_research">Investigación</div>
+            <div class="proj-title" data-i18n="p6_title">Otros proyectos</div>
+            <div class="proj-desc" data-i18n="p6_desc">Análisis de redes y calibración de modelos ERGM. Elaboración de bases de datos de multilatinas a partir de datos de la SEC. Confección de capítulos de libro de texto de Economía Financiera, y sobre la historia del sector espacial en Argentina.</div>
           </div>
-          <div class="proj-year">Varios</div>
+          <div class="proj-year" data-i18n="y_varios">Varios</div>
         </div>
 
       </div>
@@ -662,73 +734,73 @@
     <div class="sec-inner">
       <div>
         <div class="sec-index">04</div>
-        <h2 class="sec-title">Tea<em>ching</em></h2>
+        <h2 class="sec-title" data-i18n="t_teach">Tea<em>ching</em></h2>
       </div>
       <div>
 
         <div class="course-block">
-          <div class="course-title">Microeconomía II (UBA)</div>
+          <div class="course-title" data-i18n="ct_micro2">Microeconomía II (UBA)</div>
           <div class="slides-list">
             <a href="slides/micro2-CTPI.pdf" class="slide-item" target="_blank" rel="noopener">
               <span class="slide-num">01</span>
-              <span class="slide-name">Catch-up mate+micro</span>
+              <span class="slide-name" data-i18n="s_m_01">Catch-up mate+micro</span>
               <span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span>
             </a>
             <a href="slides/micro2-GEPI.pdf" class="slide-item" target="_blank" rel="noopener">
               <span class="slide-num">02</span>
-              <span class="slide-name">GE: Equilibrio</span>
+              <span class="slide-name" data-i18n="s_m_02">GE: Equilibrio</span>
               <span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span>
             </a>
             <a href="slides/micro2-GEPII.pdf" class="slide-item" target="_blank" rel="noopener">
               <span class="slide-num">03</span>
-              <span class="slide-name">GE: Eficiencia</span>
+              <span class="slide-name" data-i18n="s_m_03">GE: Eficiencia</span>
               <span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span>
             </a>
             <a href="slides/micro2-GEPIII.pdf" class="slide-item" target="_blank" rel="noopener">
               <span class="slide-num">04</span>
-              <span class="slide-name">GE: Réplica</span>
+              <span class="slide-name" data-i18n="s_m_04">GE: Réplica</span>
               <span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span>
             </a>
             <a href="slides/micro2-TPI.pdf" class="slide-item" target="_blank" rel="noopener">
               <span class="slide-num">05</span>
-              <span class="slide-name">Incertidumbre</span>
+              <span class="slide-name" data-i18n="s_m_05">Incertidumbre</span>
               <span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span>
             </a>
             <a href="slides/micro2-TPII.pdf" class="slide-item" target="_blank" rel="noopener">
               <span class="slide-num">06</span>
-              <span class="slide-name">Selección Adversa</span>
+              <span class="slide-name" data-i18n="s_m_06">Selección Adversa</span>
               <span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span>
             </a>
             <a href="slides/micro2-TPIII.pdf" class="slide-item" target="_blank" rel="noopener">
               <span class="slide-num">07</span>
-              <span class="slide-name">Señalización y screening</span>
+              <span class="slide-name" data-i18n="s_m_07">Señalización y screening</span>
               <span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span>
             </a>
           </div>
         </div>
 
         <div class="course-block">
-          <div class="course-title">Desarrollo Económico (UBA)</div>
+          <div class="course-title" data-i18n="ct_devel">Desarrollo Económico (UBA)</div>
           <div class="slides-list">
             <a href="slides/de-redistribucion.pdf" class="slide-item" target="_blank" rel="noopener">
               <span class="slide-num">01</span>
-              <span class="slide-name">Preferencias por redistribución</span>
+              <span class="slide-name" data-i18n="s_d_01">Preferencias por redistribución</span>
               <span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span>
             </a>
             <a href="slides/de-desigualdad.pdf" class="slide-item" target="_blank" rel="noopener">
               <span class="slide-num">02</span>
-              <span class="slide-name">Crecimiento y desigualdad</span>
+              <span class="slide-name" data-i18n="s_d_02">Crecimiento y desigualdad</span>
               <span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span>
             </a>
           </div>
         </div>
 
       <div class="course-block">
-          <div class="course-title">Economía Financiera (UBA)</div>
+          <div class="course-title" data-i18n="ct_finecon">Economía Financiera (UBA)</div>
           <div class="slides-list">
             <a href="slides/ecofin-mrc_slides.pdf" class="slide-item" target="_blank" rel="noopener">
               <span class="slide-num">01</span>
-              <span class="slide-name">Modelos de riesgo de crédito</span>
+              <span class="slide-name" data-i18n="s_f_01">Modelos de riesgo de crédito</span>
               <span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span>
             </a>
           </div>
@@ -744,7 +816,7 @@
     <div class="sec-inner">
       <div>
         <div class="sec-index">05</div>
-        <h2 class="sec-title">Con<em>tac</em>to</h2>
+        <h2 class="sec-title" data-i18n="t_contact">Con<em>tac</em>to</h2>
       </div>
       <div>
         <p class="contact-intro">Hit me up.</p>
@@ -763,22 +835,13 @@
   </footer>
 
   <script>
-    /* ---- Tema claro / oscuro ---- */
+    /* ============ TEMA CLARO / OSCURO ============ */
     (function () {
       const root = document.documentElement;
-
-      function getStored() {
-        try { return localStorage.getItem('theme'); } catch (e) { return null; }
-      }
-      function setStored(v) {
-        try { localStorage.setItem('theme', v); } catch (e) {}
-      }
-
-      const prefersDark = window.matchMedia &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const initial = getStored() || (prefersDark ? 'dark' : 'light');
-      root.setAttribute('data-theme', initial);
-
+      function getStored() { try { return localStorage.getItem('theme'); } catch (e) { return null; } }
+      function setStored(v) { try { localStorage.setItem('theme', v); } catch (e) {} }
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      root.setAttribute('data-theme', getStored() || (prefersDark ? 'dark' : 'light'));
       window.addEventListener('DOMContentLoaded', function () {
         const toggle = document.getElementById('theme-toggle');
         if (!toggle) return;
@@ -790,7 +853,145 @@
       });
     })();
 
-    /* ---- Header / scroll spy ---- */
+    /* ============ IDIOMA ES / EN ============ */
+    (function () {
+      const I18N = {
+        en: {
+          t_about: "<em>Ab</em>out",
+          t_edu: "<em>Edu</em>cation",
+          t_act: "Acti<em>vi</em>ty",
+          t_teach: "Tea<em>ching</em>",
+          t_contact: "Con<em>tac</em>t",
+
+          bio_lead: "BA in Economics (UBA), MA candidate in Economics (UdeSA).",
+          bio_p2: "I am a teaching assistant at UBA for Financial Economics, Economic Development, and Microeconomics II. I have worked on several research projects, particularly related to the space sector and venture capital.",
+          bio_p3: "My interests include Microeconomics, General Equilibrium Theory, Industrial Organization, Finance and topics in Economic Development.",
+
+          edu_date1: "2026<br>Present",
+          edu_role1: "MA in Economics",
+          edu_desc1: "Core completed. Currently in the second term: Dynamic Macroeconomics, Econometric Methods for Applied IO, and Topics in International Trade.",
+          edu_role2: "BA in Economics",
+          edu_desc2: "Overall GPA: 8.1/10. Originally enrolled in the Actuarial Science program (completed Actuarial Statistics, Numerical Analysis, and Biometrics).",
+
+          tag_research: "Research",
+          tag_teaching: "Teaching",
+
+          p1_title: "Determinants of space startup financing",
+          p1_desc: "Spinoff of <a href=\"https://drive.google.com/file/d/1sHec82BlxsmS3DEngyAdGYnSz3JWn067/view?usp=sharing\" target=\"_blank\" rel=\"noopener\">my undergraduate thesis</a>, using data from over 400 funding rounds of space startups to identify the impact of certain firm and investor attributes on the amounts raised.",
+          p2_title: "TA — Economic Development (UBA)",
+          p2_desc: "Lectures on inequality and redistribution.",
+          p3_title: "TA — Financial Economics (UBA)",
+          p3_desc: "Tutorials on bond pricing and credit risk models.",
+          p4_title: "TA — Microeconomics II (UBA)",
+          p4_desc: "Tutorials on consumer theory, general equilibrium, uncertainty, and asymmetric information.",
+          p5_desc: "Accounts Payable role. Managed the payments and vendor database. Supported the build-out of an internal purchase-order system.",
+          p6_title: "Other projects",
+          p6_desc: "Network analysis and calibration of ERGM models. Construction of multilatina databases from SEC data. Authoring of textbook chapters on Financial Economics and on the history of Argentina's space sector.",
+
+          y_2025_pres: "2025 – Present",
+          y_2022_pres: "2022 – Present",
+          y_varios: "Various",
+
+          ct_micro2: "Microeconomics II (UBA)",
+          ct_devel: "Economic Development (UBA)",
+          ct_finecon: "Financial Economics (UBA)",
+
+          s_m_01: "Math & micro catch-up",
+          s_m_02: "GE: Equilibrium",
+          s_m_03: "GE: Efficiency",
+          s_m_04: "GE: Replica economy",
+          s_m_05: "Uncertainty",
+          s_m_06: "Adverse selection",
+          s_m_07: "Signaling and screening",
+          s_d_01: "Preferences for redistribution",
+          s_d_02: "Growth and inequality",
+          s_f_01: "Credit risk models"
+        },
+        es: {
+          t_about: "<em>Ab</em>out",
+          t_edu: "<em>Edu</em>cación",
+          t_act: "Acti<em>vi</em>dad",
+          t_teach: "Tea<em>ching</em>",
+          t_contact: "Con<em>tac</em>to",
+
+          bio_lead: "Lic. en Economía (UBA), maestrando en Economía (UdeSA).",
+          bio_p2: "Soy ayudante en UBA de cursos de Economía Financiera, Desarrollo Económico y Microeconomía II. Trabajé en varios proyectos de investigación, en particular relacionados al sector espacial y al venture capital.",
+          bio_p3: "Mis instereses incluyen la Macroeconomía, Teoría de Equilibrio General, Organización Industrial, Finanzas y tópicos de Desarrollo Económico.",
+
+          edu_date1: "2026<br>Pres.",
+          edu_role1: "Maestría en Economía",
+          edu_desc1: "Core aprobado. Cursando el segundo trimestre: Macroeconomía Dinámica, Métodos Econométricos para IO Aplicada, y Tópicos de Comercio Internacional.",
+          edu_role2: "Lic. en Economía",
+          edu_desc2: "Promedio global: 8.1. Originalmente inscripto en la carrera de Actuario (cursé Estadística Actuarial, Análisis Numérico y Biometría).",
+
+          tag_research: "Investigación",
+          tag_teaching: "Docencia",
+
+          p1_title: "Determinantes del financiamiento de startups espaciales",
+          p1_desc: "Spinoff de <a href=\"https://drive.google.com/file/d/1sHec82BlxsmS3DEngyAdGYnSz3JWn067/view?usp=sharing\" target=\"_blank\" rel=\"noopener\">mi tesis de grado</a>, que utiliza datos de más de 400 rondas de financiamiento de startups espaciales para identificar el impacto de ciertos atributos de las empresas y de sus inversores sobre los montos levantados.",
+          p2_title: "TA — Desarrollo Económico (UBA)",
+          p2_desc: "Clases teóricas de desigualdad y redistribución.",
+          p3_title: "TA — Economía Financiera (UBA)",
+          p3_desc: "Clases prácticas sobre pricing de bonos y modelos de riesgo de crédito.",
+          p4_title: "TA — Microeconomía II (UBA)",
+          p4_desc: "Clases prácticas de teoría del consumidor, equilibrio general, incertidumbre e información asimétrica.",
+          p5_desc: "Puesto en AP. Gestión de base de datos de pagos y proveedores. Soporte en el armado de un sistema interno de órdenes de compra.",
+          p6_title: "Otros proyectos",
+          p6_desc: "Análisis de redes y calibración de modelos ERGM. Elaboración de bases de datos de multilatinas a partir de datos de la SEC. Confección de capítulos de libro de texto de Economía Financiera, y sobre la historia del sector espacial en Argentina.",
+
+          y_2025_pres: "2025 – Pres.",
+          y_2022_pres: "2022 – Pres.",
+          y_varios: "Varios",
+
+          ct_micro2: "Microeconomía II (UBA)",
+          ct_devel: "Desarrollo Económico (UBA)",
+          ct_finecon: "Economía Financiera (UBA)",
+
+          s_m_01: "Catch-up mate+micro",
+          s_m_02: "GE: Equilibrio",
+          s_m_03: "GE: Eficiencia",
+          s_m_04: "GE: Réplica",
+          s_m_05: "Incertidumbre",
+          s_m_06: "Selección Adversa",
+          s_m_07: "Señalización y screening",
+          s_d_01: "Preferencias por redistribución",
+          s_d_02: "Crecimiento y desigualdad",
+          s_f_01: "Modelos de riesgo de crédito"
+        }
+      };
+
+      function getStoredLang() { try { return localStorage.getItem('lang'); } catch (e) { return null; } }
+      function setStoredLang(v) { try { localStorage.setItem('lang', v); } catch (e) {} }
+
+      function applyLang(lang) {
+        const dict = I18N[lang];
+        if (!dict) return;
+        document.documentElement.lang = lang;
+        document.querySelectorAll('[data-i18n]').forEach(function (el) {
+          const k = el.getAttribute('data-i18n');
+          if (dict[k] !== undefined) el.innerHTML = dict[k];
+        });
+        const btn = document.getElementById('lang-toggle');
+        if (btn) btn.textContent = (lang === 'es') ? 'ES' : 'EN';
+      }
+
+      const browserEs = (navigator.language || '').toLowerCase().indexOf('es') === 0;
+      let lang = getStoredLang() || (browserEs ? 'es' : 'en');
+
+      window.addEventListener('DOMContentLoaded', function () {
+        applyLang(lang);
+        const btn = document.getElementById('lang-toggle');
+        if (btn) {
+          btn.addEventListener('click', function () {
+            lang = (lang === 'es') ? 'en' : 'es';
+            applyLang(lang);
+            setStoredLang(lang);
+          });
+        }
+      });
+    })();
+
+    /* ============ HEADER / SCROLL SPY ============ */
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
       header.classList.toggle('scrolled', window.scrollY > 10);
