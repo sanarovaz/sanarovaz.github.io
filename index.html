@@ -110,7 +110,6 @@
       text-decoration: none;
     }
 
-    /* CAMBIO 2: toggles usan DM Sans, igual que los links del hero */
     .theme-toggle {
       background: none;
       border: none;
@@ -143,7 +142,7 @@
       padding: 4px 2px;
       margin: 0;
       cursor: pointer;
-      font-family: var(--sans); /* CAMBIO 2: DM Sans */
+      font-family: var(--sans);
       font-size: 0.72rem;
       font-weight: 400;
       letter-spacing: 0.12em;
@@ -153,10 +152,9 @@
     }
     .lang-toggle:hover { color: var(--ink); }
 
-    /* CAMBIO 2: nav usa DM Sans */
     nav { display: flex; align-items: center; gap: 40px; }
     nav a {
-      font-family: var(--sans); /* CAMBIO 2: DM Sans */
+      font-family: var(--sans);
       font-size: 0.72rem;
       font-weight: 400;
       letter-spacing: 0.12em;
@@ -204,12 +202,10 @@
       line-height: 1.08;
       letter-spacing: -0.01em;
       color: var(--ink);
-      /* CAMBIO 1: reducimos margin-bottom para que el role quede pegado */
       margin-bottom: 12px;
     }
     .hero-name em { font-style: italic; font-weight: 400; }
 
-    /* CAMBIO 1: el role va debajo del nombre, antes de los links */
     .hero-role {
       font-family: var(--serif);
       font-style: italic;
@@ -227,7 +223,6 @@
       align-items: flex-start;
     }
 
-    /* Grupo 1: links sociales */
     .hero-links {
       display: flex;
       flex-direction: column;
@@ -261,7 +256,6 @@
       user-select: none;
     }
 
-    /* Grupo 2: CV — separado con aire, tratamiento distinto (serif itálica) */
     .hero-cv-block {
       margin-top: 22px;
       display: flex;
@@ -435,28 +429,60 @@
       padding-top: 20px;
     }
 
-    /* Teaching */
-    .course-block { margin-bottom: 48px; }
-    .course-block:last-child { margin-bottom: 0; }
-    .course-title {
+    /* Teaching — acordeón */
+    .course-block { border-bottom: 1px solid var(--rule); }
+    .course-block:first-child { border-top: 1px solid var(--rule); }
+
+    .course-toggle {
+      width: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
       font-family: var(--serif);
       font-size: 1.05rem;
       font-weight: 500;
       color: var(--ink);
-      margin-bottom: 18px;
+      text-align: left;
+      padding: 22px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      transition: color 0.2s ease;
     }
-    .slides-list { display: flex; flex-direction: column; }
+    .course-toggle:hover { color: var(--ink-mid); }
+    .course-toggle-meta {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .course-chevron {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+      color: var(--ink-light);
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .course-block.open .course-chevron { transform: rotate(180deg); }
+
+    /* contenedor animado por max-height */
+    .course-panel {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .slides-list { display: flex; flex-direction: column; padding-bottom: 10px; }
+
     .slide-item {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 13px 0;
-      border-bottom: 1px solid var(--rule);
+      border-top: 1px solid var(--rule);
       text-decoration: none;
       gap: 16px;
       transition: opacity 0.2s;
     }
-    .slide-item:first-child { border-top: 1px solid var(--rule); }
     .slide-item:hover { opacity: 0.5; }
     .slide-num {
       font-family: var(--serif);
@@ -576,7 +602,6 @@
   <div class="hero">
     <div class="hero-left">
       <img src="resources/pic.jpeg" alt="Santiago Rodríguez Vázquez" class="hero-photo">
-      <!-- CAMBIO 1: role movido a debajo del nombre, dentro de hero-left -->
       <h1 class="hero-name">Santiago<br><em>Rodríguez</em><br>Vázquez</h1>
       <p class="hero-role">econ: micro; io; dev; fin</p>
     </div>
@@ -711,28 +736,51 @@
       </div>
       <div>
         <div class="course-block">
-          <div class="course-title" data-i18n="ct_micro2">Microeconomía II (UBA)</div>
-          <div class="slides-list">
-            <a href="slides/micro2-CTPI.pdf" class="slide-item" target="_blank" rel="noopener"><span class="slide-num">01</span><span class="slide-name" data-i18n="s_m_01">Catch-up mate+micro</span><span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span></a>
-            <a href="slides/micro2-GEPI.pdf" class="slide-item" target="_blank" rel="noopener"><span class="slide-num">02</span><span class="slide-name" data-i18n="s_m_02">GE: Equilibrio</span><span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span></a>
-            <a href="slides/micro2-GEPII.pdf" class="slide-item" target="_blank" rel="noopener"><span class="slide-num">03</span><span class="slide-name" data-i18n="s_m_03">GE: Eficiencia</span><span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span></a>
-            <a href="slides/micro2-GEPIII.pdf" class="slide-item" target="_blank" rel="noopener"><span class="slide-num">04</span><span class="slide-name" data-i18n="s_m_04">GE: Réplica</span><span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span></a>
-            <a href="slides/micro2-TPI.pdf" class="slide-item" target="_blank" rel="noopener"><span class="slide-num">05</span><span class="slide-name" data-i18n="s_m_05">Incertidumbre</span><span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span></a>
-            <a href="slides/micro2-TPII.pdf" class="slide-item" target="_blank" rel="noopener"><span class="slide-num">06</span><span class="slide-name" data-i18n="s_m_06">Selección Adversa</span><span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span></a>
-            <a href="slides/micro2-TPIII.pdf" class="slide-item" target="_blank" rel="noopener"><span class="slide-num">07</span><span class="slide-name" data-i18n="s_m_07">Señalización y screening</span><span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span></a>
+          <button class="course-toggle" type="button" aria-expanded="false">
+            <span class="course-title-text" data-i18n="ct_micro2">Microeconomía II (UBA)</span>
+            <span class="course-toggle-meta">
+              <svg class="course-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </button>
+          <div class="course-panel">
+            <div class="slides-list">
+              <a href="slides/micro2-CTPI.pdf" class="slide-item" target="_blank" rel="noopener"><span class="slide-num">01</span><span class="slide-name" data-i18n="s_m_01">Catch-up mate+micro</span><span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span></a>
+              <a href="slides/micro2-GEPI.pdf" class="slide-item" target="_blank" rel="noopener"><span class="slide-num">02</span><span class="slide-name" data-i18n="s_m_02">GE: Equilibrio</span><span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span></a>
+              <a href="slides/micro2-GEPII.pdf" class="slide-item" target="_blank" rel="noopener"><span class="slide-num">03</span><span class="slide-name" data-i18n="s_m_03">GE: Eficiencia</span><span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span></a>
+              <a href="slides/micro2-GEPIII.pdf" class="slide-item" target="_blank" rel="noopener"><span class="slide-num">04</span><span class="slide-name" data-i18n="s_m_04">GE: Réplica</span><span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span></a>
+              <a href="slides/micro2-TPI.pdf" class="slide-item" target="_blank" rel="noopener"><span class="slide-num">05</span><span class="slide-name" data-i18n="s_m_05">Incertidumbre</span><span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span></a>
+              <a href="slides/micro2-TPII.pdf" class="slide-item" target="_blank" rel="noopener"><span class="slide-num">06</span><span class="slide-name" data-i18n="s_m_06">Selección Adversa</span><span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span></a>
+              <a href="slides/micro2-TPIII.pdf" class="slide-item" target="_blank" rel="noopener"><span class="slide-num">07</span><span class="slide-name" data-i18n="s_m_07">Señalización y screening</span><span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span></a>
+            </div>
           </div>
         </div>
+
         <div class="course-block">
-          <div class="course-title" data-i18n="ct_devel">Desarrollo Económico (UBA)</div>
-          <div class="slides-list">
-            <a href="slides/de-redistribucion.pdf" class="slide-item" target="_blank" rel="noopener"><span class="slide-num">01</span><span class="slide-name" data-i18n="s_d_01">Preferencias por redistribución</span><span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span></a>
-            <a href="slides/de-desigualdad.pdf" class="slide-item" target="_blank" rel="noopener"><span class="slide-num">02</span><span class="slide-name" data-i18n="s_d_02">Crecimiento y desigualdad</span><span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span></a>
+          <button class="course-toggle" type="button" aria-expanded="false">
+            <span class="course-title-text" data-i18n="ct_devel">Desarrollo Económico (UBA)</span>
+            <span class="course-toggle-meta">
+              <svg class="course-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </button>
+          <div class="course-panel">
+            <div class="slides-list">
+              <a href="slides/de-redistribucion.pdf" class="slide-item" target="_blank" rel="noopener"><span class="slide-num">01</span><span class="slide-name" data-i18n="s_d_01">Preferencias por redistribución</span><span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span></a>
+              <a href="slides/de-desigualdad.pdf" class="slide-item" target="_blank" rel="noopener"><span class="slide-num">02</span><span class="slide-name" data-i18n="s_d_02">Crecimiento y desigualdad</span><span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span></a>
+            </div>
           </div>
         </div>
+
         <div class="course-block">
-          <div class="course-title" data-i18n="ct_finecon">Economía Financiera (UBA)</div>
-          <div class="slides-list">
-            <a href="slides/ecofin-mrc_slides.pdf" class="slide-item" target="_blank" rel="noopener"><span class="slide-num">01</span><span class="slide-name" data-i18n="s_f_01">Modelos de riesgo de crédito</span><span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span></a>
+          <button class="course-toggle" type="button" aria-expanded="false">
+            <span class="course-title-text" data-i18n="ct_finecon">Economía Financiera (UBA)</span>
+            <span class="course-toggle-meta">
+              <svg class="course-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </button>
+          <div class="course-panel">
+            <div class="slides-list">
+              <a href="slides/ecofin-mrc_slides.pdf" class="slide-item" target="_blank" rel="noopener"><span class="slide-num">01</span><span class="slide-name" data-i18n="s_f_01">Modelos de riesgo de crédito</span><span class="slide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDF</span></a>
+            </div>
           </div>
         </div>
       </div>
@@ -857,6 +905,10 @@
         });
         const btn = document.getElementById('lang-toggle');
         if (btn) btn.textContent = (lang === 'es') ? 'EN' : 'ES';
+        // recalcular alturas de los paneles abiertos por si cambió el texto
+        document.querySelectorAll('.course-block.open .course-panel').forEach(function (panel) {
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+        });
       }
       const browserEs = (navigator.language || '').toLowerCase().indexOf('es') === 0;
       let lang = getStoredLang() || (browserEs ? 'es' : 'en');
@@ -870,6 +922,44 @@
             setStoredLang(lang);
           });
         }
+      });
+    })();
+
+    /* ============ TEACHING: ACORDEÓN ============ */
+    (function () {
+      window.addEventListener('DOMContentLoaded', function () {
+        const blocks = document.querySelectorAll('.course-block');
+        blocks.forEach(function (block) {
+          const toggle = block.querySelector('.course-toggle');
+          const panel = block.querySelector('.course-panel');
+          if (!toggle || !panel) return;
+          toggle.addEventListener('click', function () {
+            const isOpen = block.classList.contains('open');
+            if (isOpen) {
+              // primero fijar la altura actual, luego colapsar (para que anime)
+              panel.style.maxHeight = panel.scrollHeight + 'px';
+              requestAnimationFrame(function () { panel.style.maxHeight = '0px'; });
+              block.classList.remove('open');
+              toggle.setAttribute('aria-expanded', 'false');
+            } else {
+              block.classList.add('open');
+              toggle.setAttribute('aria-expanded', 'true');
+              panel.style.maxHeight = panel.scrollHeight + 'px';
+            }
+          });
+          // al terminar de abrir, soltar la altura fija para que sea responsive
+          panel.addEventListener('transitionend', function (e) {
+            if (e.propertyName === 'max-height' && block.classList.contains('open')) {
+              panel.style.maxHeight = 'none';
+            }
+          });
+        });
+        // si la ventana cambia de tamaño, recalcular paneles abiertos
+        window.addEventListener('resize', function () {
+          document.querySelectorAll('.course-block.open .course-panel').forEach(function (panel) {
+            panel.style.maxHeight = 'none';
+          });
+        });
       });
     })();
 
