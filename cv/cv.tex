@@ -1,0 +1,167 @@
+\documentclass[11pt]{article}
+
+% ---------- Encoding & fonts ----------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+% Default Computer Modern to match the reference CV.
+% For a Times-like look instead, uncomment: \usepackage{mathptmx}
+
+% ---------- Geometry ----------
+\usepackage[left=1.85in,right=0.8in,top=0.9in,bottom=1.05in]{geometry}
+
+% ---------- Packages ----------
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage[hidelinks]{hyperref}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage{microtype}
+
+% ---------- Editable metadata ----------
+\newcommand{\cvname}{Santiago Rodríguez Vázquez}
+\newcommand{\cvdate}{Julio de 2026}
+
+% ---------- Marginal section headers (the Bugni look) ----------
+\titleformat{\section}[leftmargin]
+  {\normalfont\bfseries\filright}
+  {}{0pt}{}
+% {left width} {space above} {space below}
+\titlespacing{\section}{1.35in}{1.3em}{0.6em}
+
+% ---------- Footer: date left, page right ----------
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+%\fancyhf[R]{\footnotesize \cvdate}
+\fancyfoot[C]{\footnotesize \thepage}
+
+% ---------- Spacing helpers ----------
+\setlength{\parindent}{0pt}
+\newcommand{\entrydate}[1]{\hfill\textnormal{#1}}
+\newlist{cvitems}{itemize}{1}
+\setlist[cvitems]{leftmargin=1.2em,label=\textendash,itemsep=1.5pt,topsep=2pt,parsep=0pt}
+
+% subgroup header inside a section (e.g. an institution)
+\newcommand{\grp}[1]{\smallskip{\itshape #1}\par\nopagebreak\vspace{1pt}}
+
+\begin{document}
+
+% ================= HEADER =================
+{\LARGE\bfseries {\cvname}}\par
+\vspace{6pt}
+
+\section{Contacto}
+\begin{minipage}[t]{2.7in}
+\href{mailto:santiago@rodriguez-vazquez.com.ar}{santiago@rodriguez-vazquez.com.ar}\\
+\href{https://sanarovaz.github.io}{sanarovaz.github.io}
+\\
++54 3442 516481
+\end{minipage}
+
+
+% ================= EDUCATION =================
+\section{Educación}
+\textbf{Universidad de San Andrés}.\entrydate{2026--Pres.}\\
+Maestría en Economía.
+\begin{cvitems}
+  \item Núcleo aprobado. Optativas en curso: Comercio Internacional, Macroeconomía Dinámica,
+        Métodos Econométricos para la Organización Industrial.
+\end{cvitems}
+
+\smallskip
+\textbf{Universidad de Buenos Aires, Facultad de Cs. Económicas}.\entrydate{2019--2025}\\
+Licenciatura en Economía.
+\begin{cvitems}
+  \item Promedio parcial: 8,03. Promedio real: 7,57.
+  \item Materias del programa de Actuario: Estadística Actuarial, Análisis Numérico, Biometría.
+  \item Tesina: \emph{``Determinantes del financiamiento de startups espaciales: proyectos de nanosatélites 2014--2024''} (nota: 10).
+\end{cvitems}
+
+% ================= RESEARCH EXPERIENCE =================
+\section{Experiencia en investigación}
+\textbf{Instituto Interdisciplinario de Economía Política (IIEP)}.\entrydate{2025}\\
+Becario UBACyT Estímulo.
+\begin{cvitems}
+    \item  Proyecto \emph{``Narcoeconomía en Argentina: dimensionamiento, impactos y propuestas de política''}, a cargo de Andrés López (UBA).
+\end{cvitems}
+
+% ================= TEACHING =================
+\section{Experiencia docente}
+\textbf{Universidad de San Andrés}.
+\begin{cvitems}
+  \item Tutor, Economía Internacional (E155).\entrydate{2026--Pres.}
+\end{cvitems}
+
+\textbf{Universidad de Buenos Aires, Facultad de Cs. Económicas}.
+\begin{cvitems}
+  \item Ayudante de Primera, Microeconomía I (291).\entrydate{2026--Pres.}
+  \item Docente Adscripto, Desarrollo Económico (559). \entrydate{2025--Pres.}
+  \item Ayudante de Primera, Economía Financiera (549).\entrydate{2025--Pres.}
+  \item Ayudante de Primera, Microeconomía II (286).\entrydate{2025--Pres.}
+  \item Ayudante de Segunda, Microeconomía II (286).\entrydate{2022--2025.}
+  \end{cvitems}
+
+% ================= PROFESSIONAL EXPERIENCE =================
+\section{Experiencia profesional}
+\textbf{Veritran}.\entrydate{2022--2023}\\
+Finance Analyst Jr.
+\begin{cvitems}
+  \item Apoyo en cuentas a pagar para subsidiarias de Latinoamérica, EE.UU. y Europa.
+  \item Mantenimiento de bases de datos de empleados y proveedores en NetSuite.
+  \item Contacto con proveedores, seguimiento de procesos de actualización tributaria e
+        implementación de sistemas internos para órdenes de compra.
+\end{cvitems}
+
+% ================= SKILLS =================
+\section{Capacidades}
+\textbf{Técnicas}
+\begin{cvitems}
+  \item Programación: R, Python. Familiar con SQL, Stata, Tableau Public.
+  \item Paquetes y presentaciones: LaTeX, Google Workspace, Microsoft Office.
+\end{cvitems}
+\textbf{Idiomas}
+\begin{cvitems}
+\item Inglés (avanzado): Cambridge \emph{Certificate in Advanced English}, puntaje 198, 2017.
+\end{cvitems}
+
+% ================= SEMINARS =================
+\section{Participación en eventos CyT}
+
+\textbf{Ciclo de seminarios permanentes del Departamento de Economía, Universidad de San Andrés}
+\begin{cvitems}
+  \item Bugni, F. (2026). \emph{Identification and Inference on Treatment Effects under Covariate-Adaptive Randomization and Imperfect Compliance}.
+  \item Caravello, T. (2026). \emph{Pricing Mistakes and the Non-Neutrality of Money}.
+  \item Tobal, M. (2026). \emph{Monetary Policy Transmission in an Emerging Market: The Financial- Friction Channel vs. The Interest-Rate Channel}.
+  \item Ballestero, G. (2026). \emph{Centralized Admission Mechanisms and International Migration}.
+  \item Amarante, V. (2026). \emph{Reproducing Gender Inequality: Adolescent Time Use and Parental Influence in Colombia and Mexico}.
+  \item Giulla, T. (2026). \emph{What Candidates Do Parties Pick? Executive Experience and Candidate Selection}.
+  \item Satyanath, S. (2026). \emph{Social Clubs and Political Office}.
+  \item Roldán, F. (2026). \emph{The Perils of Bilateral Soverign Debt}.
+\end{cvitems}
+
+\vspace{5px}
+\textbf{Seminarios del Instituto Interdisciplinario de Economía Política (IIEP)}
+\begin{cvitems}
+  \item Edo, M. (2025). \emph{Gender Gaps in Academic Careers: Evidence from Economics in Argentina.}
+  \item Maurizio, R. (2025). \emph{Short- and long-term earning effects of job exits: insights from matched employer-employee data in Argentina.}
+  \item Aromí, D. (2025). \emph{Technological change and labor outcomes: measuring the role of automation and augmentation.}
+  \item Trombetta, M. (2025). \emph{Intergenerational occupational transmission as a determinant of social mobility.}
+  \item Escolar, J.\,M. (2025). \emph{Bidding for Firms: Efficiency vs.\ Redistribution and Optimal Government Policy.}
+  \item Bisang, R. (2024). \emph{Aportes de la bioeconomía al desarrollo argentino: ¿nueva oportunidad de la ``industrialización biológica''?}
+  \item Viollaz, M. (2024). \emph{Women Political Leaders as Agents of Environmental Change.}
+  \item Petralia, S. (2024). \emph{Innovation Complementarities in Open Source Software.}
+  \item Tomassi, M. (2024). \emph{The political economy of redistribution and (in)efficiency in Latin America and the Caribbean.}
+  \item Díaz de Astarloa, B. (2024). \emph{Evolución reciente del dinamismo empresarial y la productividad en la industria manufacturera argentina.}
+  \item Depetris Chauvin, N. (2024). \emph{Promoting Exports in Brazil.}
+  \item You, H.\,Y. (2024). \emph{How Are Politicians Informed? Witness and Information Provision in Congress.}
+\end{cvitems}
+
+\vspace{5px}
+\textbf{Seminario Interuniversitario sobre Desarrollo Productivo Argentino (SIDPA)}
+\begin{cvitems}
+  \item López, A., Sturbin, L.\ \& Pascuini, P. (2025). \emph{Saliendo al mundo. Internacionalización de startups IA y Biotecnología en Argentina.}
+  \item Bentivegna, B. (2025). \emph{Análisis del estado actual de los sectores de soja y carne vacuna en Argentina a la luz del Reglamento (UE) 2023/1115 sobre productos libres de deforestación.}
+  \item García Díaz, F. (2024). \emph{Asimetrías y desigualdades territoriales en la Argentina. Aportes para el debate.}
+\end{cvitems}
+
+\end{document}
