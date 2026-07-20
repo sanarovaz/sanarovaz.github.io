@@ -1,0 +1,140 @@
+\documentclass[11pt]{article}
+
+% ---------- Encoding & fonts ----------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+
+% ---------- Geometry ----------
+\usepackage[left=1.85in,right=0.8in,top=0.9in,bottom=1.05in]{geometry}
+
+% ---------- Packages ----------
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage[hidelinks]{hyperref}
+
+% ---------- Editable metadata ----------
+\newcommand{\cvname}{Santiago Rodríguez Vázquez}
+\newcommand{\cvdate}{July 2026}
+
+% ---------- Marginal section headers ----------
+\titleformat{\section}[leftmargin]
+  {\normalfont\bfseries\filright}
+  {}{0pt}{}
+\titlespacing{\section}{1.55in}{1.3em}{0.6em}
+
+% ---------- Footer ----------
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[C]{\footnotesize \thepage}
+
+% ---------- Spacing helpers ----------
+\setlength{\parindent}{0pt}
+\newcommand{\entrydate}[1]{\hfill\textnormal{#1}}
+\newlist{cvitems}{itemize}{1}
+\setlist[cvitems]{leftmargin=1.2em,label=\textendash,itemsep=1.5pt,topsep=2pt,parsep=0pt}
+\newcommand{\grp}[1]{\smallskip{\itshape #1}\par\nopagebreak\vspace{1pt}}
+
+\begin{document}
+
+{\Large\bfseries {\cvname}}\par
+\vspace{6pt}
+
+\section{Contact}
+\begin{minipage}[t]{2.7in}
+\href{mailto:santiago@rodriguez-vazquez.com.ar}{santiago@rodriguez-vazquez.com.ar}\\
+\href{https://sanarovaz.github.io}{sanarovaz.github.io}
+\\
++54 3442 516481
+\end{minipage}
+
+\section{Education}
+\textbf{Universidad de San Andrés}.\entrydate{2026--Present}\\
+M.A. in Economics.
+\begin{cvitems}
+  \item Core coursework completed. Current electives: International Trade, Dynamic
+        Macroeconomics, Econometric Methods for Industrial Organization.
+\end{cvitems}
+
+\smallskip
+\textbf{Universidad de Buenos Aires, School of Economic Sciences}.\entrydate{2019--2025}\\
+B.A. in Economics (Licenciatura).
+\begin{cvitems}
+  \item GPA: 8.03 (partial), 7.57 (final), out of 10.
+  \item Courses from the Actuarial Science program: Actuarial Statistics,
+        Numerical Analysis, Biometrics.
+  \item Undergraduate thesis: \emph{``Determinants of space-startup financing:
+        nanosatellite projects, 2014--2024''} (grade: 10/10).
+\end{cvitems}
+
+\section{Research experience}
+\textbf{Instituto Interdisciplinario de Economía Política (IIEP)}.\entrydate{2025}\\
+UBACyT Research Fellow (Estímulo).
+\begin{cvitems}
+    \item Project \emph{``Narco-economy in Argentina: measurement, impacts, and policy
+          proposals''}, led by Andrés López (UBA).
+\end{cvitems}
+
+\section{Teaching experience}
+\textbf{Universidad de San Andrés}.
+\begin{cvitems}
+  \item Tutor, International Economics (E155).\entrydate{2026--Present}
+\end{cvitems}
+
+\textbf{Universidad de Buenos Aires, School of Economic Sciences}.
+\begin{cvitems}
+  \item Teaching Assistant, Microeconomics I (291).\entrydate{2026--Present}
+  \item Teaching Assistant, Economic Development (559).\entrydate{2025--Present}
+  \item Teaching Assistant, Financial Economics (549).\entrydate{2025--Present}
+  \item Teaching Assistant, Microeconomics II (286).\entrydate{2022--Present}
+\end{cvitems}
+
+\section{Professional experience}
+\textbf{Veritran}.\entrydate{2022--2023}\\
+Finance Analyst Jr.
+\begin{cvitems}
+  \item Support for AP processes across subsidiaries in Latin America, the US, and Europe.
+  \item Maintenance of employee and vendor databases in NetSuite.
+  \item Vendor contact, tax-update processes, and implementation of internal purchase-order systems.
+\end{cvitems}
+
+\section{Skills}
+\textbf{Technical}
+\begin{cvitems}
+  \item Programming: R, Python. Familiar with SQL, Stata and Tableau Public.
+  \item Presentations: LaTeX, Google Workspace, Microsoft Office.
+\end{cvitems}
+\textbf{Languages}
+\begin{cvitems}
+\item Spanish (native). English (advanced): Cambridge \emph{Certificate in Advanced English}, score 198, 2017.
+\end{cvitems}
+
+\section{Seminars \& conferences}
+\grp{Seminars --- Instituto Interdisciplinario de Economía Política (IIEP)}
+\begin{cvitems}
+  \item Edo, M. (2025). \emph{Gender Gaps in Academic Careers: Evidence from Economics in Argentina.}
+  \item Maurizio, R. (2025). \emph{Short- and long-term earning effects of job exits: insights from matched employer-employee data in Argentina.}
+  \item Aromí, D. (2025). \emph{Technological change and labor outcomes: measuring the role of automation and augmentation.}
+  \item Trombetta, M. (2025). \emph{Intergenerational occupational transmission as a determinant of social mobility.}
+  \item Escolar, J.\,M. (2025). \emph{Bidding for Firms: Efficiency vs.\ Redistribution and Optimal Government Policy.}
+  \item Bisang, R. (2024). \emph{Aportes de la bioeconomía al desarrollo argentino: ¿nueva oportunidad de la ``industrialización biológica''?}
+  \item Viollaz, M. (2024). \emph{Women Political Leaders as Agents of Environmental Change.}
+  \item Petralia, S. (2024). \emph{Innovation Complementarities in Open Source Software.}
+  \item Tomassi, M. (2024). \emph{The political economy of redistribution and (in)efficiency in Latin America and the Caribbean.}
+  \item Dussel Peters, E. (2024). \emph{Retos conceptuales y socioeconómicos de la relación América Latina y el Caribe con China en 2024.}
+  \item Díaz de Astarloa, B. (2024). \emph{Evolución reciente del dinamismo empresarial y la productividad en la industria manufacturera argentina.}
+  \item Depetris Chauvin, N. (2024). \emph{Promoting Exports in Brazil.}
+  \item Rossi, M. (2024). \emph{Incorporating Cultural Context into Safe-Water Interventions: Experimental Evidence from Egypt.}
+  \item You, H.\,Y. (2024). \emph{How Are Politicians Informed? Witness and Information Provision in Congress.}
+\end{cvitems}
+
+\grp{Seminars --- Seminario Interuniversitario sobre Desarrollo Productivo Argentino (SIDPA)}
+\begin{cvitems}
+  \item López, A., Sturbin, L.\ \& Pascuini, P. (2025). \emph{Saliendo al mundo. Internacionalización de startups IA y Biotecnología en Argentina.}
+  \item Bentivegna, B. (2025). \emph{Análisis del estado actual de los sectores de soja y carne vacuna en Argentina a la luz del Reglamento (UE) 2023/1115 sobre productos libres de deforestación.}
+  \item García Díaz, F. (2024). \emph{Asimetrías y desigualdades territoriales en la Argentina. Aportes para el debate.}
+\end{cvitems}
+
+\end{document}
