@@ -3,7 +3,8 @@
 % ---------- Encoding & fonts ----------
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage{microtype}
+% Default Computer Modern to match the reference CV.
+% For a Times-like look instead, uncomment: \usepackage{mathptmx}
 
 % ---------- Geometry ----------
 \usepackage[left=1.85in,right=0.8in,top=0.9in,bottom=1.05in]{geometry}
@@ -13,21 +14,24 @@
 \usepackage{enumitem}
 \usepackage{fancyhdr}
 \usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
 
 % ---------- Editable metadata ----------
 \newcommand{\cvname}{Santiago Rodríguez Vázquez}
 \newcommand{\cvdate}{July 2026}
 
-% ---------- Marginal section headers ----------
+% ---------- Marginal section headers (the Bugni look) ----------
 \titleformat{\section}[leftmargin]
   {\normalfont\bfseries\filright}
   {}{0pt}{}
+% {left width} {space above} {space below}
 \titlespacing{\section}{1.35in}{1.3em}{0.6em}
 
-% ---------- Footer ----------
+% ---------- Footer: date left, page right ----------
 \pagestyle{fancy}
 \fancyhf{}
 \renewcommand{\headrulewidth}{0pt}
+%\fancyhf[R]{\footnotesize \cvdate}
 \fancyfoot[C]{\footnotesize \thepage}
 
 % ---------- Spacing helpers ----------
@@ -36,10 +40,14 @@
 \newlist{cvitems}{itemize}{1}
 \setlist[cvitems]{leftmargin=1.2em,label=\textendash,itemsep=1.5pt,topsep=2pt,parsep=0pt}
 
+% subgroup header inside a section (e.g. an institution)
+\newcommand{\grp}[1]{\smallskip{\itshape #1}\par\nopagebreak\vspace{1pt}}
+
 \begin{document}
 
+% ================= HEADER =================
 {\LARGE\bfseries {\cvname}}\par
-\vspace{6pt}
+\vspace{0pt}
 
 \section{Contact}
 \begin{minipage}[t]{2.7in}
@@ -49,6 +57,7 @@
 +54 3442 516481
 \end{minipage}
 
+% ================= EDUCATION =================
 \section{Education}
 \textbf{Universidad de San Andrés}.\entrydate{2026--Present}\\
 M.A. in Economics.
@@ -62,12 +71,13 @@ M.A. in Economics.
 B.A. in Economics (Licenciatura).
 \begin{cvitems}
   \item GPA: 8.03 (partial), 7.57 (final), out of 10.
-  \item Courses from the Actuarial Science program: Actuarial Statistics,
-        Numerical Analysis, Biometrics.
+  \item Courses from the Actuarial program, e.g. Actuarial Statistics,
+        Numerical Analysis.
   \item Undergraduate thesis: \emph{``Determinants of space-startup financing:
         nanosatellite projects, 2014--2024''} (grade: 10/10).
 \end{cvitems}
 
+% ================= RESEARCH EXPERIENCE =================
 \section{Research experience}
 \textbf{Instituto Interdisciplinario de Economía Política (IIEP)}.\entrydate{2025}\\
 UBACyT Research Fellow (Estímulo).
@@ -75,7 +85,15 @@ UBACyT Research Fellow (Estímulo).
     \item Project \emph{``Narco-economy in Argentina: measurement, impacts, and policy
           proposals''}, led by Andrés López (UBA).
 \end{cvitems}
+\textbf{Other projects}.\\
+Research Assistant.
+\begin{cvitems}
+    \item Design and implementation of ERGM and QAP models on firm networks.
+    \item Construction of a financial database of multilatinas for an IDB project.
+    \item Drafting of book chapters on the history of the Argentine space sector.
+\end{cvitems}
 
+% ================= TEACHING =================
 \section{Teaching experience}
 \textbf{Universidad de San Andrés}.
 \begin{cvitems}
@@ -85,31 +103,33 @@ UBACyT Research Fellow (Estímulo).
 \textbf{Universidad de Buenos Aires, School of Economic Sciences}.
 \begin{cvitems}
   \item Teaching Assistant, Microeconomics I (291).\entrydate{2026--Present}
-  \item Teaching Assistant, Economic Development (559).\entrydate{2025--Present}
+  \item Adjunct Teaching Fellow, Economic Development (559).\entrydate{2025--Present}
   \item Teaching Assistant, Financial Economics (549).\entrydate{2025--Present}
-  \item Teaching Assistant, Microeconomics II (286).\entrydate{2022--Present}
+  \item Teaching Assistant, Microeconomics II (286).\entrydate{2025--Present}
+  \item Undergraduate Teaching Assistant, Microeconomics II (286).\entrydate{2022--2025}
 \end{cvitems}
 
+% ================= PROFESSIONAL EXPERIENCE =================
 \section{Professional experience}
 \textbf{Veritran}.\entrydate{2022--2023}\\
 Finance Analyst Jr.
 \begin{cvitems}
   \item AP support for subsidiaries in Latin America, the US, and Europe.
-  \item Maintenance of employee and vendor databases in NetSuite.
-  \item Vendor contact, tax-update processes, and implementation of internal purchase-order systems.
+  \item Maintenance of databases and system updates in NetSuite.
 \end{cvitems}
 
+% ================= SKILLS =================
 \section{Skills}
 \textbf{Technical}
 \begin{cvitems}
-  \item Programming: R, Python. Familiar with SQL, Stata, Tableau Public.
-  \item Packages \& presentations: LaTeX, Google Workspace, Microsoft Office.
+  \item R, Python. Familiar with SQL, Stata, Tableau Public.
 \end{cvitems}
 \textbf{Languages}
 \begin{cvitems}
 \item Spanish (native). English (advanced): Cambridge CAE, score 198, 2017.
 \end{cvitems}
 
+% ================= SEMINARS =================
 \section{Seminars \& conferences}
 \textbf{Permanent seminar series, Department of Economics, Universidad de San Andrés}
 \begin{cvitems}
@@ -123,7 +143,7 @@ Finance Analyst Jr.
   \item Roldán, F. (2026). \emph{The Perils of Bilateral Sovereign Debt}.
 \end{cvitems}
 
-\smallskip
+\vspace{5pt}
 \textbf{Seminars, Instituto Interdisciplinario de Economía Política (IIEP)}
 \begin{cvitems}
   \item Edo, M. (2025). \emph{Gender Gaps in Academic Careers: Evidence from Economics in Argentina.}
@@ -140,7 +160,7 @@ Finance Analyst Jr.
   \item You, H.\,Y. (2024). \emph{How Are Politicians Informed? Witness and Information Provision in Congress.}
 \end{cvitems}
 
-\smallskip
+\vspace{5pt}
 \textbf{Seminario Interuniversitario sobre Desarrollo Productivo Argentino (SIDPA)}
 \begin{cvitems}
   \item López, A., Sturbin, L.\ \& Pascuini, P. (2025). \emph{Saliendo al mundo. Internacionalización de startups IA y Biotecnología en Argentina.}
