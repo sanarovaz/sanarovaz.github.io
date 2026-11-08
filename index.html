@@ -1,56 +1,146 @@
-<!-- ... existing code ... -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Santiago Rodríguez Vázquez</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg:        #f7f7f5;
+      --bg:        #f8f9fa;
       --surface:   #ffffff;
-      --ink:       #2b2b2b;
-      --ink-mid:   #4a4a4a;
-      --ink-light: #767676;
-      --rule:      #e3e3df;
+      --ink:       #1f2328;
+      --ink-mid:   #57606a;
+      --ink-light: #8c959f;
+      --rule:      #d0d7de;
       --accent:    #2b4c7e;
       --accent-dk: #1d3559;
       --serif:     'Newsreader', Garamond, Georgia, serif;
       --sans:      'Inter', system-ui, -apple-system, sans-serif;
     }
     [data-theme="dark"] {
-      --bg:        #1b1c20;
-      --surface:   #23242a;
-      --ink:       #e8e8ea;
-      --ink-mid:   #b4b4ba;
-      --ink-light: #7f8088;
-      --rule:      #34353c;
-      --accent:    #82aaff;
-      --accent-dk: #a5c2ff;
+      --bg:        #0d1117;
+      --surface:   #161b22;
+      --ink:       #f0f6fc;
+      --ink-mid:   #8b949e;
+      --ink-light: #6e7681;
+      --rule:      #30363d;
+      --accent:    #58a6ff;
+      --accent-dk: #79c0ff;
     }
-<!-- ... existing code ... -->
-    /* ===== Top nav ===== */
-    .topnav {
-      max-width: 1180px;
-      margin: 30px auto 0;
-      padding: 16px 40px;
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    a { color: var(--accent); text-decoration: none; transition: color 0.15s; }
+    a:hover { color: var(--accent-dk); text-decoration: underline; }
+
+    /* ===== Header & Title ===== */
+    .masthead {
+      text-align: center;
+      padding: 48px 24px 20px;
+    }
+    .masthead h1 {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 2.4rem;
+      line-height: 1.15;
+      color: var(--accent);
+      letter-spacing: -0.015em;
+    }
+    .masthead .tagline {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.08rem;
+      color: var(--ink-mid);
+      margin-top: 8px;
+    }
+
+    /* ===== Sticky Topnav ===== */
+    .topnav-container {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--bg);
       border-top: 1px solid var(--rule);
       border-bottom: 1px solid var(--rule);
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+    .topnav {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 14px 40px;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 34px;
-      position: sticky;
-      top: 0;
-      background: var(--bg);
-      z-index: 100;
-      transition: background-color 0.4s ease;
+      gap: 32px;
+      position: relative;
     }
-<!-- ... existing code ... -->
-    .icon-sun { display: none; }
-    .icon-moon { display: block; }
-    [data-theme="dark"] .icon-sun { display: block; }
-    [data-theme="dark"] .icon-moon { display: none; }
+    .topnav a {
+      font-family: var(--sans);
+      color: var(--ink-mid);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+    .topnav a:hover { color: var(--accent); text-decoration: none; }
+    .topnav .nav-tools {
+      position: absolute;
+      right: 40px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
 
-    /* ===== Layout ===== */
+    /* Theme & Lang Buttons */
+    .icon-btn, .lang-btn {
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      cursor: pointer;
+      color: var(--ink-mid);
+      padding: 6px 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+    .icon-btn:hover, .lang-btn:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: var(--bg);
+    }
+    .icon-btn svg { width: 18px; height: 18px; display: block; }
+    .lang-btn {
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      line-height: 1;
+    }
+
+    /* Strict Icon Toggle Rules */
+    .icon-sun { display: none !important; }
+    .icon-moon { display: inline-block !important; }
+    [data-theme="dark"] .icon-sun { display: inline-block !important; }
+    [data-theme="dark"] .icon-moon { display: none !important; }
+
+    /* ===== Main Layout ===== */
     .wrap {
       max-width: 1180px;
       margin: 0 auto;
-      padding: 48px 40px 80px;
+      padding: 40px 40px 80px;
       display: grid;
       grid-template-columns: 1fr 300px;
       gap: 64px;
@@ -58,7 +148,96 @@
     }
 
     .section { margin-bottom: 44px; scroll-margin-top: 70px; }
-<!-- ... existing code ... -->
+    .section-head {
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: 1.45rem;
+      color: var(--ink);
+      padding-bottom: 9px;
+      margin-bottom: 22px;
+      border-bottom: 1px solid var(--rule);
+      letter-spacing: -0.01em;
+    }
+
+    .lead {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--ink);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+    .body-p { color: var(--ink-mid); margin-bottom: 13px; line-height: 1.65; }
+
+    /* ===== Entry List ===== */
+    .entry {
+      display: grid;
+      grid-template-columns: 130px 1fr auto;
+      gap: 20px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--rule);
+      align-items: baseline;
+    }
+    .entry:first-of-type { border-top: 1px solid var(--rule); }
+    .entry-date {
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: var(--ink-light);
+      white-space: nowrap;
+    }
+    .entry-main { min-width: 0; }
+    .entry-title {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--accent);
+      font-weight: 500;
+      line-height: 1.35;
+    }
+    .entry-title.plain { color: var(--ink); }
+    .entry-sub { font-size: 0.98rem; color: var(--ink-mid); margin-top: 4px; line-height: 1.55; }
+    .entry-sub a { font-size: 0.98rem; }
+    .entry-tag {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--ink-light);
+      white-space: nowrap;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* ===== Teaching Accordion ===== */
+    .course { border-bottom: 1px solid var(--rule); }
+    .course:first-of-type { border-top: 1px solid var(--rule); }
+    .course-toggle {
+      width: 100%; background: none; border: none; cursor: pointer;
+      font-family: var(--serif); font-size: 1.1rem; font-weight: 500; color: var(--ink);
+      text-align: left; padding: 14px 0;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      transition: color 0.2s;
+    }
+    .course-toggle:hover { color: var(--accent); }
+    .course-chevron { width: 15px; height: 15px; flex-shrink: 0; color: var(--ink-light); transition: transform 0.35s cubic-bezier(0.4,0,0.2,1); }
+    .course.open .course-chevron { transform: rotate(180deg); }
+    .course-panel { overflow: hidden; max-height: 0; transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1); }
+    .slides { padding-bottom: 8px; }
+    .slide {
+      display: grid; grid-template-columns: 30px 1fr auto; gap: 14px;
+      padding: 9px 0; border-top: 1px solid var(--rule); align-items: baseline;
+    }
+    .slide:hover .slide-name { color: var(--accent); }
+    .slide-num { font-family: var(--sans); font-size: 0.8rem; color: var(--ink-light); }
+    .slide-name { font-family: var(--serif); font-size: 1rem; color: var(--ink); transition: color 0.15s; }
+    .slide-pdf { font-family: var(--sans); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; color: var(--ink-light); text-transform: uppercase; }
+
+    /* ===== Contact ===== */
+    .contact-line { font-family: var(--serif); color: var(--ink-mid); margin-bottom: 14px; font-style: italic; font-size: 1.08rem; }
+    .contact-row { padding: 12px 0; border-bottom: 1px solid var(--rule); display: flex; gap: 16px; align-items: center; }
+    .contact-row:first-of-type { border-top: 1px solid var(--rule); }
+    .contact-k { font-family: var(--sans); width: 90px; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-light); flex-shrink: 0; }
+    .contact-row span:last-child { font-family: var(--sans); font-size: 0.95rem; }
+
     /* ===== Sidebar ===== */
     .sidebar { position: sticky; top: 74px; }
     .side-block { margin-bottom: 38px; }
@@ -68,17 +247,366 @@
       margin-bottom: 16px;
     }
     .side-photo {
-      width: 175px; height: 175px; object-fit: cover;
+      width: 140px; height: 140px; object-fit: cover;
       border-radius: 8px; border: 1px solid var(--rule);
       background: var(--surface); margin-bottom: 16px;
       filter: grayscale(6%); display: block;
     }
     .side-photo-fallback {
-      width: 175px; height: 175px; border-radius: 8px;
+      width: 140px; height: 140px; border-radius: 8px;
       border: 1px solid var(--rule);
       background: linear-gradient(160deg, #cfd3ef, #e8c9d8);
       display: flex; align-items: center; justify-content: center;
-      font-size: 2.2rem; color: #fff; font-weight: 600; margin-bottom: 16px;
+      font-size: 2rem; color: #fff; font-weight: 600; margin-bottom: 16px;
     }
     .side-name { font-family: var(--serif); font-size: 1.1rem; color: var(--accent); font-weight: 500; }
-<!-- ... existing code ... -->
+    .side-role { font-family: var(--sans); color: var(--ink-mid); font-size: 0.85rem; margin-top: 4px; line-height: 1.45; }
+    .side-list { list-style: none; }
+    .side-list li { padding: 4px 0; }
+    .side-list a { font-family: var(--sans); color: var(--accent); font-size: 0.9rem; }
+    .side-meta { font-family: var(--sans); color: var(--ink-light); font-size: 0.85rem; }
+    .side-cv { margin-top: 4px; }
+    .side-cv .cv-label { font-family: var(--serif); font-style: italic; color: var(--ink-mid); font-size: 0.95rem; margin-right: 4px; }
+
+    footer {
+      max-width: 1180px; margin: 0 auto; padding: 28px 40px;
+      border-top: 1px solid var(--rule);
+      display: flex; justify-content: space-between;
+      color: var(--ink-light); font-family: var(--sans); font-size: 0.82rem;
+    }
+    footer .foot-name { font-family: var(--serif); font-style: italic; font-size: 0.95rem; }
+
+    @media (max-width: 860px) {
+      .masthead h1 { font-size: 2.1rem; }
+      .topnav { gap: 16px; padding: 12px 16px; justify-content: flex-start; }
+      .topnav .nav-tools { position: static; margin-left: auto; }
+      .wrap { grid-template-columns: 1fr; gap: 48px; padding: 36px 20px 64px; }
+      .sidebar { position: static; order: -1; }
+      .entry { grid-template-columns: 1fr; gap: 4px; }
+      .entry-tag { grid-row: 1; justify-self: start; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="masthead">
+    <h1>Santiago Rodríguez Vázquez</h1>
+    <div class="tagline" data-i18n="tagline">Economía · organización industrial, comercio, micro aplicada</div>
+  </div>
+
+  <div class="topnav-container">
+    <nav class="topnav">
+      <a href="#about" data-i18n="nav_about">About</a>
+      <a href="#education" data-i18n="nav_edu">Education</a>
+      <a href="#activity" data-i18n="nav_act">Activity</a>
+      <a href="#teaching" data-i18n="nav_teach">Teaching</a>
+      <a href="#contact" data-i18n="nav_cont">Contact</a>
+      <span class="nav-tools">
+        <button id="theme-toggle" class="icon-btn" type="button" aria-label="Tema claro/oscuro">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button id="lang-toggle" class="lang-btn" type="button" aria-label="Idioma">EN</button>
+      </span>
+    </nav>
+  </div>
+
+  <div class="wrap">
+    <main>
+      <!-- ABOUT -->
+      <section class="section" id="about">
+        <h2 class="section-head" data-i18n="h_about">About</h2>
+        <p class="lead" data-i18n="about_lead">Lic. en Economía (UBA), maestrando en Economía (UdeSA).</p>
+        <p class="body-p" data-i18n="about_p2">Soy ayudante en UBA de cursos de Economía Financiera, Desarrollo Económico y Microeconomía II. Trabajé en varios proyectos de investigación, en particular relacionados al sector espacial y al venture capital.</p>
+        <p class="body-p" data-i18n="about_p3">Mis intereses incluyen Microeconomía (particularmente Equilibrio General), Organización Industrial, Finanzas y tópicos de Desarrollo Económico.</p>
+      </section>
+
+      <!-- EDUCATION -->
+      <section class="section" id="education">
+        <h2 class="section-head" data-i18n="h_edu">Education</h2>
+        <div class="entry">
+          <div class="entry-date" data-i18n="edu_d1">2026 – Pres.</div>
+          <div class="entry-main">
+            <div class="entry-title plain" data-i18n="edu_t1">Maestría en Economía</div>
+            <div class="entry-sub"><a href="https://www.udesa.edu.ar/" target="_blank" rel="noopener">Universidad de San Andrés</a> · Victoria, AR</div>
+            <div class="entry-sub" data-i18n="edu_s1">Core aprobado. Cursando el segundo trimestre: Macroeconomía Dinámica, Métodos Econométricos para IO Aplicada, y Tópicos de Comercio Internacional.</div>
+          </div>
+          <div class="entry-tag"></div>
+        </div>
+        <div class="entry">
+          <div class="entry-date">2019 – 2025</div>
+          <div class="entry-main">
+            <div class="entry-title plain" data-i18n="edu_t2">Lic. en Economía</div>
+            <div class="entry-sub"><a href="https://economicas.uba.ar/" target="_blank" rel="noopener">Universidad de Buenos Aires</a> · Buenos Aires, AR</div>
+            <div class="entry-sub" data-i18n="edu_s2">Promedio global: 8.1. Originalmente inscripto en la carrera de Actuario (cursé Estadística Actuarial, Análisis Numérico y Biometría).</div>
+          </div>
+          <div class="entry-tag"></div>
+        </div>
+      </section>
+
+      <!-- ACTIVITY -->
+      <section class="section" id="activity">
+        <h2 class="section-head" data-i18n="h_act">Activity</h2>
+        <div class="entry">
+          <div class="entry-date" data-i18n="act_tag_research">Investigación</div>
+          <div class="entry-main">
+            <div class="entry-title plain" data-i18n="a1_t">Determinantes del financiamiento de startups espaciales</div>
+            <div class="entry-sub" data-i18n="a1_s">(Con <a href="https://x.com/pascuinipaulo" target="_blank" rel="noopener">Paulo Pascuini</a>). Spinoff de <a href="https://drive.google.com/file/d/1sHec82BlxsmS3DEngyAdGYnSz3JWn067/view?usp=sharing" target="_blank" rel="noopener">mi tesis de grado</a>, que utiliza datos de más de 400 rondas de financiamiento de startups espaciales para identificar el impacto de ciertos atributos de las empresas y de sus inversores sobre los montos levantados.</div>
+          </div>
+          <div class="entry-tag">WIP</div>
+        </div>
+        <div class="entry">
+          <div class="entry-date" data-i18n="act_tag_teaching">Docencia</div>
+          <div class="entry-main">
+            <div class="entry-title plain" data-i18n="a2_t">TA — Desarrollo Económico (UBA)</div>
+            <div class="entry-sub" data-i18n="a2_s">Clases teóricas de desigualdad y redistribución.</div>
+          </div>
+          <div class="entry-tag" data-i18n="y_2025_pres">2025 – Pres.</div>
+        </div>
+        <div class="entry">
+          <div class="entry-date" data-i18n="act_tag_teaching">Docencia</div>
+          <div class="entry-main">
+            <div class="entry-title plain" data-i18n="a3_t">TA — Economía Financiera (UBA)</div>
+            <div class="entry-sub" data-i18n="a3_s">Clases prácticas sobre pricing de bonos y modelos de riesgo de crédito.</div>
+          </div>
+          <div class="entry-tag" data-i18n="y_2025_pres">2025 – Pres.</div>
+        </div>
+        <div class="entry">
+          <div class="entry-date" data-i18n="act_tag_teaching">Docencia</div>
+          <div class="entry-main">
+            <div class="entry-title"><a href="https://sites.google.com/view/micro-ii-pascuini-286/micro286pascuini?authuser=0" target="_blank" rel="noopener" data-i18n="a4_t">TA — Microeconomía II (UBA)</a></div>
+            <div class="entry-sub" data-i18n="a4_s">Clases prácticas de teoría del consumidor, equilibrio general, incertidumbre e información asimétrica.</div>
+          </div>
+          <div class="entry-tag" data-i18n="y_2022_pres">2022 – Pres.</div>
+        </div>
+        <div class="entry">
+          <div class="entry-date">Corporate</div>
+          <div class="entry-main">
+            <div class="entry-title plain">Financial Analyst (Veritran)</div>
+            <div class="entry-sub" data-i18n="a5_s">Puesto en AP. Gestión de base de datos de pagos y proveedores. Soporte en el armado de un sistema interno de órdenes de compra.</div>
+          </div>
+          <div class="entry-tag">2022 – 2023</div>
+        </div>
+        <div class="entry">
+          <div class="entry-date" data-i18n="act_tag_research">Investigación</div>
+          <div class="entry-main">
+            <div class="entry-title plain" data-i18n="a6_t">Otros proyectos</div>
+            <div class="entry-sub" data-i18n="a6_s">Análisis de redes y calibración de modelos ERGM. Elaboración de bases de datos de multilatinas a partir de datos de la SEC. Confección de capítulos de libro de texto de Economía Financiera, y sobre la historia del sector espacial en Argentina.</div>
+          </div>
+          <div class="entry-tag" data-i18n="y_varios">Varios</div>
+        </div>
+      </section>
+
+      <!-- TEACHING -->
+      <section class="section" id="teaching">
+        <h2 class="section-head" data-i18n="h_teach">Teaching</h2>
+        <div class="course">
+          <button class="course-toggle" type="button" aria-expanded="false">
+            <span data-i18n="ct_micro2">Microeconomía II (UBA)</span>
+            <svg class="course-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="course-panel"><div class="slides">
+            <a href="slides/micro2-CTPI.pdf" class="slide" target="_blank" rel="noopener"><span class="slide-num">01</span><span class="slide-name" data-i18n="s_m_01">Catch-up mate+micro</span><span class="slide-pdf">PDF</span></a>
+            <a href="slides/micro2-GEPI.pdf" class="slide" target="_blank" rel="noopener"><span class="slide-num">02</span><span class="slide-name" data-i18n="s_m_02">GE: Equilibrio</span><span class="slide-pdf">PDF</span></a>
+            <a href="slides/micro2-GEPII.pdf" class="slide" target="_blank" rel="noopener"><span class="slide-num">03</span><span class="slide-name" data-i18n="s_m_03">GE: Eficiencia</span><span class="slide-pdf">PDF</span></a>
+            <a href="slides/micro2-GEPIII.pdf" class="slide" target="_blank" rel="noopener"><span class="slide-num">04</span><span class="slide-name" data-i18n="s_m_04">GE: Réplica</span><span class="slide-pdf">PDF</span></a>
+            <a href="slides/micro2-TPI.pdf" class="slide" target="_blank" rel="noopener"><span class="slide-num">05</span><span class="slide-name" data-i18n="s_m_05">Incertidumbre</span><span class="slide-pdf">PDF</span></a>
+            <a href="slides/micro2-TPII.pdf" class="slide" target="_blank" rel="noopener"><span class="slide-num">06</span><span class="slide-name" data-i18n="s_m_06">Selección Adversa</span><span class="slide-pdf">PDF</span></a>
+            <a href="slides/micro2-TPIII.pdf" class="slide" target="_blank" rel="noopener"><span class="slide-num">07</span><span class="slide-name" data-i18n="s_m_07">Señalización y screening</span><span class="slide-pdf">PDF</span></a>
+          </div></div>
+        </div>
+        <div class="course">
+          <button class="course-toggle" type="button" aria-expanded="false">
+            <span data-i18n="ct_devel">Desarrollo Económico (UBA)</span>
+            <svg class="course-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="course-panel"><div class="slides">
+            <a href="slides/de-redistribucion.pdf" class="slide" target="_blank" rel="noopener"><span class="slide-num">01</span><span class="slide-name" data-i18n="s_d_01">Preferencias por redistribución</span><span class="slide-pdf">PDF</span></a>
+            <a href="slides/de-desigualdad.pdf" class="slide" target="_blank" rel="noopener"><span class="slide-num">02</span><span class="slide-name" data-i18n="s_d_02">Crecimiento y desigualdad</span><span class="slide-pdf">PDF</span></a>
+          </div></div>
+        </div>
+        <div class="course">
+          <button class="course-toggle" type="button" aria-expanded="false">
+            <span data-i18n="ct_finecon">Economía Financiera (UBA)</span>
+            <svg class="course-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="course-panel"><div class="slides">
+            <a href="slides/ecofin-mrc_slides.pdf" class="slide" target="_blank" rel="noopener"><span class="slide-num">01</span><span class="slide-name" data-i18n="s_f_01">Modelos de riesgo de crédito</span><span class="slide-pdf">PDF</span></a>
+          </div></div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="section" id="contact">
+        <h2 class="section-head" data-i18n="h_cont">Contact</h2>
+        <p class="contact-line" data-i18n="cont_intro">Hit me up.</p>
+        <a href="mailto:santiago@rodriguez-vazquez.com.ar" class="contact-row">
+          <span class="contact-k">Email</span>
+          <span>santiago@rodriguez-vazquez.com.ar</span>
+        </a>
+      </section>
+    </main>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="side-block">
+        <div class="side-head" data-i18n="side_about">About Me</div>
+        <img src="resources/pic.jpeg" alt="Santiago Rodríguez Vázquez" class="side-photo"
+             onerror="this.outerHTML='&lt;div class=&quot;side-photo-fallback&quot;&gt;SRV&lt;/div&gt;'">
+        <div class="side-name">Santiago Rodríguez Vázquez</div>
+        <div class="side-role" data-i18n="side_role">Maestrando en Economía · UdeSA</div>
+      </div>
+
+      <div class="side-block">
+        <div class="side-head" data-i18n="side_links">Links</div>
+        <ul class="side-list">
+          <li><a href="https://scholar.google.com/citations?user=ycuWZk4AAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a></li>
+          <li><a href="https://www.linkedin.com/in/sanarovaz/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://x.com/sanarovaz" target="_blank" rel="noopener">Twitter</a></li>
+          <li class="side-cv">
+            <span class="cv-label" data-i18n="side_cv">Curriculum Vitae</span>
+            (<a href="https://drive.google.com/file/d/1IF_U6j5_YrvO0sUYaq0ErkJUro4AGVdN/view?usp=sharing" target="_blank" rel="noopener">es</a> · <a href="https://drive.google.com/file/d/1cyzeFYtTzjC9meIHeic92ko_LwRpbLkV/view?usp=sharing" target="_blank" rel="noopener">en</a>)
+          </li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <footer>
+    <span class="foot-name">Santiago Rodríguez Vázquez</span>
+    <span>© 2026</span>
+  </footer>
+
+  <script>
+    /* Tema Claro/Oscuro */
+    (function () {
+      const root = document.documentElement;
+      function gs(){ try{ return localStorage.getItem('theme'); } catch(e){ return null; } }
+      function ss(v){ try{ localStorage.setItem('theme', v); } catch(e){} }
+      const pd = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      root.setAttribute('data-theme', gs() || (pd ? 'dark' : 'light'));
+      
+      window.addEventListener('DOMContentLoaded', function(){
+        const t = document.getElementById('theme-toggle');
+        if(t){
+          t.addEventListener('click', function(){
+            const n = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            root.setAttribute('data-theme', n);
+            ss(n);
+          });
+        }
+      });
+    })();
+
+    /* Idioma Español / Inglés */
+    (function () {
+      const I = {
+        en: {
+          tagline: "Economics · industrial organization, trade, applied micro",
+          nav_about: "About", nav_edu: "Education", nav_act: "Activity", nav_teach: "Teaching", nav_cont: "Contact",
+          h_about: "About", h_edu: "Education", h_act: "Activity", h_teach: "Teaching", h_cont: "Contact",
+          about_lead: "BA in Economics (UBA), MA candidate in Economics (UdeSA).",
+          about_p2: "I am a teaching assistant at UBA for Financial Economics, Economic Development, and Microeconomics II. I have worked on several research projects, particularly related to the space sector and venture capital.",
+          about_p3: "My interests include Microeconomics (mainly General Equilibrium), Industrial Organization, Finance, and topics in Economic Development.",
+          edu_d1: "2026 – Present", edu_t1: "MA in Economics",
+          edu_s1: "Core completed. Currently in the second term: Dynamic Macroeconomics, Econometric Methods for Applied IO, and Topics in International Trade.",
+          edu_t2: "BA in Economics",
+          edu_s2: "Overall GPA: 8.1/10. Originally enrolled in the Actuarial Science program (completed Actuarial Statistics, Numerical Analysis, and Biometrics).",
+          act_tag_research: "Research", act_tag_teaching: "Teaching",
+          a1_t: "Determinants of space startup financing",
+          a1_s: "(With <a href=\"https://x.com/pascuinipaulo\" target=\"_blank\" rel=\"noopener\">Paulo Pascuini</a>). Spinoff of <a href=\"https://drive.google.com/file/d/1sHec82BlxsmS3DEngyAdGYnSz3JWn067/view?usp=sharing\" target=\"_blank\" rel=\"noopener\">my undergraduate thesis</a>, using data from over 400 funding rounds of space startups to identify the impact of certain firm and investor attributes on the amounts raised.",
+          a2_t: "TA — Economic Development (UBA)", a2_s: "Lectures on inequality and redistribution.",
+          a3_t: "TA — Financial Economics (UBA)", a3_s: "Tutorials on bond pricing and credit risk models.",
+          a4_t: "TA — Microeconomics II (UBA)", a4_s: "Tutorials on consumer theory, general equilibrium, uncertainty, and asymmetric information.",
+          a5_s: "Accounts Payable role. Managed the payments and vendor database. Supported the build-out of an internal purchase-order system.",
+          a6_t: "Other projects", a6_s: "Network analysis and calibration of ERGM models. Construction of multilatina databases from SEC data. Authoring of textbook chapters on Financial Economics and on the history of Argentina's space sector.",
+          y_2025_pres: "2025 – Present", y_2022_pres: "2022 – Present", y_varios: "Various",
+          ct_micro2: "Microeconomics II (UBA)", ct_devel: "Economic Development (UBA)", ct_finecon: "Financial Economics (UBA)",
+          s_m_01: "Math & micro catch-up", s_m_02: "GE: Equilibrium", s_m_03: "GE: Efficiency", s_m_04: "GE: Replica economy",
+          s_m_05: "Uncertainty", s_m_06: "Adverse selection", s_m_07: "Signaling and screening",
+          s_d_01: "Preferences for redistribution", s_d_02: "Growth and inequality", s_f_01: "Credit risk models",
+          cont_intro: "Hit me up.",
+          side_about: "About Me", side_links: "Links", side_role: "MA candidate in Economics · UdeSA", side_cv: "Curriculum Vitae"
+        },
+        es: {
+          tagline: "Economía · organización industrial, comercio, micro aplicada",
+          nav_about: "About", nav_edu: "Educación", nav_act: "Actividad", nav_teach: "Docencia", nav_cont: "Contacto",
+          h_about: "About", h_edu: "Educación", h_act: "Actividad", h_teach: "Docencia", h_cont: "Contacto",
+          about_lead: "Lic. en Economía (UBA), maestrando en Economía (UdeSA).",
+          about_p2: "Soy ayudante en UBA de cursos de Economía Financiera, Desarrollo Económico y Microeconomía II. Trabajé en varios proyectos de investigación, en particular relacionados al sector espacial y al venture capital.",
+          about_p3: "Mis intereses incluyen Microeconomía (particularmente Equilibrio General), Organización Industrial, Finanzas y tópicos de Desarrollo Económico.",
+          edu_d1: "2026 – Pres.", edu_t1: "Maestría en Economía",
+          edu_s1: "Core aprobado. Cursando el segundo trimestre: Macroeconomía Dinámica, Métodos Econométricos para IO Aplicada, y Tópicos de Comercio Internacional.",
+          edu_t2: "Lic. en Economía",
+          edu_s2: "Promedio global: 8.1. Originalmente inscripto en la carrera de Actuario (cursé Estadística Actuarial, Análisis Numérico y Biometría).",
+          act_tag_research: "Investigación", act_tag_teaching: "Docencia",
+          a1_t: "Determinantes del financiamiento de startups espaciales",
+          a1_s: "(Con <a href=\"https://x.com/pascuinipaulo\" target=\"_blank\" rel=\"noopener\">Paulo Pascuini</a>). Spinoff de <a href=\"https://drive.google.com/file/d/1sHec82BlxsmS3DEngyAdGYnSz3JWn067/view?usp=sharing\" target=\"_blank\" rel=\"noopener\">mi tesis de grado</a>, que utiliza datos de más de 400 rondas de financiamiento de startups espaciales para identificar el impacto de ciertos atributos de las empresas y de sus inversores sobre los montos levantados.",
+          a2_t: "TA — Desarrollo Económico (UBA)", a2_s: "Clases teóricas de desigualdad y redistribución.",
+          a3_t: "TA — Economía Financiera (UBA)", a3_s: "Clases prácticas sobre pricing de bonos y modelos de riesgo de crédito.",
+          a4_t: "TA — Microeconomía II (UBA)", a4_s: "Clases prácticas de teoría del consumidor, equilibrio general, incertidumbre e información asimétrica.",
+          a5_s: "Puesto en AP. Gestión de base de datos de pagos y proveedores. Soporte en el armado de un sistema interno de órdenes de compra.",
+          a6_t: "Otros proyectos", a6_s: "Análisis de redes y calibración de modelos ERGM. Elaboración de bases de datos de multilatinas a partir de datos de la SEC. Confección de capítulos de libro de texto de Economía Financiera, y sobre la historia del sector espacial en Argentina.",
+          y_2025_pres: "2025 – Pres.", y_2022_pres: "2022 – Pres.", y_varios: "Varios",
+          ct_micro2: "Microeconomía II (UBA)", ct_devel: "Desarrollo Económico (UBA)", ct_finecon: "Financial Economics (UBA)",
+          s_m_01: "Catch-up mate+micro", s_m_02: "GE: Equilibrio", s_m_03: "GE: Eficiencia", s_m_04: "GE: Réplica",
+          s_m_05: "Incertidumbre", s_m_06: "Selección Adversa", s_m_07: "Señalización y screening",
+          s_d_01: "Preferencias por redistribución", s_d_02: "Crecimiento y desigualdad", s_f_01: "Modelos de riesgo de crédito",
+          cont_intro: "Hit me up.",
+          side_about: "About Me", side_links: "Links", side_role: "Maestrando en Economía · UdeSA", side_cv: "Curriculum Vitae"
+        }
+      };
+      function gl(){ try{ return localStorage.getItem('lang'); } catch(e){ return null; } }
+      function sl(v){ try{ localStorage.setItem('lang', v); } catch(e){} }
+      function apply(l){
+        const d = I[l]; if(!d) return;
+        document.documentElement.lang = l;
+        document.querySelectorAll('[data-i18n]').forEach(function(el){
+          const k = el.getAttribute('data-i18n');
+          if(d[k] !== undefined) el.innerHTML = d[k];
+        });
+        const b = document.getElementById('lang-toggle');
+        if(b) b.textContent = (l === 'es') ? 'EN' : 'ES';
+        document.querySelectorAll('.course.open .course-panel').forEach(function(p){ p.style.maxHeight = p.scrollHeight + 'px'; });
+      }
+      const es = (navigator.language || '').toLowerCase().indexOf('es') === 0;
+      let lang = gl() || (es ? 'es' : 'en');
+      window.addEventListener('DOMContentLoaded', function(){
+        apply(lang);
+        const b = document.getElementById('lang-toggle');
+        if(b){
+          b.addEventListener('click', function(){
+            lang = (lang === 'es') ? 'en' : 'es';
+            apply(lang);
+            sl(lang);
+          });
+        }
+      });
+    })();
+
+    /* Acordeón de Teaching */
+    window.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.course').forEach(function(block){
+        const t = block.querySelector('.course-toggle');
+        const p = block.querySelector('.course-panel');
+        if(!t || !p) return;
+        t.addEventListener('click', function(){
+          if(block.classList.contains('open')){
+            p.style.maxHeight = p.scrollHeight + 'px';
+            requestAnimationFrame(function(){ p.style.maxHeight = '0px'; });
+            block.classList.remove('open');
+            t.setAttribute('aria-expanded', 'false');
+          } else {
+            block.classList.add('open');
+            t.setAttribute('aria-expanded', 'true');
+            p.style.maxHeight = p.scrollHeight + 'px';
+          }
+        });
+        p.addEventListener('transitionend', function(e){
+          if(e.propertyName === 'max-height' && block.classList.contains('open')) p.style.maxHeight = 'none';
+        });
+      });
+    });
+  </script>
+</body>
+</html>
