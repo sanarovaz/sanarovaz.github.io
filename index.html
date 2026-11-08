@@ -231,13 +231,6 @@
     .slide-name { font-family: var(--serif); font-size: 1rem; color: var(--ink); transition: color 0.15s; }
     .slide-pdf { font-family: var(--sans); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; color: var(--ink-light); text-transform: uppercase; }
 
-    /* ===== Contact ===== */
-    .contact-line { font-family: var(--serif); color: var(--ink-mid); margin-bottom: 14px; font-style: italic; font-size: 1.08rem; }
-    .contact-row { padding: 12px 0; border-bottom: 1px solid var(--rule); display: flex; gap: 16px; align-items: center; }
-    .contact-row:first-of-type { border-top: 1px solid var(--rule); }
-    .contact-k { font-family: var(--sans); width: 90px; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-light); flex-shrink: 0; }
-    .contact-row span:last-child { font-family: var(--sans); font-size: 0.95rem; }
-
     /* ===== Sidebar ===== */
     .sidebar { position: sticky; top: 74px; }
     .side-block { margin-bottom: 38px; }
@@ -249,7 +242,7 @@
     .side-photo {
       width: 140px; height: 140px; object-fit: cover;
       border-radius: 8px; border: 1px solid var(--rule);
-      background: var(--surface); margin-bottom: 16px;
+      background: var(--surface); margin-bottom: 12px;
       filter: grayscale(6%); display: block;
     }
     .side-photo-fallback {
@@ -257,10 +250,35 @@
       border: 1px solid var(--rule);
       background: linear-gradient(160deg, #cfd3ef, #e8c9d8);
       display: flex; align-items: center; justify-content: center;
-      font-size: 2rem; color: #fff; font-weight: 600; margin-bottom: 16px;
+      font-size: 2rem; color: #fff; font-weight: 600; margin-bottom: 12px;
     }
-    .side-name { font-family: var(--serif); font-size: 1.1rem; color: var(--accent); font-weight: 500; }
-    .side-role { font-family: var(--sans); color: var(--ink-mid); font-size: 0.85rem; margin-top: 4px; line-height: 1.45; }
+    .side-name {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--accent);
+      font-weight: 500;
+      opacity: 0;
+      visibility: hidden;
+      height: 0;
+      overflow: hidden;
+      margin-bottom: 0;
+      transition: opacity 0.3s ease, visibility 0.3s ease, height 0.3s ease, margin-bottom 0.3s ease;
+    }
+    .side-name.visible {
+      opacity: 1;
+      visibility: visible;
+      height: auto;
+      margin-bottom: 4px;
+    }
+    .side-email {
+      display: block;
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      color: var(--accent);
+      word-break: break-all;
+      margin-bottom: 4px;
+    }
+    .side-role { font-family: var(--sans); color: var(--ink-mid); font-size: 0.85rem; line-height: 1.45; }
     .side-list { list-style: none; }
     .side-list li { padding: 4px 0; }
     .side-list a { font-family: var(--sans); color: var(--accent); font-size: 0.9rem; }
@@ -290,8 +308,8 @@
 <body>
 
   <div class="masthead">
-    <h1>Santiago Rodríguez Vázquez</h1>
-    <div class="tagline" data-i18n="tagline">Economía · organización industrial, comercio, micro aplicada</div>
+    <h1 id="header-name">Santiago Rodríguez Vázquez</h1>
+    <div class="tagline" data-i18n="tagline">Economía · micro teórica, organización industrial, comercio</div>
   </div>
 
   <div class="topnav-container">
@@ -300,7 +318,6 @@
       <a href="#education" data-i18n="nav_edu">Education</a>
       <a href="#activity" data-i18n="nav_act">Activity</a>
       <a href="#teaching" data-i18n="nav_teach">Teaching</a>
-      <a href="#contact" data-i18n="nav_cont">Contact</a>
       <span class="nav-tools">
         <button id="theme-toggle" class="icon-btn" type="button" aria-label="Tema claro/oscuro">
           <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
@@ -435,16 +452,6 @@
           </div></div>
         </div>
       </section>
-
-      <!-- CONTACT -->
-      <section class="section" id="contact">
-        <h2 class="section-head" data-i18n="h_cont">Contact</h2>
-        <p class="contact-line" data-i18n="cont_intro">Hit me up.</p>
-        <a href="mailto:santiago@rodriguez-vazquez.com.ar" class="contact-row">
-          <span class="contact-k">Email</span>
-          <span>santiago@rodriguez-vazquez.com.ar</span>
-        </a>
-      </section>
     </main>
 
     <!-- SIDEBAR -->
@@ -453,7 +460,8 @@
         <div class="side-head" data-i18n="side_about">About Me</div>
         <img src="resources/pic.jpeg" alt="Santiago Rodríguez Vázquez" class="side-photo"
              onerror="this.outerHTML='&lt;div class=&quot;side-photo-fallback&quot;&gt;SRV&lt;/div&gt;'">
-        <div class="side-name">Santiago Rodríguez Vázquez</div>
+        <div class="side-name" id="sidebar-name">Santiago Rodríguez Vázquez</div>
+        <a href="mailto:srodriguezvazquez@udesa.edu.ar" class="side-email">srodriguezvazquez@udesa.edu.ar</a>
         <div class="side-role" data-i18n="side_role">Maestrando en Economía · UdeSA</div>
       </div>
 
@@ -478,7 +486,7 @@
   </footer>
 
   <script>
-    /* Tema Claro/Oscuro */
+    /* Theme Toggle */
     (function () {
       const root = document.documentElement;
       function gs(){ try{ return localStorage.getItem('theme'); } catch(e){ return null; } }
@@ -498,13 +506,32 @@
       });
     })();
 
-    /* Idioma Español / Inglés */
+    /* Dynamic Sidebar Name Visibility (IntersectionObserver) */
+    window.addEventListener('DOMContentLoaded', function () {
+      const headerName = document.getElementById('header-name');
+      const sidebarName = document.getElementById('sidebar-name');
+      if (!headerName || !sidebarName) return;
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (!entry.isIntersecting) {
+            sidebarName.classList.add('visible');
+          } else {
+            sidebarName.classList.remove('visible');
+          }
+        });
+      }, { threshold: 0 });
+
+      observer.observe(headerName);
+    });
+
+    /* i18n Dictionary */
     (function () {
       const I = {
         en: {
-          tagline: "Economics · industrial organization, trade, applied micro",
-          nav_about: "About", nav_edu: "Education", nav_act: "Activity", nav_teach: "Teaching", nav_cont: "Contact",
-          h_about: "About", h_edu: "Education", h_act: "Activity", h_teach: "Teaching", h_cont: "Contact",
+          tagline: "Economics · micro theory, industrial organization, trade",
+          nav_about: "About", nav_edu: "Education", nav_act: "Activity", nav_teach: "Teaching",
+          h_about: "About", h_edu: "Education", h_act: "Activity", h_teach: "Teaching",
           about_lead: "BA in Economics (UBA), MA candidate in Economics (UdeSA).",
           about_p2: "I am a teaching assistant at UBA for Financial Economics, Economic Development, and Microeconomics II. I have worked on several research projects, particularly related to the space sector and venture capital.",
           about_p3: "My interests include Microeconomics (mainly General Equilibrium), Industrial Organization, Finance, and topics in Economic Development.",
@@ -525,13 +552,12 @@
           s_m_01: "Math & micro catch-up", s_m_02: "GE: Equilibrium", s_m_03: "GE: Efficiency", s_m_04: "GE: Replica economy",
           s_m_05: "Uncertainty", s_m_06: "Adverse selection", s_m_07: "Signaling and screening",
           s_d_01: "Preferences for redistribution", s_d_02: "Growth and inequality", s_f_01: "Credit risk models",
-          cont_intro: "Hit me up.",
           side_about: "About Me", side_links: "Links", side_role: "MA candidate in Economics · UdeSA", side_cv: "Curriculum Vitae"
         },
         es: {
-          tagline: "Economía · organización industrial, comercio, micro aplicada",
-          nav_about: "About", nav_edu: "Educación", nav_act: "Actividad", nav_teach: "Docencia", nav_cont: "Contacto",
-          h_about: "About", h_edu: "Educación", h_act: "Actividad", h_teach: "Docencia", h_cont: "Contacto",
+          tagline: "Economía · micro teórica, organización industrial, comercio",
+          nav_about: "About", nav_edu: "Educación", nav_act: "Actividad", nav_teach: "Docencia",
+          h_about: "About", h_edu: "Educación", h_act: "Actividad", h_teach: "Docencia",
           about_lead: "Lic. en Economía (UBA), maestrando en Economía (UdeSA).",
           about_p2: "Soy ayudante en UBA de cursos de Economía Financiera, Desarrollo Económico y Microeconomía II. Trabajé en varios proyectos de investigación, en particular relacionados al sector espacial y al venture capital.",
           about_p3: "Mis intereses incluyen Microeconomía (particularmente Equilibrio General), Organización Industrial, Finanzas y tópicos de Desarrollo Económico.",
@@ -552,7 +578,6 @@
           s_m_01: "Catch-up mate+micro", s_m_02: "GE: Equilibrio", s_m_03: "GE: Eficiencia", s_m_04: "GE: Réplica",
           s_m_05: "Incertidumbre", s_m_06: "Selección Adversa", s_m_07: "Señalización y screening",
           s_d_01: "Preferencias por redistribución", s_d_02: "Crecimiento y desigualdad", s_f_01: "Modelos de riesgo de crédito",
-          cont_intro: "Hit me up.",
           side_about: "About Me", side_links: "Links", side_role: "Maestrando en Economía · UdeSA", side_cv: "Curriculum Vitae"
         }
       };
@@ -584,7 +609,7 @@
       });
     })();
 
-    /* Acordeón de Teaching */
+    /* Accordions */
     window.addEventListener('DOMContentLoaded', function () {
       document.querySelectorAll('.course').forEach(function(block){
         const t = block.querySelector('.course-toggle');
