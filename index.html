@@ -9,14 +9,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg:        #f8f9fa;
+      --bg:        #fbf9f5;
       --surface:   #ffffff;
-      --ink:       #1f2328;
-      --ink-mid:   #57606a;
-      --ink-light: #8c959f;
-      --rule:      #d0d7de;
-      --accent:    #2b4c7e;
-      --accent-dk: #1d3559;
+      --ink:       #1d1b19;
+      --ink-mid:   #4f4a45;
+      --ink-light: #8f8780;
+      --rule:      #e4ddd3;
+      --accent:    #9b2c2c;
+      --accent-dk: #741f1f;
       --serif:     'Newsreader', Garamond, Georgia, serif;
       --sans:      'Inter', system-ui, -apple-system, sans-serif;
     }
@@ -157,6 +157,14 @@
       margin-bottom: 22px;
       border-bottom: 1px solid var(--rule);
       letter-spacing: -0.01em;
+      position: relative;
+    }
+    .section-head::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: -1px;
+      width: 36px; height: 2px;
+      background: var(--accent);
     }
 
     .lead {
@@ -179,6 +187,7 @@
       align-items: baseline;
     }
     .entry:first-of-type { border-top: 1px solid var(--rule); }
+    .section-head + .entry, .section-head + .course { border-top: none; }
     .entry-date {
       font-family: var(--sans);
       font-size: 0.82rem;
@@ -233,7 +242,7 @@
 
     /* ===== Sidebar ===== */
     .sidebar { position: sticky; top: 74px; }
-    .side-block { margin-bottom: 38px; }
+    .side-block { margin-bottom: 24px; }
     .side-head {
       font-family: var(--serif);
       font-weight: 600; font-size: 1.2rem; color: var(--ink);
@@ -255,7 +264,7 @@
     .side-name {
       font-family: var(--serif);
       font-size: 1.1rem;
-      color: var(--accent);
+      color: var(--ink);
       font-weight: 500;
       opacity: 0;
       visibility: hidden;
@@ -283,7 +292,7 @@
     .side-list li { padding: 4px 0; }
     .side-list a { font-family: var(--sans); color: var(--accent); font-size: 0.9rem; }
     .side-meta { font-family: var(--sans); color: var(--ink-light); font-size: 0.85rem; }
-    .side-cv { margin-top: 4px; }
+    .side-cv { margin-bottom: 8px; }
     .side-cv .cv-label { font-family: var(--serif); font-style: italic; color: var(--ink-mid); font-size: 0.95rem; margin-right: 4px; }
 
     footer {
@@ -309,7 +318,7 @@
 
   <div class="masthead">
     <h1 id="header-name">Santiago Rodríguez Vázquez</h1>
-    <div class="tagline" data-i18n="tagline">Economía · micro teórica, organización industrial, comercio</div>
+    <div class="tagline" data-i18n="tagline">Economía · micro, OI, comercio</div>
   </div>
 
   <div class="topnav-container">
@@ -334,8 +343,8 @@
       <section class="section" id="about">
         <h2 class="section-head" data-i18n="h_about">About</h2>
         <p class="lead" data-i18n="about_lead">Lic. en Economía (UBA), maestrando en Economía (UdeSA).</p>
-        <p class="body-p" data-i18n="about_p2">Soy ayudante en UdeSA de Economía Internacional, y en UBA de cursos de Economía Financiera y Microeconomía II. Trabajé en varios proyectos de investigación, en particular relacionados al sector espacial y al venture capital.</p>
-        <p class="body-p" data-i18n="about_p3">Mis intereses incluyen Microeconomía (particularmente Equilibrio General), Organización Industrial, Finanzas y tópicos de Desarrollo Económico.</p>
+        <p class="body-p" data-i18n="about_p2">Soy ayudante en UdeSA de Economía Internacional, y en UBA de Economía Financiera, Microeconomía I y Microeconomía II. Fui asistente de investigación en el IIEP, y trabajo en un proyecto sobre el financiamiento de startups de nanosatélites.</p>
+        <p class="body-p" data-i18n="about_p3">Mis intereses de investigación son Microeconomía, Organización Industrial y Comercio Internacional.</p>
       </section>
 
       <!-- EDUCATION -->
@@ -346,7 +355,7 @@
           <div class="entry-main">
             <div class="entry-title plain" data-i18n="edu_t1">Maestría en Economía</div>
             <div class="entry-sub"><a href="https://www.udesa.edu.ar/" target="_blank" rel="noopener">Universidad de San Andrés</a> · Victoria, AR</div>
-            <div class="entry-sub" data-i18n="edu_s1">Core aprobado. Cursando el segundo trimestre: Macroeconomía Dinámica, Métodos Econométricos para IO Aplicada, y Tópicos de Comercio Internacional.</div>
+            <div class="entry-sub" data-i18n="edu_s1">Core aprobado. Optativas: Macroeconomía Dinámica, Macroeconomía Cuantitativa, Comercio Internacional, Economía Aplicada, Política de la Competencia, Métodos Econométricos para OI, y Economía de las Organizaciones. Cursada hasta diciembre de 2026.</div>
           </div>
           <div class="entry-tag"></div>
         </div>
@@ -355,7 +364,8 @@
           <div class="entry-main">
             <div class="entry-title plain" data-i18n="edu_t2">Lic. en Economía</div>
             <div class="entry-sub"><a href="https://economicas.uba.ar/" target="_blank" rel="noopener">Universidad de Buenos Aires</a> · Buenos Aires, AR</div>
-            <div class="entry-sub" data-i18n="edu_s2">Promedio global: 8.1. Originalmente inscripto en la carrera de Actuario (cursé Estadística Actuarial, Análisis Numérico y Biometría).</div>
+            <div class="entry-sub" data-i18n="edu_s2">Promedio global: 8.0/10. Cursé materias de la carrera de Actuario (Estadística Actuarial, Análisis Numérico).</div>
+            <div class="entry-sub" data-i18n="edu_s2b">Tesis de grado: <a href="https://drive.google.com/file/d/1sHec82BlxsmS3DEngyAdGYnSz3JWn067/view?usp=sharing" target="_blank" rel="noopener"><em>Determinantes del financiamiento de startups espaciales: proyectos de nanosatélites, 2014–2024</em></a> (calificación: 10/10). Director: Paulo Pascuini.</div>
           </div>
           <div class="entry-tag"></div>
         </div>
@@ -367,10 +377,18 @@
         <div class="entry">
           <div class="entry-date" data-i18n="act_tag_research">Investigación</div>
           <div class="entry-main">
-            <div class="entry-title plain" data-i18n="a1_t">Determinantes del financiamiento de startups espaciales</div>
-            <div class="entry-sub" data-i18n="a1_s">(Con <a href="https://x.com/pascuinipaulo" target="_blank" rel="noopener">Paulo Pascuini</a>). Spinoff de <a href="https://drive.google.com/file/d/1sHec82BlxsmS3DEngyAdGYnSz3JWn067/view?usp=sharing" target="_blank" rel="noopener">mi tesis de grado</a>, que utiliza datos de más de 400 rondas de financiamiento de startups espaciales para identificar el impacto de ciertos atributos de las empresas y de sus inversores sobre los montos levantados.</div>
+            <div class="entry-title plain" data-i18n="a1_t">Financiamiento de startups de nanosatélites</div>
+            <div class="entry-sub" data-i18n="a1_s">Con <a href="https://x.com/pascuinipaulo" target="_blank" rel="noopener">Paulo Pascuini</a>. Estudia el rol de la integración vertical y del perfil del inversor sobre el financiamiento recibido por 171 startups de nanosatélites en 413 rondas de inversión. A presentarse en la LX Reunión Anual de la <a href="https://aaep.org.ar/" target="_blank" rel="noopener">AAEP</a>.</div>
           </div>
-          <div class="entry-tag">WIP</div>
+          <div class="entry-tag" data-i18n="y_2025_pres">2025 – Pres.</div>
+        </div>
+        <div class="entry">
+          <div class="entry-date" data-i18n="act_tag_research">Investigación</div>
+          <div class="entry-main">
+            <div class="entry-title plain" data-i18n="iiep_t">Asistente de investigación — IIEP</div>
+            <div class="entry-sub" data-i18n="iiep_s">Colaboré en varios proyectos, incluyendo la construcción de una base de datos financiera a nivel firma de multinacionales latinoamericanas (<a href="https://publications.iadb.org/es/multilatinas-en-movimiento-caracteristicas-motivaciones-y-lineamientos-de-politica" target="_blank" rel="noopener">Blyde et al., 2025</a>), la estimación de modelos ERGM y QAP sobre transferencia de conocimiento en clusters tecnológicos, y la redacción de capítulos de libro sobre la historia del sector espacial argentino.</div>
+          </div>
+          <div class="entry-tag">2024 – 2026</div>
         </div>
         <div class="entry">
           <div class="entry-date" data-i18n="act_tag_teaching">Docencia</div>
@@ -391,6 +409,14 @@
         <div class="entry">
           <div class="entry-date" data-i18n="act_tag_teaching">Docencia</div>
           <div class="entry-main">
+            <div class="entry-title plain" data-i18n="am1_t">TA — Microeconomía I (UBA)</div>
+            <div class="entry-sub" data-i18n="am1_s">Clases prácticas.</div>
+          </div>
+          <div class="entry-tag" data-i18n="y_2026_pres">2026 – Pres.</div>
+        </div>
+        <div class="entry">
+          <div class="entry-date" data-i18n="act_tag_teaching">Docencia</div>
+          <div class="entry-main">
             <div class="entry-title"><a href="https://sites.google.com/view/micro-ii-pascuini-286/micro286pascuini?authuser=0" target="_blank" rel="noopener" data-i18n="a4_t">TA — Microeconomía II (UBA)</a></div>
             <div class="entry-sub" data-i18n="a4_s">Clases prácticas de teoría del consumidor, equilibrio general, incertidumbre e información asimétrica.</div>
           </div>
@@ -402,12 +428,12 @@
             <div class="entry-title plain" data-i18n="a2_t">TA — Desarrollo Económico (UBA)</div>
             <div class="entry-sub" data-i18n="a2_s">Clases teóricas de desigualdad y redistribución.</div>
           </div>
-          <div class="entry-tag" data-i18n="y_2025_pres">2025 – 2026</div>
+          <div class="entry-tag" data-i18n="y_2025_2026">2025 – 2026</div>
         </div>
         <div class="entry">
           <div class="entry-date">Corporate</div>
           <div class="entry-main">
-            <div class="entry-title plain">Financial Analyst (Veritran)</div>
+            <div class="entry-title plain">Jr. Financial Analyst (Veritran)</div>
             <div class="entry-sub" data-i18n="a5_s">Puesto en AP. Gestión de base de datos de pagos y proveedores. Soporte en el armado de un sistema interno de órdenes de compra.</div>
           </div>
           <div class="entry-tag">2022 – 2023</div>
@@ -416,7 +442,7 @@
           <div class="entry-date" data-i18n="act_tag_research">Investigación</div>
           <div class="entry-main">
             <div class="entry-title plain" data-i18n="a6_t">Otros proyectos</div>
-            <div class="entry-sub" data-i18n="a6_s">Análisis de redes y calibración de modelos ERGM. Elaboración de bases de datos de multilatinas a partir de datos de la SEC. Confección de capítulos de libro de texto de Economía Financiera, y sobre la historia del sector espacial en Argentina.</div>
+            <div class="entry-sub" data-i18n="a6_s">Confección de capítulos de libro de texto de Economía Financiera.</div>
           </div>
           <div class="entry-tag" data-i18n="y_varios">Varios</div>
         </div>
@@ -474,15 +500,14 @@
       </div>
 
       <div class="side-block">
-        <div class="side-head" data-i18n="side_links">Links</div>
         <ul class="side-list">
-          <li><a href="https://scholar.google.com/citations?user=ycuWZk4AAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a></li>
-          <li><a href="https://www.linkedin.com/in/sanarovaz/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="https://x.com/sanarovaz" target="_blank" rel="noopener">Twitter</a></li>
           <li class="side-cv">
             <span class="cv-label" data-i18n="side_cv">Curriculum Vitae</span>
             (<a href="/cv/Acad%C3%A9micos/CV_es_acad.pdf" target="_blank" rel="noopener">es</a> · <a href="/cv/Acad%C3%A9micos/CV_en_acad.pdf" target="_blank" rel="noopener">en</a>)
           </li>
+          <li><a href="https://github.com/sanarovaz" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/srodriguezvazquez/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://x.com/sanarovaz" target="_blank" rel="noopener">Twitter</a></li>
         </ul>
       </div>
     </aside>
@@ -537,26 +562,30 @@
     (function () {
       const I = {
         en: {
-          tagline: "Economics · micro theory, industrial organization, trade",
+          tagline: "Economics · micro, IO, trade",
           nav_about: "About", nav_edu: "Education", nav_act: "Activity", nav_teach: "Teaching",
           h_about: "About", h_edu: "Education", h_act: "Activity", h_teach: "Teaching",
           about_lead: "BA in Economics (UBA), MA candidate in Economics (UdeSA).",
-          about_p2: "I am a teaching assistant at UdeSA for International Economics, and at UBA for Financial Economics and Microeconomics II. I have worked on several research projects, particularly related to the space sector and venture capital.",
-          about_p3: "My interests include Microeconomics (mainly General Equilibrium), Industrial Organization and Trade.",
+          about_p2: "I am a teaching assistant at UdeSA for International Economics, and at UBA for Financial Economics, Microeconomics I, and Microeconomics II. I was a research assistant at IIEP, and I am working on a project on the financing of nanosatellite startups.",
+          about_p3: "My research interests are Microeconomics, Industrial Organization, and International Trade.",
           edu_d1: "2026 – Present", edu_t1: "MA in Economics",
-          edu_s1: "Core completed. Currently in the second term: Dynamic Macroeconomics, Econometric Methods for Applied IO, and Topics in International Trade.",
+          edu_s1: "Core coursework completed. Electives: Dynamic Macroeconomics, Quantitative Macroeconomics, International Trade, Applied Economics, Competition Policy, Econometric Methods for IO, and Organizational Economics. Coursework until December 2026.",
           edu_t2: "BA in Economics",
-          edu_s2: "Overall GPA: 8.1/10. Originally enrolled in the Actuarial Science program (completed Actuarial Statistics, Numerical Analysis, and Biometrics).",
+          edu_s2: "GPA: 8.0/10. Completed courses from the Actuarial program (Actuarial Statistics, Numerical Analysis).",
+          edu_s2b: "Undergraduate thesis: <a href=\"https://drive.google.com/file/d/1sHec82BlxsmS3DEngyAdGYnSz3JWn067/view?usp=sharing\" target=\"_blank\" rel=\"noopener\"><em>Determinants of space-startup financing: nanosatellite projects, 2014–2024</em></a> (grade: 10/10). Supervisor: Paulo Pascuini.",
           act_tag_research: "Research", act_tag_teaching: "Teaching",
-          a1_t: "Determinants of space startup financing",
-          a1_s: "(With <a href=\"https://x.com/pascuinipaulo\" target=\"_blank\" rel=\"noopener\">Paulo Pascuini</a>). Spinoff of <a href=\"https://drive.google.com/file/d/1sHec82BlxsmS3DEngyAdGYnSz3JWn067/view?usp=sharing\" target=\"_blank\" rel=\"noopener\">my undergraduate thesis</a>, using data from over 400 funding rounds of space startups to identify the impact of certain firm and investor attributes on the amounts raised.",
+          a1_t: "Financing of nanosatellite startups",
+          a1_s: "With <a href=\"https://x.com/pascuinipaulo\" target=\"_blank\" rel=\"noopener\">Paulo Pascuini</a>. Studies the role of vertical integration and investor profile on the financing received by 171 nanosatellite startups across 413 investment rounds. To be presented at the LX Annual Meeting of the <a href=\"https://aaep.org.ar/\" target=\"_blank\" rel=\"noopener\">AAEP</a>.",
+          iiep_t: "Research Assistant — IIEP",
+          iiep_s: "Collaborated on several projects, including building a firm-level financial database of Latin American multinationals (<a href=\"https://publications.iadb.org/es/multilatinas-en-movimiento-caracteristicas-motivaciones-y-lineamientos-de-politica\" target=\"_blank\" rel=\"noopener\">Blyde et al., 2025</a>), estimation of ERGM and QAP models for knowledge transfer in technology clusters, and drafting of book chapters on the history of the Argentine space sector.",
+          am1_t: "TA — Microeconomics I (UBA)", am1_s: "Tutorials.",
           aei_t: "TA — International Economics (UdeSA)", aei_s: "Tutorials and lectures.",
           a2_t: "TA — Economic Development (UBA)", a2_s: "Lectures on inequality and redistribution.",
           a3_t: "TA — Financial Economics (UBA)", a3_s: "Tutorials on bond pricing and credit risk models.",
           a4_t: "TA — Microeconomics II (UBA)", a4_s: "Tutorials on consumer theory, general equilibrium, uncertainty, and asymmetric information.",
           a5_s: "Accounts Payable role. Managed the payments and vendor database. Supported the build-out of an internal purchase-order system.",
-          a6_t: "Other projects", a6_s: "Network analysis and calibration of ERGM models. Construction of multilatina databases from SEC data. Authoring of textbook chapters on Financial Economics and on the history of Argentina's space sector.",
-          y_2025_pres: "2025 – Present", y_2022_pres: "2022 – Present", y_varios: "Various",
+          a6_t: "Other projects", a6_s: "Drafting of textbook chapters on Financial Economics.",
+          y_2026_pres: "2026 – Present", y_2025_pres: "2025 – Present", y_2025_2026: "2025 – 2026", y_2022_pres: "2022 – Present", y_varios: "Various",
           ct_micro2: "Microeconomics II (UBA)", ct_devel: "Economic Development (UBA)", ct_finecon: "Financial Economics (UBA)",
           s_m_01: "Math & micro catch-up", s_m_02: "GE: Equilibrium", s_m_03: "GE: Efficiency", s_m_04: "GE: Replica economy",
           s_m_05: "Uncertainty", s_m_06: "Adverse selection", s_m_07: "Signaling and screening",
@@ -564,26 +593,31 @@
           side_about: "About Me", side_links: "Links", side_role: "MA candidate in Economics · UdeSA", side_cv: "Curriculum Vitae"
         },
         es: {
-          tagline: "Economía · micro teórica, organización industrial, comercio",
+          tagline: "Economía · micro, OI, comercio",
           nav_about: "About", nav_edu: "Educación", nav_act: "Actividad", nav_teach: "Docencia",
           h_about: "About", h_edu: "Educación", h_act: "Actividad", h_teach: "Docencia",
           about_lead: "Lic. en Economía (UBA), maestrando en Economía (UdeSA).",
-          about_p2: "Soy ayudante en UdeSA de Economía Internacional, y en UBA de cursos de Economía Financiera y Microeconomía II. Trabajé en varios proyectos de investigación, en particular relacionados al sector espacial y al venture capital.",
-          about_p3: "Mis intereses incluyen Microeconomía (particularmente Equilibrio General), Organización Industrial, Finanzas y tópicos de Desarrollo Económico.",
+          about_p2: "Soy ayudante en UdeSA de Economía Internacional, y en UBA de Economía Financiera, Microeconomía I y Microeconomía II. Fui asistente de investigación en el IIEP, y trabajo en un proyecto sobre el financiamiento de startups de nanosatélites.",
+          about_p3: "Mis intereses de investigación son Microeconomía, Organización Industrial y Comercio Internacional.",
           edu_d1: "2026 – Pres.", edu_t1: "Maestría en Economía",
-          edu_s1: "Core aprobado. Cursando el segundo trimestre: Macroeconomía Dinámica, Métodos Econométricos para IO Aplicada, y Tópicos de Comercio Internacional.",
+          edu_s1: "Core aprobado. Optativas: Macroeconomía Dinámica, Macroeconomía Cuantitativa, Comercio Internacional, Economía Aplicada, Política de la Competencia, Métodos Econométricos para OI, y Economía de las Organizaciones. Cursada hasta diciembre de 2026.",
           edu_t2: "Lic. en Economía",
-          edu_s2: "Promedio global: 8.1. Originalmente inscripto en la carrera de Actuario (cursé Estadística Actuarial, Análisis Numérico y Biometría).",
+          edu_s2: "Promedio global: 8.0/10. Cursé materias de la carrera de Actuario (Estadística Actuarial, Análisis Numérico).",
+          edu_s2b: "Tesis de grado: <a href=\"https://drive.google.com/file/d/1sHec82BlxsmS3DEngyAdGYnSz3JWn067/view?usp=sharing\" target=\"_blank\" rel=\"noopener\"><em>Determinantes del financiamiento de startups espaciales: proyectos de nanosatélites, 2014–2024</em></a> (calificación: 10/10). Director: Paulo Pascuini.",
           act_tag_research: "Investigación", act_tag_teaching: "Docencia",
-          a1_t: "Determinantes del financiamiento de startups espaciales",
-          a1_s: "(Con <a href=\"https://x.com/pascuinipaulo\" target=\"_blank\" rel=\"noopener\">Paulo Pascuini</a>). Spinoff de <a href=\"https://drive.google.com/file/d/1sHec82BlxsmS3DEngyAdGYnSz3JWn067/view?usp=sharing\" target=\"_blank\" rel=\"noopener\">mi tesis de grado</a>, que utiliza datos de más de 400 rondas de financiamiento de startups espaciales para identificar el impacto de ciertos atributos de las empresas y de sus inversores sobre los montos levantados.",
+          a1_t: "Financiamiento de startups de nanosatélites",
+          a1_s: "Con <a href=\"https://x.com/pascuinipaulo\" target=\"_blank\" rel=\"noopener\">Paulo Pascuini</a>. Estudia el rol de la integración vertical y del perfil del inversor sobre el financiamiento recibido por 171 startups de nanosatélites en 413 rondas de inversión. A presentarse en la LX Reunión Anual de la <a href=\"https://aaep.org.ar/\" target=\"_blank\" rel=\"noopener\">AAEP</a>.",
+          iiep_t: "Asistente de investigación — IIEP",
+          iiep_s: "Colaboré en varios proyectos, incluyendo la construcción de una base de datos financiera a nivel firma de multinacionales latinoamericanas (<a href=\"https://publications.iadb.org/es/multilatinas-en-movimiento-caracteristicas-motivaciones-y-lineamientos-de-politica\" target=\"_blank\" rel=\"noopener\">Blyde et al., 2025</a>), la estimación de modelos ERGM y QAP sobre transferencia de conocimiento en clusters tecnológicos, y la redacción de capítulos de libro sobre la historia del sector espacial argentino.",
+          am1_t: "TA — Microeconomía I (UBA)", am1_s: "Clases prácticas.",
+          aei_t: "TA — Economía Internacional (UdeSA)", aei_s: "Clases tutoriales y teóricas.",
           a2_t: "TA — Desarrollo Económico (UBA)", a2_s: "Clases teóricas de desigualdad y redistribución.",
           a3_t: "TA — Economía Financiera (UBA)", a3_s: "Clases prácticas sobre pricing de bonos y modelos de riesgo de crédito.",
           a4_t: "TA — Microeconomía II (UBA)", a4_s: "Clases prácticas de teoría del consumidor, equilibrio general, incertidumbre e información asimétrica.",
           a5_s: "Puesto en AP. Gestión de base de datos de pagos y proveedores. Soporte en el armado de un sistema interno de órdenes de compra.",
-          a6_t: "Otros proyectos", a6_s: "Análisis de redes y calibración de modelos ERGM. Elaboración de bases de datos de multilatinas a partir de datos de la SEC. Confección de capítulos de libro de texto de Economía Financiera, y sobre la historia del sector espacial en Argentina.",
-          y_2025_pres: "2025 – Pres.", y_2022_pres: "2022 – Pres.", y_varios: "Varios",
-          ct_micro2: "Microeconomía II (UBA)", ct_devel: "Desarrollo Económico (UBA)", ct_finecon: "Financial Economics (UBA)",
+          a6_t: "Otros proyectos", a6_s: "Confección de capítulos de libro de texto de Economía Financiera.",
+          y_2026_pres: "2026 – Pres.", y_2025_pres: "2025 – Pres.", y_2025_2026: "2025 – 2026", y_2022_pres: "2022 – Pres.", y_varios: "Varios",
+          ct_micro2: "Microeconomía II (UBA)", ct_devel: "Desarrollo Económico (UBA)", ct_finecon: "Economía Financiera (UBA)",
           s_m_01: "Catch-up mate+micro", s_m_02: "GE: Equilibrio", s_m_03: "GE: Eficiencia", s_m_04: "GE: Réplica",
           s_m_05: "Incertidumbre", s_m_06: "Selección Adversa", s_m_07: "Señalización y screening",
           s_d_01: "Preferencias por redistribución", s_d_02: "Crecimiento y desigualdad", s_f_01: "Modelos de riesgo de crédito",
