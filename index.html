@@ -40,10 +40,22 @@
       font-size: 1.05rem;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
-      transition: background-color 0.3s ease, color 0.3s ease;
     }
     a { color: var(--accent); text-decoration: none; transition: color 0.15s; }
     a:hover { color: var(--accent-dk); text-decoration: underline; }
+
+    /* ===== Theme switch: circular reveal ===== */
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+      animation: none;
+      mix-blend-mode: normal;
+    }
+    ::view-transition-new(root) { z-index: 2; }
+    ::view-transition-old(root) { z-index: 1; }
+    /* Mientras cambia el tema, ningún elemento anima sus colores por su cuenta */
+    .theme-switching *,
+    .theme-switching *::before,
+    .theme-switching *::after { transition: none !important; }
 
     /* ===== Header & Title ===== */
     .masthead {
@@ -74,7 +86,6 @@
       background: var(--bg);
       border-top: 1px solid var(--rule);
       border-bottom: 1px solid var(--rule);
-      transition: background-color 0.3s ease, border-color 0.3s ease;
     }
     .topnav {
       max-width: 1180px;
@@ -532,8 +543,28 @@
         if(t){
           t.addEventListener('click', function(){
             const n = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-            root.setAttribute('data-theme', n);
-            ss(n);
+            const apply = function(){ root.setAttribute('data-theme', n); ss(n); };
+            const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            root.classList.add('theme-switching');
+            const done = function(){ requestAnimationFrame(function(){ root.classList.remove('theme-switching'); }); };
+
+            // Sin soporte o con "reducir movimiento": cambio instantáneo
+            if (!document.startViewTransition || reduce) { apply(); done(); return; }
+
+            // Círculo que nace en el centro del botón y cubre toda la ventana
+            const r = t.getBoundingClientRect();
+            const x = r.left + r.width / 2, y = r.top + r.height / 2;
+            const radius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+
+            const vt = document.startViewTransition(apply);
+            vt.ready.then(function(){
+              root.animate(
+                { clipPath: ['circle(0px at ' + x + 'px ' + y + 'px)', 'circle(' + radius + 'px at ' + x + 'px ' + y + 'px)'] },
+                { duration: 550, easing: 'cubic-bezier(0.4, 0, 0.2, 1)', pseudoElement: '::view-transition-new(root)' }
+              );
+            });
+            vt.finished.then(done, done);
           });
         }
       });
